@@ -1,0 +1,59 @@
+.container {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.wrapper {
+  top: 0;
+  position: sticky;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  height: 70px;
+  background: var(--main-dark);
+}
+
+.header_inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.finder {
+  display: flex;
+}
+
+.lang_switcher {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 20px;
+  padding: 7px 13px;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+.lang_text {
+  margin-left: 7px;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 37px;
+}
+
+.find_input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.find_input {
+  outline: none;
+  background-color: var(--main-dark);
+  border: 2px solid white;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 1);
+  padding: 12px 15px;
+}

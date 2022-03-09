@@ -1,0 +1,14 @@
+.admin_input {
+  color: white;
+  border-radius: 10px;
+  outline: none;
+  padding: 10px 15px;
+  width: 250px;
+  background-color: var(--sec-dark);
+  border: 1px solid var(--light-blue);
+  margin-top: 15px;
+}
+
+.long_input {
+  padding: 10px 15px 100px 15px;
+}

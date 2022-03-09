@@ -1,0 +1,25 @@
+.wrapper {
+  background-color: rgba(16, 122, 212, 0.3);
+}
+
+.container {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.inner {
+  display: flex;
+}
+
+.nav_item {
+  text-align: center;
+  width: 20%;
+  cursor: pointer;
+  padding: 15px;
+}
+
+.nav_item:hover {
+  background-color: rgb(29, 67, 100);
+}

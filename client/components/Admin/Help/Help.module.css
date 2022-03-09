@@ -1,0 +1,154 @@
+.container {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.columns_container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 35px;
+  margin-bottom: 40px;
+}
+
+.inner {
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid var(--light-blue);
+}
+
+.inner_title {
+  text-align: center;
+  padding: 7px;
+  background-color: var(--light-blue);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.column_title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  margin-top: 20px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* buttons -------------------- */
+
+.main_btn {
+  margin: 0 auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  width: 205px;
+  height: 40px;
+  transition: 0.2s;
+  background-color: var(--light-blue);
+}
+
+.main_btn:hover {
+  transition: 0.2s;
+  opacity: 0.8;
+}
+
+.remove_btn {
+  margin: 0 auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  width: 155px;
+  height: 40px;
+  transition: 0.2s;
+  background: #ed4b4bb2;
+  margin-left: 10px;
+}
+
+.remove_btn:hover {
+  transition: 0.2s;
+  opacity: 0.8;
+}
+
+/* /buttons -------------------- */
+
+.btn_wrapper {
+  margin-bottom: 20px;
+}
+
+.error_container {
+  text-align: center;
+  color: rgb(165, 33, 33);
+  margin-bottom: 30px;
+}
+
+.page_title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  margin-left: 15px;
+}
+
+.pages_container {
+  padding: 25px;
+}
+
+.page_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #107ad4;
+  border-radius: 7px;
+  padding: 15px;
+}
+
+.btns_container {
+  display: flex;
+}
+
+.item_content {
+  display: flex;
+  align-items: center;
+}
+
+.admin_panel_content {
+  padding: 30px;
+}
+
+.rules_text {
+  padding: 20px;
+  border: 1px solid var(--light-blue);
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+.btn_wrapper {
+  margin-top: 20px;
+  width: max-content;
+}
+
+.msg_container {
+  color: var(--light-blue);
+}
+
+.inputs_container {
+  display: flex;
+}
+
+.set_title {
+  margin-right: 15px;
+}

@@ -1,0 +1,23 @@
+.wrapper {
+  background: rgba(73, 75, 94, 0.4);
+  box-shadow: 0px 0px 30px rgba(37, 50, 69, 0.3);
+  border-radius: 7px;
+  width: max-content;
+  margin-bottom: 15px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+}
+
+.comment_item {
+  padding: 10px;
+}
+
+.author_name {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  margin-left: 10px;
+}

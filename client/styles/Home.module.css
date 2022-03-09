@@ -1,0 +1,22 @@
+.wrapper {
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.soft_cards {
+  margin-bottom: 70px;
+}
+
+.totop_btn {
+  cursor: pointer;
+  position: fixed;
+  bottom: 10%;
+  right: 3%;
+  z-index: 2;
+}
