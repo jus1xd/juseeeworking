@@ -1,10 +1,36 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import s from "./Software.module.css";
 
 import Image from "next/image";
 import Comment from "./Comment/Comment";
+import next from "next";
 
 const Software: React.FC = ({}): JSX.Element => {
+  const sliderContent = useRef(null);
+  // const sliderItemWidth = 0
+  let [curPosition, setCurPosition] = useState<number>(0);
+
+  
+
+  const nextHandler = () => {
+    setCurPosition((curPosition -= 412));
+    sliderContent.current.style.transform = `translateX(${curPosition}px)`;
+    console.log(curPosition);
+    if (Math.abs(curPosition) >= sliderContent.current.scrollWidth - 412) {
+      setCurPosition(412);
+    }
+  };
+
+  const prevHandler = () => {
+    if (curPosition <= -412) {
+      setCurPosition((curPosition += 412));
+      sliderContent.current.style.transform = `translateX(${curPosition}px)`;
+      console.log(curPosition);
+    } else {
+      setCurPosition(0);
+    }
+  };
+
   return (
     <>
       <div className={s.soft_info}>
@@ -44,14 +70,17 @@ const Software: React.FC = ({}): JSX.Element => {
       <div className={s.slider}>
         <div className={s.container}>
           <div className={s.slider_inner}>
-            <div className={s.slider_arrow}>
+            <div className={s.slider_arrow} onClick={prevHandler}>
               <Image
                 src="/img/icons/Software/arrow.svg"
                 width={50}
                 height={50}
               />
             </div>
-            <div className={`${s.slider_arrow} ${s.right_arrow}`}>
+            <div
+              className={`${s.slider_arrow} ${s.right_arrow}`}
+              onClick={nextHandler}
+            >
               <Image
                 src="/img/icons/Software/arrow.svg"
                 width={50}
@@ -59,7 +88,21 @@ const Software: React.FC = ({}): JSX.Element => {
               />
             </div>
             <div className={s.track}>
-              <div className={s.slider_content}>
+              <div className={s.slider_content} ref={sliderContent}>
+                <div className={s.image_container}>
+                  <Image
+                    src="/img/Software/sliderImg.png"
+                    width={412}
+                    height={265}
+                  />
+                </div>
+                <div className={s.image_container}>
+                  <Image
+                    src="/img/Software/sliderImg.png"
+                    width={412}
+                    height={265}
+                  />
+                </div>
                 <div className={s.image_container}>
                   <Image
                     src="/img/Software/sliderImg.png"

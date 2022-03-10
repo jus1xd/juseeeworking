@@ -161,6 +161,14 @@
   margin-right: 40px;
 }
 
+.detail_item {
+  margin-bottom: 5px;
+}
+
+.detail_item:last-child {
+  margin-bottom: 0px;
+}
+
 .btn_wrapper_c {
   width: max-content;
 }
@@ -209,6 +217,7 @@
 
 .slider_content {
   display: flex;
+  transition: 0.35s;
 }
 
 .image_container {
