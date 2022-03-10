@@ -13,7 +13,9 @@ const Nav: React.FC = ({}): JSX.Element => {
         <div className={s.container}>
           <div className={s.nav_inner}>
             <div className={s.main_nav_button}>Choose category</div>
-            <div className={s.nav_button}>Home Page</div>
+            <Link href="/">
+              <a className={s.nav_button}>Home Page</a>
+            </Link>
             <Link href="/help">
               <a className={s.nav_button}>Help</a>
             </Link>

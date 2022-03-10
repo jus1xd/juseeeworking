@@ -16,8 +16,8 @@ const SoftCard: React.FC = ({}): JSX.Element => {
               <a className={s.card_photo}>
                 <Image
                   src="/img/SoftCard/cardAvatar.png"
-                  width={153}
-                  height={153}
+                  width={163}
+                  height={163}
                 />
               </a>
             </Link>

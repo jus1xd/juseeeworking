@@ -50,7 +50,7 @@ const Help: React.FC = ({}): JSX.Element => {
               <div className={s.btn_wrapper}>
                 <div className={s.main_btn}>Добавить</div>
               </div>
-              <div className={s.msg_container}>"Помощь" успешно изменен</div>
+              <div className={s.msg_container}>Помощь успешно изменен</div>
             </div>
           </div>
         </div>

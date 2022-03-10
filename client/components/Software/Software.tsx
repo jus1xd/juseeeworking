@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { useRef, useState } from "react";
 import s from "./Software.module.css";
 
@@ -10,13 +11,12 @@ const Software: React.FC = ({}): JSX.Element => {
   // const sliderItemWidth = 0
   let [curPosition, setCurPosition] = useState<number>(0);
 
-  
-
   const nextHandler = () => {
     setCurPosition((curPosition -= 412));
+
     sliderContent.current.style.transform = `translateX(${curPosition}px)`;
     console.log(curPosition);
-    if (Math.abs(curPosition) >= sliderContent.current.scrollWidth - 412) {
+    if (Math.abs(curPosition) >= sliderContent.current!.scrollWidth - 412) {
       setCurPosition(412);
     }
   };
