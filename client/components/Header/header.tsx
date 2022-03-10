@@ -1,11 +1,9 @@
 import React from "react";
 import s from "./Header.module.css";
-
-// import enFlag from "../public/img/enFlag.svg";
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
-
+import enFlag from '../../public/img/Header/enFlag.svg'
 const Header: React.FC = ({}): JSX.Element => {
   return (
     <>
@@ -24,7 +22,7 @@ const Header: React.FC = ({}): JSX.Element => {
               <input className={s.find_input} placeholder="Search..." />
               <div className={s.lang_switcher}>
                 <Image
-                  src="/img/header/enFlag.svg"
+                  src={enFlag}
                   alt="EN"
                   width={24}
                   height={14}
