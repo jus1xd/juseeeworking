@@ -1,7 +1,5 @@
 import React from "react";
 import s from "./SoftCard.module.css";
-
-// import enFlag from "../public/img/enFlag.svg";
 import Image from "next/image";
 import Tag from "./Tag/Tag";
 import Link from "next/link";

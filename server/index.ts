@@ -12,6 +12,7 @@ app.use ( cors () );
 app.use ( '/', productRouter )
 app.use ( '/admin', adminRouter )
 app.use ( '/config', siteConfigRouter )
+
 const startApp = async () => {
     try {
         await mongoose.connect ( process.env.DB_URL );

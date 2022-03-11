@@ -78,7 +78,9 @@
 .mob_card_inner {
   display: none;
 }
-
+.mob_card_inner {
+  display: none;
+}
 @media screen and (max-width: 600px) {
   .card_inner {
     display: none;
@@ -100,8 +102,7 @@
   }
 
   .card_title {
-    margin: 0;
-    margin-left: 20px;
+    margin: 0 0 0 20px;
     font-size: 17px;
   }
 
