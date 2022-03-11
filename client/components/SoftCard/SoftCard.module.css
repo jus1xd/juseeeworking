@@ -41,8 +41,6 @@
 
 /* /buttons -------------------- */
 
-
-
 .card_title {
   font-weight: 600;
   font-size: 22px;
@@ -75,4 +73,40 @@
 .card_photo {
   min-width: 160px;
   height: 160px;
+}
+
+@media screen and (max-width: 600px) {
+  .card_inner {
+    display: none;
+  }
+
+  .card_photo {
+    min-width: 68px;
+    min-height: 68px;
+    height: 68px;
+  }
+
+  .mob_card_inner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 27px;
+    border-radius: 10px;
+    border: 1px solid white;
+  }
+
+  .card_title {
+    margin: 0;
+    margin-left: 20px;
+    font-size: 17px;
+  }
+
+  .card_description {
+    font-size: 15px;
+  }
+
+  .card_main_content {
+    display: flex;
+    align-items: center;
+  }
 }
