@@ -1,20 +1,23 @@
 // @ts-nocheck
-import React, {useRef, useState} from "react";
+import React, { useRef, useState } from "react";
 import s from "./Software.module.css";
 import Image from "next/image";
 import Comment from "./Comment/Comment";
 
-const Software: React.FC = ( {} ): JSX.Element => {
-    const sliderContent = useRef ( null );
-    let [curPosition, setCurPosition] = useState<number> ( 0 );
-    const nextHandler = () => {
-        setCurPosition ( ( curPosition -= 412 ) );
-        sliderContent.current.style.transform = `translateX(${curPosition}px)`;
-        if (Math.abs ( curPosition ) >= sliderContent.current.scrollWidth - 412) {
-            setCurPosition ( 412 );
-        }
-    };
+const Software: React.FC = ({}): JSX.Element => {
+  const sliderContent = useRef(null);
+  // const sliderItemWidth = 0
+  let [curPosition, setCurPosition] = useState<number>(0);
 
+  const nextHandler = () => {
+    setCurPosition((curPosition -= 412));
+
+    sliderContent.current.style.transform = `translateX(${curPosition}px)`;
+    console.log(curPosition);
+    if (Math.abs(curPosition) >= sliderContent.current!.scrollWidth - 412) {
+      setCurPosition(412);
+    }
+  };
     const prevHandler = () => {
         if (curPosition <= -412) {
             setCurPosition ( ( curPosition += 412 ) );

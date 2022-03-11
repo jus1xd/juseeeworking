@@ -45,7 +45,7 @@
 
 .card_title {
   font-weight: 600;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 24px;
   margin-bottom: 12px;
 }
@@ -70,4 +70,9 @@
   font-size: 17px;
   line-height: 21px;
   margin-top: 10px;
+}
+
+.card_photo {
+  min-width: 160px;
+  height: 160px;
 }

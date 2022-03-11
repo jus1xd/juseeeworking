@@ -2,3 +2,60 @@
   margin-bottom: 50px;
   min-height: calc(100vh - 291px);
 }
+
+.container {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.login_wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  min-height: calc(100vh - 190px);
+}
+
+.login_title {
+  text-align: center;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 40px;
+}
+
+.main_btn {
+  margin: 0 auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  width: 205px;
+  height: 40px;
+  transition: 0.2s;
+  background-color: var(--light-blue);
+  box-shadow: 0px 0px 30px rgba(16, 122, 212, 0.3);
+}
+
+.main_btn:hover {
+  transition: 0.2s;
+  opacity: 0.8;
+}
+
+.inputs_container {
+  width: 245px;
+  margin: 0 auto;
+  margin-bottom: 35px;
+  margin-top: 30px;
+}
+
+.error_message {
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 30px;
+
+  color: rgba(237, 75, 75, 0.7);
+}
