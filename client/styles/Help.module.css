@@ -1,0 +1,43 @@
+.container {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.wrapper {
+  /* display: flex;
+  align-items: center; */
+  margin-bottom: 20px;
+  min-height: calc(100vh - 280px);
+}
+
+.help_title {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 49px;
+  color: #ffffff;
+}
+
+.help_text {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 21px;
+
+  color: #ecf5fd;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    margin-top: 20px;
+  }
+
+  .help_title {
+    font-size: 28px;
+  }
+
+  .help_text {
+    font-size: 15px;
+  }
+}

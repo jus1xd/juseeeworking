@@ -7,7 +7,7 @@ class adminController {
             const userData = await adminService.registration ( username, password );
             res.status ( 200 ).json ({username, password: userData.password});
         } catch (e) {
-            res.status ( 500 ).json ( e );
+            res.status ( 500 ).json ( e.message );
         }
     }
 
@@ -17,7 +17,7 @@ class adminController {
             const userData = await adminService.login ( username, password);
             res.status ( 200 ).json ( {username, password: userData.password} );
         } catch (e) {
-            res.status ( 500 ).json ( e );
+            res.status ( 500 ).json (e.message);
         }
     }
 

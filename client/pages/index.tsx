@@ -1,14 +1,19 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import Image from "next/image";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/header";
 import Nav from "../components/Nav/nav";
 import SoftCard from "../components/SoftCard/SoftCard";
-
 import s from "../styles/Home.module.css";
+import {useEffect} from "react";
+import {useAppDispatch} from "../hooks/useTypedSelector";
+import {getSiteConfig} from "../store/thunks/condifigThunk";
 
 const Home: NextPage = () => {
+    const dispatch = useAppDispatch()
+    useEffect(()=> {
+        dispatch(getSiteConfig())
+    } , [])
   return (
     <div className={s.wrapper}>
       <Header />

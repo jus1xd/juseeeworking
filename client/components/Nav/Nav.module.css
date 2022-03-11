@@ -29,8 +29,7 @@
   font-size: 18px;
   line-height: 20px;
   width: 17%;
-  transition: .2s;
-  
+  transition: 0.2s;
 }
 
 .main_nav_button:hover {
@@ -51,10 +50,16 @@
   font-weight: 500;
   padding: 8px 15px;
   /* height: 35px; */
-  transition: .2s;
+  transition: 0.2s;
   background-color: var(--light-blue);
 }
 
 .nav_button:hover {
-  opacity: .8;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    display: none;
+  }
 }
