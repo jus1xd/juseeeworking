@@ -22,7 +22,7 @@ const Admin: React.FC = ( {} ): JSX.Element => {
     const onAdminSubmit = () => {
         if (username != '' && password != '') {
             dispatch ( adminLogin ( adminData ) )
-            if(adminUsername){
+            if(adminUsername !== undefined){
                 router.push('/admin/create')
             }
         }

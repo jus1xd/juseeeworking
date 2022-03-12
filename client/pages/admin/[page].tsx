@@ -9,6 +9,8 @@ import Help from "../../components/Admin/Help/Help";
 import Rules from "../../components/Admin/Rules/Rules";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/header";
+import { requireAuth } from "../../HOC/requiredAuth";
+import { useAppSelector } from "../../hooks/useTypedSelector";
 import s from "../../styles/Admin.module.css";
 
 const Page: React.FC = ({}): JSX.Element => {
@@ -32,7 +34,9 @@ const Page: React.FC = ({}): JSX.Element => {
           <Help />
         ) : page === "appearance" ? (
           <Appearance />
-        ) : ""}
+        ) : (
+          ""
+        )}
       </div>
       <Footer />
     </div>
@@ -40,3 +44,11 @@ const Page: React.FC = ({}): JSX.Element => {
 };
 
 export default Page;
+
+export const getServerSideProps = requireAuth(async (ctx) => {
+  const username = useAppSelector((state) => state.adminSlice.username);
+
+  return {
+    props: { username },
+  };
+});
