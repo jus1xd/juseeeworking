@@ -13,12 +13,13 @@ export const adminSlice = createSlice ( {
     initialState,
     reducers: {},
     extraReducers: {
-        [adminLogin.fulfilled.type]: ( state, action: PayloadAction<IAdminData> ) => {
-            state.username = action.payload.username
+        [adminLogin.fulfilled.type]: ( state, action) => {
+            console.log (action.payload)
+            state.username = action.payload.data.username
             state.isAuth = true
             state.error = ''
         },
-        [adminLogin.rejected.type]: ( state, action: PayloadAction<string> ) => {
+        [adminLogin.rejected.type]: ( state, action) => {
             state.error = action.error.message;
             state.isAuth = false
         }

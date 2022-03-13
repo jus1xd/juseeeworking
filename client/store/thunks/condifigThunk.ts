@@ -13,10 +13,14 @@ export const getSiteConfig = createAsyncThunk (
 );
 export const changeSiteConfig = createAsyncThunk (
     "changeSiteConfig",
-    async ( config: ISiteConfig, thunkAPI ) => {
+    async ( data: any, thunkAPI ) => {
+        const config = data.config
         const res = await axios.put<Promise<ISiteConfig>> (
-            "http://localhost:5000/config/", {config}
-        );
+            "http://localhost:5000/config/updateConfig", {config}, {
+                headers: {
+                    "adminUsername": data.username
+                }
+            } );
         return res.data;
     }
 );

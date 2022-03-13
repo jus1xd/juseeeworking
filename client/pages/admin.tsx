@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import AdminInput from "../components/Admin/Input/Input";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/header";
@@ -19,12 +19,15 @@ const Admin: React.FC = ( {} ): JSX.Element => {
     const router = useRouter ()
     const errors = useAppSelector ( state => state.adminSlice.error )
     const adminUsername = useAppSelector ( state => state.adminSlice.username )
+    useEffect ( () => {
+        if (adminUsername !== '') {
+            router.push ( '/admin/create' )
+        }
+    }, [adminUsername] );
+
     const onAdminSubmit = () => {
         if (username != '' && password != '') {
             dispatch ( adminLogin ( adminData ) )
-            if(adminUsername){
-                router.push('/admin/create')
-            }
         }
     }
     return (

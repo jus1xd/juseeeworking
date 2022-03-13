@@ -10,7 +10,7 @@ type TProps = {
 };
 
 const AdminInput: React.FC<TProps> = ( {placeholder, type, size, value, setInputValue} ): JSX.Element => {
-    const onInputChangeHandler = ( e ) => {
+    const onInputChangeHandler = (e:any) => {
         if (setInputValue !== undefined) {
             setInputValue ( e.target.value )
         }
