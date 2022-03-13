@@ -73,6 +73,10 @@
 .card_photo {
   min-width: 160px;
   height: 160px;
+} 
+
+.mob_card_inner {
+  display: none;
 }
 .mob_card_inner {
   display: none;

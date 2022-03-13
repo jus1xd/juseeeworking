@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import s from "./Create.module.css";
 import AdminInput from "../Input/Input";
 import PageItem from "./PageItem/PageItem";
-import {IComment} from "../../../types/products";
 
 const Create: React.FC = ({}): JSX.Element => {
   const [title, setTitle] = useState<string> ('');
@@ -20,7 +19,7 @@ const Create: React.FC = ({}): JSX.Element => {
   const [howToInstallFirst, setHowToInstallFirst] = useState<string> ('');
   const [howToInstallSecond, setHowToInstallSecond] = useState<string> ('');
   const [howToInstallThird, setHowToInstallThird] = useState<string> ('');
-  const [categories, setCategories] = useState<string[]> ();
+  const [categories, setCategories] = useState<string> ();
 
   return (
     <>
@@ -83,9 +82,7 @@ const Create: React.FC = ({}): JSX.Element => {
                 <AdminInput placeholder={"3 point"} type={"text"} value={howToInstallThird} setInputValue={setHowToInstallThird} />
                 <div className={s.column}>
                   <div className={s.column_title}>Category</div>
-                  <AdminInput placeholder={"Категория 1"} type={"text"} />
-                  <AdminInput placeholder={"Категория 2"} type={"text"} />
-                  <AdminInput placeholder={"Категория 3"} type={"text"} />
+                  <AdminInput placeholder={"Категория 1"} type={"text"} value={categories} setInputValue={setCategories} />
                 </div>
               </div>
             </div>
