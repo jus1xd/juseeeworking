@@ -1,18 +1,20 @@
 import "../styles/globals.css";
-import type { AppProps } from "next/app";
 import { store } from "../store/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
+
+import { useAppSelector } from "../hooks/useTypedSelector";
+import RootWrapper from "../components/RootWrapper/RootWrapper";
+import { AppProps } from "next/app";
 const persistor = persistStore(store);
 
-function MyApp({ Component, pageProps }: AppProps) {
+
+function MyApp({Component, pageProps}: AppProps, props: any) {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <AppWrapper>
           <Component {...pageProps} />
-        </AppWrapper>
       </PersistGate>
     </Provider>
   );

@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
+    "@types/styled-components": "^5.1.24",
     "axios": "^0.26.0",
     "cookie-parser": "^1.4.6",
     "next": "12.1.0",

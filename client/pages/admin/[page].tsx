@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-import { GetServerSidePropsContext } from "next";
-import { useRouter } from "next/router";
-=======
 import {useRouter} from "next/router";
->>>>>>> 53374eed0051598e6fbfba40828979234a3512ca
 import React from "react";
 import AdminNav from "../../components/Admin/AdminNav/AdminNav";
 import Appearance from "../../components/Admin/Appearance/Appearance";
@@ -51,14 +46,3 @@ const Page: React.FC = ( {} ): JSX.Element => {
 };
 
 export default Page;
-<<<<<<< HEAD
-
-export const getServerSideProps = requireAuth(
-  async (ctx: GetServerSidePropsContext) => {
-    return {
-      props: {},
-    };
-  }
-);
-=======
->>>>>>> 53374eed0051598e6fbfba40828979234a3512ca
