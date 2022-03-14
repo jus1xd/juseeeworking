@@ -7,7 +7,7 @@ import SoftCard from "../components/SoftCard/SoftCard";
 import s from "../styles/Home.module.css";
 import {useEffect} from "react";
 import {useAppDispatch} from "../hooks/useTypedSelector";
-import {getSiteConfig} from "../store/thunks/condifigThunk";
+import {getSiteConfig} from "../store/thunks/configThunk";
 
 const Home: NextPage = () => {
     const dispatch = useAppDispatch()
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
       <Nav />
       <div className={s.soft_cards}>
         <SoftCard />
-        <SoftCard />
+        <SoftCard /> 
         <SoftCard />
         <SoftCard />
         <div className={s.totop_btn}>

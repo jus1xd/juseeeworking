@@ -222,6 +222,7 @@
 
 .image_container {
   min-width: 412px;
+  min-height: 265px;
 }
 
 .slider_arrow {
@@ -236,4 +237,100 @@
   transform: rotate(180deg);
   left: auto;
   right: 255px;
+}
+
+.mob_soft_info {
+  display: none;
+}
+
+.image_container img {
+  width: 412px;
+  height: 265px;
+}
+
+@media screen and (max-width: 600px) {
+  .soft_info {
+    display: none;
+  }
+
+  .mob_soft_info {
+    display: block;
+    margin-top: 30px;
+  }
+
+  .mob_soft_photo {
+    min-height: 95px;
+    min-width: 95px;
+  }
+
+  .softcard_content {
+    display: flex;
+    margin-bottom: 25px;
+  }
+
+  .mob_soft_title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .mob_soft_content {
+    margin-left: 20px;
+  }
+
+  .image_container {
+    min-width: 219px;
+    min-height: 141px;
+  }
+
+  .track {
+    width: 219px;
+  }
+
+  .slider_arrow {
+    top: calc(50% - 30px);
+    left: 5%;
+  }
+  
+  .right_arrow {
+    transform: rotate(180deg);
+    left: auto;
+    right: 5%;
+  }
+
+  .image_container img {
+    width: 219px;
+    height: 141px;
+  }
+
+  .download_section {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .btn_wrapper_b {
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  .details_container {
+    padding: 0;
+  }
+
+  .btn_wrapper_c {
+    margin-top: 10px;
+  }
+
+  .comment_input {
+    width: 100%;
+  }
+
+  .detail_item {
+    padding: 0 20px;
+  }
+
+  .submit_area {
+    flex-direction: column;
+  }
+  
 }

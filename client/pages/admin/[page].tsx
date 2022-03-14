@@ -1,3 +1,4 @@
+import { GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
 import React from "react";
 import AdminNav from "../../components/Admin/AdminNav/AdminNav";
@@ -45,10 +46,10 @@ const Page: React.FC = ({}): JSX.Element => {
 
 export default Page;
 
-export const getServerSideProps = requireAuth(async (ctx) => {
-  const username = useAppSelector((state) => state.adminSlice.username);
-
-  return {
-    props: { username },
-  };
-});
+export const getServerSideProps = requireAuth(
+  async (ctx: GetServerSidePropsContext) => {
+    return {
+      props: {},
+    };
+  }
+);
