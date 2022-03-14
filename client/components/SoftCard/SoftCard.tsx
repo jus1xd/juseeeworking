@@ -5,7 +5,7 @@ import Tag from "./Tag/Tag";
 import Link from "next/link";
 import {IProductProps} from "../../types/products";
 
-const SoftCard= ( {id, title, categories, description, productPhoto,}: IProductProps ) => {
+const SoftCard = ( {id, title, categories, description, productPhoto,}: IProductProps ) => {
     return (
         <>
             <div className={s.wrapper}>
@@ -29,7 +29,7 @@ const SoftCard= ( {id, title, categories, description, productPhoto,}: IProductP
                                         </a>
                                     </Link>
                                     <div className={s.card_tags}>
-                                        {categories.map ( item => <Tag tagText={item}/> )}
+                                        {categories && categories.map ( item => <Tag tagText={item}/> )}
                                     </div>
                                 </div>
                                 <Link href={`/software/${id}`}>

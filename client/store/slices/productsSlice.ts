@@ -13,8 +13,11 @@ const productSlice = createSlice ( {
     initialState,
     reducers: {
         deleteProductLocal: ( state, action ) => {
-            state.products = state.products.filter (product => product._id !== action.payload)
-        }
+            state.products = state.products.filter ( product => product._id !== action.payload )
+        },
+        addProductLocal: ( state, action ) => {
+            state.products.push ( action.payload )
+        },
     },
     extraReducers: {
         [getAllProducts.fulfilled.type]: ( state, action ) => {
@@ -31,5 +34,5 @@ const productSlice = createSlice ( {
         },
     }
 } )
-export const {deleteProductLocal} = productSlice.actions
+export const {deleteProductLocal, addProductLocal} = productSlice.actions
 export default productSlice.reducer

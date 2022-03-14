@@ -162,7 +162,6 @@ const Software = ( {product}: IProduct )=> {
                     </div>
                 </div>
             </div>
-            {/* gf   */}
             <div className={s.wrapper}>
                 <div className={s.container}>
                     <div className={`${s.inner} ${s.comments}`}>

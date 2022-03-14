@@ -5,6 +5,7 @@ import PageItem from "./PageItem/PageItem";
 import {IProduct} from "../../../types/products";
 import {useAppDispatch, useAppSelector} from "../../../hooks/useTypedSelector";
 import {addProduct} from "../../../store/thunks/productThunk";
+import {addProductLocal} from "../../../store/slices/productsSlice";
 
 const Create: React.FC = ( {} ): JSX.Element => {
     const [title, setTitle] = useState<string> ( '' );
@@ -50,9 +51,10 @@ const Create: React.FC = ( {} ): JSX.Element => {
     const onSubmitHandler = () => {
         if (Object.values ( productToCreate ).every ( item => item.length != 0 )) {
             dispatch ( addProduct ( {productToCreate, username} ) )
+            dispatch ( addProductLocal ( productToCreate ) )
         }
     }
-    const products = useAppSelector(state => state.productsSlice.products)
+    const products = useAppSelector ( state => state.productsSlice.products )
     return (
         <>
             <div className={s.wrapper}>
@@ -140,9 +142,9 @@ const Create: React.FC = ( {} ): JSX.Element => {
                             Admin Panel - Редактирование и удаление страницы
                         </div>
                         <div className={s.pages_container}>
-                            {products.map(product => (
-                                <PageItem title = {product.title} key = {product._id} id = {product._id}/>
-                                ))}
+                            {products.map ( product => (
+                                <div key={product._id}><PageItem title={product.title} id={product._id}/></div>
+                            ) )}
                         </div>
                     </div>
                 </div>

@@ -7,7 +7,6 @@ import {deleteProductLocal} from "../../../../store/slices/productsSlice";
 
 interface IPageProps {
     title: string,
-    key: string
     id: string
 }
 

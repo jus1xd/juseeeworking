@@ -1,5 +1,6 @@
 .wrapper {
   position: relative;
+  min-height: calc(100vh - 200px);
 }
 
 .container {
@@ -19,4 +20,10 @@
   bottom: 10%;
   right: 3%;
   z-index: 2;
+}
+
+@media screen and (max-width: 600px) {
+  .soft_cards {
+    margin-top: 30px;
+  }
 }

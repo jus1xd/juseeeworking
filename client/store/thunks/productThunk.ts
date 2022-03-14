@@ -5,7 +5,7 @@ import {IProduct} from "../../types/products";
 export const addProduct = createAsyncThunk (
     "addProduct",
     async ( data: any, thunkAPI ) => {
-        const product = data.product
+        const product = data.productToCreate
         const res = await axios.post<Promise<IProduct>> (
             "http://localhost:5000/products", {product}, {
                 headers: {
