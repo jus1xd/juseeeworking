@@ -11,7 +11,7 @@ const SoftCard = ( {id, title, categories, description, productPhoto,}: IProduct
             <div className={s.wrapper}>
                 <div className={s.container}>
                     <div className={s.card_inner}>
-                        <Link href={`/software/${id}`}>
+                        <Link href={`./software/${id}`}>
                             <a className={s.card_photo}>
                                 <Image
                                     src="/img/SoftCard/cardAvatar.png"
@@ -23,7 +23,7 @@ const SoftCard = ( {id, title, categories, description, productPhoto,}: IProduct
                         <div className={s.card_content}>
                             <div className={s.main_content}>
                                 <div className={s.sub_content}>
-                                    <Link href={`/software/${id}`}>
+                                    <Link href={`./software/${id}`}>
                                         <a className={s.card_title}>
                                             {title}
                                         </a>
@@ -32,7 +32,7 @@ const SoftCard = ( {id, title, categories, description, productPhoto,}: IProduct
                                         {categories && categories.map ( item => <Tag tagText={item}/> )}
                                     </div>
                                 </div>
-                                <Link href={`/software/${id}`}>
+                                <Link href={`./software/${id}`}>
                                     <a className={s.main_btn}>Details</a>
                                 </Link>
                             </div>

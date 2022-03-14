@@ -51,7 +51,6 @@ const Create: React.FC = ( {} ): JSX.Element => {
     const onSubmitHandler = () => {
         if (Object.values ( productToCreate ).every ( item => item.length != 0 )) {
             dispatch ( addProduct ( {productToCreate, username} ) )
-            dispatch ( addProductLocal ( productToCreate ) )
         }
     }
     const products = useAppSelector ( state => state.productsSlice.products )
@@ -143,7 +142,7 @@ const Create: React.FC = ( {} ): JSX.Element => {
                         </div>
                         <div className={s.pages_container}>
                             {products.map ( product => (
-                                <div key={product._id}><PageItem title={product.title} id={product._id}/></div>
+                                <PageItem title={product.title} key={product._id} id={product._id}/>
                             ) )}
                         </div>
                     </div>

@@ -3,19 +3,16 @@ import React from "react";
 import s from "./PageItem.module.css";
 import {useAppDispatch, useAppSelector} from "../../../../hooks/useTypedSelector";
 import {deleteProduct} from "../../../../store/thunks/productThunk";
-import {deleteProductLocal} from "../../../../store/slices/productsSlice";
-
 interface IPageProps {
     title: string,
     id: string
 }
 
-const PageItem: React.FC<IPageProps> = ( {title, id}: IPageProps ): JSX.Element => {
+const PageItem: React.FC<IPageProps> = ( {title,id}: IPageProps ): JSX.Element => {
     const username = useAppSelector ( state => state.adminSlice.username )
     const dispatch = useAppDispatch ()
     const onDeleteHandler = () => {
         dispatch ( deleteProduct ( {id, username} ) )
-        dispatch(deleteProductLocal(id))
     }
     return (
         <div className={s.wrapper}>
