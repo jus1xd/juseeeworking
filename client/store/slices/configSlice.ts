@@ -4,7 +4,7 @@ import {ISiteConfig} from "../../types/config";
 
 const initialState = {
     config: {} as ISiteConfig,
-    error: "",
+    errors: "",
 }
 export const configSlice = createSlice ( {
     name: 'configSlice',
@@ -39,14 +39,14 @@ export const configSlice = createSlice ( {
     },
     extraReducers: {
         [getSiteConfig.fulfilled.type]: ( state, action: PayloadAction<ISiteConfig> ) => {
-            state.error = "";
+            state.errors = "";
             state.config = action.payload;
         },
         [getSiteConfig.rejected.type]: ( state, action) => {
-            state.error = action.error.message
+            state.errors = action.error.message
         },
         [changeSiteConfig.rejected.type]: ( state, action ) => {
-            state.error = action.error.message
+            state.errors = action.error.message
         }
     }
 } )

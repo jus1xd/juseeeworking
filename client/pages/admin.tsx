@@ -7,9 +7,13 @@ import {IAdminData} from "../types/admin";
 import {useAppDispatch, useAppSelector} from "../hooks/useTypedSelector";
 import {adminLogin} from "../store/thunks/adminThunk";
 import {useRouter} from "next/router";
+import {getSiteConfig} from "../store/thunks/condifigThunk";
 
 const Admin: React.FC = ( {} ): JSX.Element => {
     const dispatch = useAppDispatch ()
+    useEffect(()=> {
+        dispatch(getSiteConfig())
+    } , [])
     const [username, setUsername] = useState<string> ( '' )
     const [password, setPassword] = useState<string> ( '' )
     const adminData: IAdminData = {

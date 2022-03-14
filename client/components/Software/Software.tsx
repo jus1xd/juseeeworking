@@ -1,23 +1,20 @@
 // @ts-nocheck
-import React, { useRef, useState } from "react";
+import React, {useRef, useState} from "react";
 import s from "./Software.module.css";
 import Image from "next/image";
 import Comment from "./Comment/Comment";
+import {IProduct} from "../../types/products";
 
-const Software: React.FC = ({}): JSX.Element => {
-  const sliderContent = useRef(null);
-  // const sliderItemWidth = 0
-  let [curPosition, setCurPosition] = useState<number>(0);
-
-  const nextHandler = () => {
-    setCurPosition((curPosition -= 412));
-
-    sliderContent.current.style.transform = `translateX(${curPosition}px)`;
-    console.log(curPosition);
-    if (Math.abs(curPosition) >= sliderContent.current!.scrollWidth - 412) {
-      setCurPosition(412);
-    }
-  };
+const Software = ( {product}: IProduct )=> {
+    const sliderContent = useRef ( null );
+    let [curPosition, setCurPosition] = useState<number> ( 0 );
+    const nextHandler = () => {
+        setCurPosition ( ( curPosition -= 412 ) );
+        sliderContent.current.style.transform = `translateX(${curPosition}px)`;
+        if (Math.abs ( curPosition ) >= sliderContent.current!.scrollWidth - 412) {
+            setCurPosition ( 412 );
+        }
+    };
     const prevHandler = () => {
         if (curPosition <= -412) {
             setCurPosition ( ( curPosition += 412 ) );
@@ -45,19 +42,10 @@ const Software: React.FC = ({}): JSX.Element => {
                         </div>
                         <div className={s.soft_content}>
                             <div className={s.soft_title}>
-                                Adobe Photoshop (The last Version)
+                                {product.title}
                             </div>
                             <div className={s.soft_text}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id
-                                venenatis amet eu et ipsum. Ac, donec viverra tristique elit
-                                euismod molestie uismod egestas egestas. Sollicitudin sed
-                                adipiscing eu, ipsum purus et etiam mauris tristique.
-                                Consectetur id pretium semper Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Id venenatis amet eu et ipsum. Ac,
-                                donec viverra tristique elit euismod molestie uismod egestas
-                                egestas. Sollicitudin sed adipiscing eu, ipsum purus et etiam
-                                mauris tristique. Consectetur id pretium semper Consectetur id
-                                pretium semper Lorem ipsum dolor sit amet, consectetur
+                                {product.description}
                             </div>
                         </div>
                     </div>
@@ -132,10 +120,10 @@ const Software: React.FC = ({}): JSX.Element => {
                     <div className={s.inner}>
                         <div className={s.inner_title}>General Details</div>
                         <ul className={s.details_container}>
-                            <li className={s.detail_item}>File Format: EXE</li>
-                            <li className={s.detail_item}>File Size: 1,3 GB</li>
-                            <li className={s.detail_item}>Download Source: Own Crack</li>
-                            <li className={s.detail_item}>Unlock Password: None</li>
+                            <li className={s.detail_item}>File Format: {product.fileFormat}</li>
+                            <li className={s.detail_item}>File Size: {product.fileSize} GB</li>
+                            <li className={s.detail_item}>Download Source: {product.downloadSource}</li>
+                            <li className={s.detail_item}>Unlock Password: {product.unlockPassword}</li>
                         </ul>
                     </div>
                 </div>
@@ -145,11 +133,11 @@ const Software: React.FC = ({}): JSX.Element => {
                 <div className={s.container}>
                     <div className={s.inner}>
                         <div className={s.inner_title}>How to install</div>
-                        <ul className={s.details_container}>
-                            <div className={s.detail_item}>1. App Backup & Share Pro Apk</div>
-                            <div className={s.detail_item}>2. Install it</div>
-                            <div className={s.detail_item}>3. Done!</div>
-                        </ul>
+                        <ol className={s.details_container}>
+                            <li className={s.detail_item}>  {product.howToInstall.stepOne}</li>
+                            <li className={s.detail_item}> {product.howToInstall.stepTwo}</li>
+                            <li className={s.detail_item}>{product.howToInstall.stepThree}</li>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -159,14 +147,14 @@ const Software: React.FC = ({}): JSX.Element => {
                     <div className={s.inner}>
                         <div className={s.inner_title}>Download links</div>
                         <div className={s.download_section}>
-                            <ul className={s.details_container}>
-                                <div className={s.detail_item}>
-                                    1. Mirror link: https://mirrorlink/photoshop.exe
-                                </div>
-                                <div className={s.detail_item}>
-                                    2. Mirror link: https://mirrorlink/photoshop.exe
-                                </div>
-                            </ul>
+                            <ol className={s.details_container}>
+                                <li className={s.detail_item}>
+                                   Mirror link: {product.downloadLinks.firstLink}
+                                </li>
+                                <li className={s.detail_item}>
+                                    Mirror link: {product.downloadLinks.secondLink}
+                                </li>
+                            </ol>
                             <div className={s.btn_wrapper_b}>
                                 <div className={s.main_btn}>Download</div>
                             </div>

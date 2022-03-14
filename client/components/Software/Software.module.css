@@ -133,7 +133,6 @@
 
 .info_inner {
   display: flex;
-  justify-content: space-between;
 }
 
 .soft_content {

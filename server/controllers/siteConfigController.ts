@@ -4,7 +4,7 @@ class siteConfigController {
     async addConfig ( req, res ) {
         try {
             const config = await siteConfigService.addConfig ( req.body )
-            res.status ( 200 ).json ( config );
+            res.status ( 200 ).json ( config )
         } catch (e) {
             res.status ( 500 ).json ( e );
         }
@@ -20,7 +20,7 @@ class siteConfigController {
     }
     async updateConfig ( req, res ) {
         try {
-            const config = await siteConfigService.updateConfig (req.body)
+            const config = await siteConfigService.updateConfig (req.body.config)
             res.status ( 200 ).json ( config );
         } catch (e) {
             res.status ( 500 ).json ( e );

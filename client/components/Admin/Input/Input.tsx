@@ -10,10 +10,8 @@ type TProps = {
 };
 
 const AdminInput: React.FC<TProps> = ( {placeholder, type, size, value, setInputValue} ): JSX.Element => {
-    const onInputChangeHandler = (e:any) => {
-        if (setInputValue !== undefined) {
-            setInputValue ( e.target.value )
-        }
+    const onInputChangeHandler = ( e: any ) => {
+        setInputValue ( e.target.value )
     }
     return (
         <div className={s.wrapper}>
@@ -22,6 +20,7 @@ const AdminInput: React.FC<TProps> = ( {placeholder, type, size, value, setInput
                 placeholder={placeholder}
                 className={size === "long" ? `${s.admin_input} ${s.long_input}` : s.admin_input}
                 value={value}
+                required
                 onChange={onInputChangeHandler}
             />
         </div>
