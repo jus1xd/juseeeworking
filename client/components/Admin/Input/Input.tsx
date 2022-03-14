@@ -21,6 +21,7 @@ const AdminInput: React.FC<TProps> = ({
       setInputValue(e.target.value);
     }
   };
+
   return (
     <div className={s.wrapper}>
       <input

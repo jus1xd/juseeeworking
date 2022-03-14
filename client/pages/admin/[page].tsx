@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import { GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
+=======
+import {useRouter} from "next/router";
+>>>>>>> 53374eed0051598e6fbfba40828979234a3512ca
 import React from "react";
 import AdminNav from "../../components/Admin/AdminNav/AdminNav";
 import Appearance from "../../components/Admin/Appearance/Appearance";
@@ -10,41 +14,44 @@ import Help from "../../components/Admin/Help/Help";
 import Rules from "../../components/Admin/Rules/Rules";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/header";
-import { requireAuth } from "../../HOC/requiredAuth";
-import { useAppSelector } from "../../hooks/useTypedSelector";
 import s from "../../styles/Admin.module.css";
+import {useAppSelector} from "../../hooks/useTypedSelector";
+import Admin from "../admin";
 
-const Page: React.FC = ({}): JSX.Element => {
-  const router = useRouter();
-  const { page } = router.query;
-
-  return (
-    <div>
-      <Header />
-      <AdminNav />
-      <div className={s.content_wrapper}>
-        {page === "edit" ? (
-          <Edit />
-        ) : page === "create" ? (
-          <Create />
-        ) : page === "category" ? (
-          <Category />
-        ) : page === "rules" ? (
-          <Rules />
-        ) : page === "help" ? (
-          <Help />
-        ) : page === "appearance" ? (
-          <Appearance />
-        ) : (
-          ""
-        )}
-      </div>
-      <Footer />
-    </div>
-  );
+const Page: React.FC = ( {} ): JSX.Element => {
+    const router = useRouter ();
+    const {page} = router.query;
+    const username = useAppSelector ( state => state.adminSlice.username )
+    return (
+        <>{
+            username !== '' ?
+                <div>
+                <Header/>
+                <AdminNav/>
+                <div className={s.content_wrapper}>
+                    {page === "edit" ? (
+                        <Edit/>
+                    ) : page === "create" ? (
+                        <Create/>
+                    ) : page === "category" ? (
+                        <Category/>
+                    ) : page === "rules" ? (
+                        <Rules/>
+                    ) : page === "help" ? (
+                        <Help/>
+                    ) : page === "appearance" ? (
+                        <Appearance/>
+                    ) : ""}
+                </div>
+                <Footer/>
+            </div> :
+            <Admin/>
+        }</>
+    );
 };
 
 export default Page;
+<<<<<<< HEAD
 
 export const getServerSideProps = requireAuth(
   async (ctx: GetServerSidePropsContext) => {
@@ -53,3 +60,5 @@ export const getServerSideProps = requireAuth(
     };
   }
 );
+=======
+>>>>>>> 53374eed0051598e6fbfba40828979234a3512ca
