@@ -3,8 +3,10 @@ import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/header";
 import Nav from "../components/Nav/nav";
 import s from "../styles/Help.module.css";
+import {useAppSelector} from "../hooks/useTypedSelector";
 
 const Help: React.FC = ({}): JSX.Element => {
+  const config =  useAppSelector(state => state.configSlice.config)
   return (
     <>
       <Header />
@@ -12,29 +14,13 @@ const Help: React.FC = ({}): JSX.Element => {
       <div className={s.wrapper}>
         <div className={s.container}>
           <div className={s.help_inner}>
-            <div className={s.help_title}>Help</div>
+            <div className={s.help_title}>{config.help.helpTitle}</div>
             <div className={s.help_text}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id
-              venenatis convallis amet eu et ipsum. Ac, donec viverra tristique
-              elit euismod molestie uismod egestas egestas. Sollicitudin sed
-              adipiscing eu, ipsum purus et etiam mauris tristique. Consectetur
-              id pretium semper Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Id venenatis convallis amet eu et ipsum. Ac,
-              donec viverra tristique elit euismod molestie uismod egestas Lorem
-              ipsum dolor sit amet, consectetur adipiscing elit. Id venenatis
-              convallis amet eu et ipsum. Ac, donec viverra tristique elit
-              euismod molestie uismod egestas egestas. Sollicitudin sed
-              adipiscing eu, ipsum purus et etiam mauris tristique. Consectetur
-              id pretium semper Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Id venenatis convallis amet eu et ipsum. Ac,
-              donec viverra tristique elit euismod molestie uismod egestas Lorem
-              ipsum dolor sit amet, consectetur adipiscing elit. Id venenatis
-              convallis amet eu et ipsum. Ac, donec viverra tristique elit
-              euismod molestie uismod egestas egestas. Sollicitudin sed
-              adipiscing eu, ipsum purus et etiam mauris tristique. Consectetur
-              id pretium semper Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Id venenatis convallis amet eu et ipsum. Ac,
-              donec viverra tristique elit euismod molestie uismod egestas
+              {config.help.firstBlock}
+            </div>
+            <div style={{margin: "44px 0px"}}><img src={config.help.imageLink} width={1200} height={215} alt={''}/></div>
+            <div className={s.help_text}>
+              {config.help.secondTextBlock}
             </div>
           </div>
         </div>
@@ -45,3 +31,4 @@ const Help: React.FC = ({}): JSX.Element => {
 };
 
 export default Help;
+
