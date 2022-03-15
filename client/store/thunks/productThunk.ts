@@ -34,7 +34,6 @@ export const getProduct = createAsyncThunk (
 export const deleteProduct = createAsyncThunk (
     "deleteProduct",
     async ( data: any, thunkAPI ) => {
-        console.log ( data )
         const res = await axios.delete<Promise<IProduct>> (
             `http://localhost:5000/product/${data.id}`, {
                 headers: {
@@ -44,6 +43,18 @@ export const deleteProduct = createAsyncThunk (
         return res.data;
     }
 );
+export const updateProduct = createAsyncThunk (
+    'updateProduct',
+    async ( data: any ) => {
+        const product = data.productToUpdate
+        const res = await axios.put<Promise<IProduct>> ( "http://localhost:5000/products", {product}, {
+            headers: {
+                "adminUsername": data.username
+            }
+        } );
+        return res.data;
+    }
+)
 export const getByCategory = createAsyncThunk (
     "getByCategory",
     async ( category: string, thunkAPI ) => {

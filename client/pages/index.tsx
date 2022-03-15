@@ -24,12 +24,12 @@ const Home: NextPage = () => {
             <div className={s.soft_cards}>
                 {products.map ( product => (
                     <SoftCard
-                        key={product._id}
+                        key={product.productPhoto}
                         id={product._id}
                         title={product.title}
                         categories={product.categories}
                         description={product.description}
-                        productPhoto = {product.productPhoto}
+                        productPhoto={product.productPhoto}
                     />
                 ) )}
                 <div className={s.totop_btn}>

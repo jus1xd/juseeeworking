@@ -5,7 +5,6 @@ import PageItem from "./PageItem/PageItem";
 import {IProduct} from "../../../types/products";
 import {useAppDispatch, useAppSelector} from "../../../hooks/useTypedSelector";
 import {addProduct} from "../../../store/thunks/productThunk";
-import {addProductLocal} from "../../../store/slices/productsSlice";
 
 const Create: React.FC = ( {} ): JSX.Element => {
     const [title, setTitle] = useState<string> ( '' );

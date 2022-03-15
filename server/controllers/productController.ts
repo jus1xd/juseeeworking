@@ -39,7 +39,7 @@ class ProductsController {
 
     async update ( req, res ) {
         try {
-            const updatedProduct = await ProductService.update ( req.body );
+            const updatedProduct = await ProductService.update ( req.body.product );
             return res.json ( updatedProduct );
         } catch (e) {
             res.status ( 500 ).json ( e.message );
