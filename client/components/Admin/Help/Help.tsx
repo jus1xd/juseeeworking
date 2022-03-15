@@ -47,15 +47,19 @@ const Help: React.FC = ({}): JSX.Element => {
                   />
                 </div>
               </div>
-              <textarea
-                className={s.rules_text}
+              <AdminInput
+                placeholder={"Помощь..."}
+                type={"text"}
                 value={firstBlock}
-                onChange={(e) => setFirstBlock(e.target.value)}
+                textArea
+                setInputValue={setFirstBlock}
               />
-              <textarea
-                className={s.rules_text}
+              <AdminInput
+                placeholder={"Помощь..."}
+                type={"text"}
+                textArea
                 value={secondTextBlock}
-                onChange={(e) => setSecondTextBlock(e.target.value)}
+                setInputValue={setSecondTextBlock}
               />
               <div className={s.btn_wrapper}>
                 <div className={s.main_btn} onClick={onClickHandler}>

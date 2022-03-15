@@ -1,0 +1,40 @@
+.nav_link {
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  border-bottom: 1px solid #107ad4;
+  padding-bottom: 3px;
+  margin-bottom: 6px;
+
+  color: #ecf5fd;
+  transition: 0.2s;
+}
+
+.nav_link:hover {
+  color: #b5c7d8;
+}
+
+.wrapper {
+  padding: 12px 24px;
+  background: #0e2133;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 10;
+  top: 140px;
+  margin-top: 20px;
+}
+
+.main_wrapper.active {
+  display: flex;
+}
+
+.main_wrapper {
+  display: none;
+  align-items: flex-end;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+}

@@ -12,3 +12,9 @@
 .long_input {
   padding: 10px 15px 100px 15px;
 }
+
+.textarea_input {
+  resize: none;
+  width: 100%;
+  height: 140px;
+}
