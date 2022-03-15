@@ -3,7 +3,7 @@ import ProductService from "../services/productService";
 class ProductsController {
     async create ( req, res ) {
         try {
-            const product = await ProductService.create ( req.body );
+            const product = await ProductService.create ( req.body.product );
             res.status ( 200 ).json ( product );
         } catch (e) {
             res.status ( 500 ).json ( e );
@@ -58,7 +58,6 @@ class ProductsController {
     async addComment ( req, res ) {
         try {
             const product = await ProductService.addComment ( req.params.id, req.body )
-            console.log (req.body)
             return res.json ( product );
         } catch (e) {
             res.status ( 500 ).json ( e.message );

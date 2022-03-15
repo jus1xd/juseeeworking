@@ -2,8 +2,8 @@ import productModel, {IComment, IProduct} from "../models/productModel";
 import ProductModel from "../models/productModel";
 
 class ProductService {
-    async create ( product: IProduct ) {
-        return await productModel.create ( {...product} );
+    async create ( product:IProduct ) {
+        return await productModel.create ( product );
     }
 
     async getAll () {
@@ -35,14 +35,16 @@ class ProductService {
         }
         return productModel.findByIdAndDelete ( id );
     }
-    async addComment(id: string, comment){
-        const product = await ProductModel.findById(id)
-        product.comments.push(comment.text)
+
+    async addComment ( id: string, comment ) {
+        const product = await ProductModel.findById ( id )
+        product.comments.push ( comment )
         return product
     }
-    async deleteComment(id: string, comment : IComment){
-        const product = await ProductModel.findById(id)
-        product.comments.filter(item => item.text != comment.text)
+
+    async deleteComment ( id: string, comment: IComment ) {
+        const product = await ProductModel.findById ( id )
+        product.comments.filter ( item => item.text != comment.text )
         return product
     }
 }

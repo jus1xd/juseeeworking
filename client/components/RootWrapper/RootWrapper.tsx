@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/useTypedSelector";
-import { AppProps } from "next/app";
 import styled from "styled-components";
 import { getSiteConfig } from "../../store/thunks/condifigThunk";
 

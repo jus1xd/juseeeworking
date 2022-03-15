@@ -14,7 +14,6 @@ export const adminSlice = createSlice ( {
     reducers: {},
     extraReducers: {
         [adminLogin.fulfilled.type]: ( state, action) => {
-            console.log (action.payload)
             state.username = action.payload.data.username
             state.isAuth = true
             state.error = ''

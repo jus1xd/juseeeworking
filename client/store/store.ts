@@ -2,11 +2,13 @@ import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import logger from 'redux-logger'
 import configSlice from "./slices/configSlice";
 import adminSlice from "./slices/adminSlice";
+import productsSlice from "./slices/productsSlice";
 import {persistReducer} from "redux-persist";
 import storage from "redux-persist/lib/storage";
 const rootReducer = combineReducers ( {
     configSlice,
-    adminSlice
+    adminSlice,
+    productsSlice
 } )
 const persistConfig = {
     key: "root",

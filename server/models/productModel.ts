@@ -23,7 +23,6 @@ export interface IComment {
 const productModel = new Schema<IProduct> ( {
     title: {type: String, required: true},
     productPhoto: {type: String, required: true},
-    downloadLink: {type: String, required: true},
     description: {type: String, required: true},
     previewPicture: {
         firstPicture: {type: String, required: true},
@@ -43,7 +42,7 @@ const productModel = new Schema<IProduct> ( {
         stepThree: {type: String, required: true},
     },
     categories: {type: [String], required: true},
-    comments: {type: [{} as IComment], required: true}
+    comments: {type: [{} as IComment]}
 } )
 
 export default model ( "Product", productModel )

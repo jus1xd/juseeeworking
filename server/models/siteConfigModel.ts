@@ -2,6 +2,7 @@ import {model, Schema} from "mongoose";
 
 export interface ISiteConfig {
     _id : string
+    siteLogo : string
     colors: Record<string, string>
     tof: Record<string, string>
     help: Record<string, string>
@@ -19,15 +20,16 @@ const siteConfigModel = new Schema<ISiteConfig> ( {
         buttonHoverColor: {type: String, required: true}
     },
     tof: {
-        title: {type: String, required: true},
+        tofTitle: {type: String, required: true},
         description: {type: String, required: true}
     },
     help: {
-        title: {type: String, required: true},
+        helpTitle: {type: String, required: true},
         imageLink: {type: String, required: true},
         firstBlock: {type: String, required: true},
         secondTextBlock: {type: String, required: true}
     },
+    siteLogo : {type: String , required: true},
     categories: {type: [String], required: true}
 } )
 

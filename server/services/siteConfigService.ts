@@ -2,7 +2,7 @@ import siteConfigModel, {ISiteConfig} from "../models/siteConfigModel";
 
 class SiteConfigService {
     async addConfig ( config: ISiteConfig ) {
-        return await siteConfigModel.create ( config )
+        return siteConfigModel.create ( config )
     }
     async getConfig(){
         return siteConfigModel.findOne ();
