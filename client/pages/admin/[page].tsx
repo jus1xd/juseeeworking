@@ -1,4 +1,4 @@
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 import React from "react";
 import AdminNav from "../../components/Admin/AdminNav/AdminNav";
 import Appearance from "../../components/Admin/Appearance/Appearance";
@@ -10,39 +10,44 @@ import Rules from "../../components/Admin/Rules/Rules";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/header";
 import s from "../../styles/Admin.module.css";
-import {useAppSelector} from "../../hooks/useTypedSelector";
+import { useAppSelector } from "../../hooks/useTypedSelector";
 import Admin from "../admin";
+import RootWrapper from "../../components/RootWrapper/RootWrapper";
 
-const Page: React.FC = ( {} ): JSX.Element => {
-    const router = useRouter ();
-    const {page} = router.query;
-    const username = useAppSelector ( state => state.adminSlice.username )
-    return (
-        <>{
-            username !== '' ?
-                <div>
-                <Header/>
-                <AdminNav/>
-                <div className={s.content_wrapper}>
-                    {page === "edit" ? (
-                        <Edit/>
-                    ) : page === "create" ? (
-                        <Create/>
-                    ) : page === "category" ? (
-                        <Category/>
-                    ) : page === "rules" ? (
-                        <Rules/>
-                    ) : page === "help" ? (
-                        <Help/>
-                    ) : page === "appearance" ? (
-                        <Appearance/>
-                    ) : ""}
-                </div>
-                <Footer/>
-            </div> :
-            <Admin/>
-        }</>
-    );
+const Page: React.FC = ({}): JSX.Element => {
+  const router = useRouter();
+  const { page } = router.query;
+  const username = useAppSelector((state) => state.adminSlice.username);
+  return (
+    <RootWrapper appBg>
+      {username !== "" ? (
+        <div>
+          <Header />
+          <AdminNav />
+          <div className={s.content_wrapper}>
+            {page === "edit" ? (
+              <Edit />
+            ) : page === "create" ? (
+              <Create />
+            ) : page === "category" ? (
+              <Category />
+            ) : page === "rules" ? (
+              <Rules />
+            ) : page === "help" ? (
+              <Help />
+            ) : page === "appearance" ? (
+              <Appearance />
+            ) : (
+              ""
+            )}
+          </div>
+          <Footer />
+        </div>
+      ) : (
+        <Admin />
+      )}
+    </RootWrapper>
+  );
 };
 
 export default Page;

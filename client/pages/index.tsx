@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/useTypedSelector";
 import { getSiteConfig } from "../store/thunks/condifigThunk";
 import { getAllProducts } from "../store/thunks/productThunk";
+import RootWrapper from "../components/RootWrapper/RootWrapper";
 
 const Home: NextPage = () => {
   const dispatch = useAppDispatch();
@@ -19,31 +20,33 @@ const Home: NextPage = () => {
   const products = useAppSelector((state) => state.productsSlice.products);
   return (
     <>
-      <div className={s.wrapper}>
-        <Header />
-        <Nav />
-        <div className={s.soft_cards}>
-          {products.map((product) => (
-            <SoftCard
-              key={product.productPhoto}
-              id={product._id}
-              title={product.title}
-              categories={product.categories}
-              description={product.description}
-              productPhoto={product.productPhoto}
-            />
-          ))}
-          <div className={s.totop_btn}>
-            <Image
-              src="/img/icons/Home/totop.svg"
-              height={45}
-              width={45}
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            />
+      <RootWrapper appBg>
+        <div className={s.wrapper}>
+          <Header />
+          <Nav />
+          <div className={s.soft_cards}>
+            {products.map((product) => (
+              <SoftCard
+                key={product.productPhoto}
+                id={product._id}
+                title={product.title}
+                categories={product.categories}
+                description={product.description}
+                productPhoto={product.productPhoto}
+              />
+            ))}
+            <div className={s.totop_btn}>
+              <Image
+                src="/img/icons/Home/totop.svg"
+                height={45}
+                width={45}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              />
+            </div>
           </div>
         </div>
-      </div>
-      <Footer />
+        <Footer />
+      </RootWrapper>
     </>
   );
 };

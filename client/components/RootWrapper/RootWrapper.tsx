@@ -8,56 +8,57 @@ const AppWrapper = styled.div`
 `;
 
 type TProps = {
-  fontColor?: boolean;
-  headerBg?: boolean;
-  underHeadColor?: boolean;
-  appBg?: boolean;
-  btnColor?: boolean;
-  btnHoverColor?: boolean;
-  blockBg?: boolean;
+  fontColor?: boolean | undefined;
+  headerBg?: boolean | undefined;
+  underHeadColor?: boolean | undefined;
+  appBg?: boolean | undefined;
+  btnColor?: boolean | undefined;
+  btnHoverColor?: boolean | undefined;
+  blockBg?: boolean | undefined;
 };
 
-const RootWrapper: React.FC<TProps> = (
-  { children },
-  {
-    fontColor,
-    headerBg,
-    underHeadColor,
-    appBg,
-    btnColor,
-    btnHoverColor,
-    blockBg,
-  }: any
-): JSX.Element => {
+const RootWrapper: React.FC<TProps> = ({
+  children,
+  headerBg,
+  underHeadColor,
+  appBg,
+  btnColor,
+  btnHoverColor,
+  blockBg,
+}): JSX.Element => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getSiteConfig());
   }, []);
 
-  const curColor = headerBg
-    ? useAppSelector((state) => state.configSlice.config.colors.headerColor)
-    : fontColor
-    ? useAppSelector((state) => state.configSlice.config.colors.fontColor)
-    : underHeadColor
-    ? useAppSelector(
-        (state) => state.configSlice.config.colors.underHeaderColor
-      )
-    : appBg
-    ? useAppSelector((state) => state.configSlice.config.colors.backgroundColor)
-    : btnColor
-    ? useAppSelector((state) => state.configSlice.config.colors.buttonColor)
-    : btnHoverColor
-    ? useAppSelector(
-        (state) => state.configSlice.config.colors.buttonHoverColor
-      )
-    : blockBg
-    ? useAppSelector(
-        (state) => state.configSlice.config.colors.blockBackgroundColor
-      )
-    : "";
+  let curColor: string = "";
 
-  console.log(curColor);
+  if (headerBg) {
+    curColor = useAppSelector(
+      (state) => state.configSlice.config.colors.headerColor
+    );
+  } else if (underHeadColor) {
+    curColor = useAppSelector(
+      (state) => state.configSlice.config.colors.underHeaderColor
+    );
+  } else if (appBg) {
+    curColor = useAppSelector(
+      (state) => state.configSlice.config.colors.backgroundColor
+    );
+  } else if (btnColor) {
+    curColor = useAppSelector(
+      (state) => state.configSlice.config.colors.buttonColor
+    );
+  } else if (btnHoverColor) {
+    curColor = useAppSelector(
+      (state) => state.configSlice.config.colors.buttonHoverColor
+    );
+  } else if (blockBg) {
+    curColor = useAppSelector(
+      (state) => state.configSlice.config.colors.blockBackgroundColor
+    );
+  }
 
   return (
     <>

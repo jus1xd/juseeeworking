@@ -2,11 +2,12 @@ import React from "react";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/header";
 import Nav from "../components/Nav/nav";
+import RootWrapper from "../components/RootWrapper/RootWrapper";
 import s from "../styles/Help.module.css";
 
 const Terms: React.FC = ({}): JSX.Element => {
   return (
-    <>
+    <RootWrapper appBg>
       <Header />
       <Nav />
       <div className={s.wrapper}>
@@ -40,7 +41,7 @@ const Terms: React.FC = ({}): JSX.Element => {
         </div>
       </div>
       <Footer />
-    </>
+    </RootWrapper>
   );
 };
 

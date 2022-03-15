@@ -12,7 +12,8 @@
   display: flex;
   align-items: center;
   height: 70px;
-  background: var(--main-dark);
+  /* background: var(--main-dark); */
+  background-color: transparent;
 }
 
 .mobile_wrapper {
@@ -22,7 +23,8 @@
   z-index: 9999;
   align-items: center;
   height: 70px;
-  background: var(--main-dark);
+  background-color: transparent;
+  /* background: var(--main-dark); */
 }
 
 .header_inner {
@@ -55,7 +57,6 @@
   line-height: 37px;
 }
 
-
 .find_input::placeholder {
   color: rgba(255, 255, 255, 0.8);
 }
@@ -80,7 +81,8 @@
     z-index: 9999;
     display: flex;
     align-items: center;
-    background: var(--main-dark);
+    background-color: transparent;
+    /* background: var(--main-dark);  */
   }
 
   .def_inner {
@@ -140,6 +142,4 @@
     display: flex;
     align-items: center;
   }
-
-  
 }
