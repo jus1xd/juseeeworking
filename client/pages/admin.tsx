@@ -9,6 +9,7 @@ import { adminLogin } from "../store/thunks/adminThunk";
 import { useRouter } from "next/router";
 import { getSiteConfig } from "../store/thunks/condifigThunk";
 import RootWrapper from "../components/RootWrapper/RootWrapper";
+import Button from "../components/Button/Button";
 
 const Admin: React.FC = ({}): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -58,7 +59,7 @@ const Admin: React.FC = ({}): JSX.Element => {
                 />
               </div>
               <div className={s.main_btn} onClick={onAdminSubmit}>
-                Log in
+                <Button text={"Log in"} />
               </div>
               {errors && (
                 <div className={s.error_message}>Invalid login or password</div>

@@ -4,6 +4,7 @@ import s from "./PageItem.module.css";
 import {useAppDispatch, useAppSelector} from "../../../../hooks/useTypedSelector";
 import {deleteProduct, getProduct} from "../../../../store/thunks/productThunk";
 import {useRouter} from "next/router";
+import Button from "../../../Button/Button";
 interface IPageProps {
     title: string,
     id: string
@@ -30,7 +31,9 @@ const PageItem: React.FC<IPageProps> = ( {title,id}: IPageProps ): JSX.Element =
                     </div>
                 </div>
                 <div className={s.btns_container}>
-                    <div className={s.main_btn} onClick={onEditHandler}>Edit</div>
+                    <div className={s.main_btn} onClick={onEditHandler}>
+                        <Button text="Изменить"/>
+                    </div>
                     <div className={s.remove_btn} onClick={onDeleteHandler}>Remove</div>
                 </div>
             </div>

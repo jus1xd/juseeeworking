@@ -9,6 +9,7 @@ import {
 } from "../../../hooks/useTypedSelector";
 import { addProduct, updateProduct } from "../../../store/thunks/productThunk";
 import RootWrapper from "../../RootWrapper/RootWrapper";
+import Button from "../../Button/Button";
 
 const Edit: React.FC = ({}): JSX.Element => {
   const product = useAppSelector((state) => state.productsSlice.product);
@@ -199,7 +200,7 @@ const Edit: React.FC = ({}): JSX.Element => {
               </div>
             </div>
             <div className={s.btn_wrapper} onClick={onEditHandler}>
-              <div className={s.main_btn}>Редактировать страницу</div>
+              <Button text={"Редактировать страницу"} />
             </div>
             <div className={s.error_container}>
               Не все поля заполнены, заполните поля

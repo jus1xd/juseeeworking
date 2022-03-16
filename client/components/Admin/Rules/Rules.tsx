@@ -4,6 +4,7 @@ import AdminInput from "../Input/Input";
 import { useAppDispatch } from "../../../hooks/useTypedSelector";
 import { changeTof } from "../../../store/slices/configSlice";
 import RootWrapper from "../../RootWrapper/RootWrapper";
+import Button from "../../Button/Button";
 
 const Rules: React.FC = ({}): JSX.Element => {
   const [tofTitle, setTofTitle] = useState<string>("");
@@ -37,7 +38,9 @@ const Rules: React.FC = ({}): JSX.Element => {
                 textArea
               />
               <div className={s.btn_wrapper} onClick={onClickHandler}>
-                <div className={s.main_btn}>Добавить</div>
+                <div className={s.main_btn}>
+                  <Button text={"Добавить"} />
+                </div>
               </div>
               <div className={s.msg_container}>Правила успешно изменены</div>
             </div>

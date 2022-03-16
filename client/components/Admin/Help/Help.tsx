@@ -8,6 +8,7 @@ import {
 import { changeHelp } from "../../../store/slices/configSlice";
 import { changeSiteConfig } from "../../../store/thunks/condifigThunk";
 import RootWrapper from "../../RootWrapper/RootWrapper";
+import Button from "../../Button/Button";
 
 const Help: React.FC = ({}): JSX.Element => {
   const [helpTitle, setHelpTitle] = useState<string>("");
@@ -17,15 +18,24 @@ const Help: React.FC = ({}): JSX.Element => {
   const dispatch = useAppDispatch();
   const config = useAppSelector((state) => state.configSlice.config);
   const username = useAppSelector((state) => state.adminSlice.username);
-  const [isEdit, setIsEdit] = useState<boolean> ( false )
-  const [isEmpty, setIsEmpty] = useState<boolean> ( false )
+  const [isEdit, setIsEdit] = useState<boolean>(false);
+  const [isEmpty, setIsEmpty] = useState<boolean>(false);
   const onClickHandler = () => {
-    if (Object.values ( {helpTitle, imageLink, firstBlock, secondTextBlock} ).every ( item => item.length != 0 )) {
-      dispatch ( changeHelp ( {helpTitle, imageLink, firstBlock, secondTextBlock} ) );
-      setIsEdit ( true )
-      setIsEmpty ( false )
+    if (
+      Object.values({
+        helpTitle,
+        imageLink,
+        firstBlock,
+        secondTextBlock,
+      }).every((item) => item.length != 0)
+    ) {
+      dispatch(
+        changeHelp({ helpTitle, imageLink, firstBlock, secondTextBlock })
+      );
+      setIsEdit(true);
+      setIsEmpty(false);
     } else {
-      setIsEmpty ( true ), setIsEdit ( false )
+      setIsEmpty(true), setIsEdit(false);
     }
   };
   useEffect(() => {
@@ -74,11 +84,17 @@ const Help: React.FC = ({}): JSX.Element => {
               />
               <div className={s.btn_wrapper}>
                 <div className={s.main_btn} onClick={onClickHandler}>
-                  Добавить
+                  <Button text={"Добавить"} />
                 </div>
               </div>
-              {isEdit && <div className={s.msg_container}>Блок помощи успешно изменён</div>}
-              {isEmpty && <div className={s.msg_container_red}>Не все поля заполнены</div>}
+              {isEdit && (
+                <div className={s.msg_container}>
+                  Блок помощи успешно изменён
+                </div>
+              )}
+              {isEmpty && (
+                <div className={s.msg_container_red}>Не все поля заполнены</div>
+              )}
             </div>
           </div>
         </div>
