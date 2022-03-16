@@ -201,9 +201,6 @@ const Edit: React.FC = ({}): JSX.Element => {
             <div className={s.btn_wrapper} onClick={onEditHandler}>
               <div className={s.main_btn}>Редактировать страницу</div>
             </div>
-            <div className={s.error_container}>
-              Не все поля заполнены, заполните поля
-            </div>
           </div>
         </div>
       </div>

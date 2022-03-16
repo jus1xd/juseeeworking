@@ -199,7 +199,7 @@ const Create: React.FC = ( {} ): JSX.Element => {
                         </div>
                         <div className={s.pages_container}>
                             {products.map ( product => (
-                                <PageItem title={product.title} key={product._id} id={product._id}/>
+                                <PageItem title={product.title} key={product._id} id={product._id} src = {product.productPhoto}/>
                             ) )}
                         </div>
                     </div>

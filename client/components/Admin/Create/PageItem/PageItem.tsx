@@ -9,7 +9,7 @@ interface IPageProps {
     id: string
 }
 
-const PageItem: React.FC<IPageProps> = ( {title,id}: IPageProps ): JSX.Element => {
+const PageItem: React.FC<IPageProps> = ( {title,id,src}: IPageProps ): JSX.Element => {
     const username = useAppSelector ( state => state.adminSlice.username )
     const dispatch = useAppDispatch ()
     const router = useRouter()
@@ -24,7 +24,7 @@ const PageItem: React.FC<IPageProps> = ( {title,id}: IPageProps ): JSX.Element =
         <div className={s.wrapper}>
             <div className={s.page_item}>
                 <div className={s.item_content}>
-                    <Image src="/img/SoftCard/cardAvatar.png" width={60} height={60}/>
+                    <img src={src} width={60} height={60}/>
                     <div className={s.page_title}>
                         {title}
                     </div>
