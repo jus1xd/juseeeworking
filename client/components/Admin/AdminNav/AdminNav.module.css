@@ -21,5 +21,6 @@
 }
 
 .nav_item:hover {
-  background-color: rgb(29, 67, 100);
+  background-color: rgba(0, 0, 0, 0.15);
+  /* opacity: .6; */
 }

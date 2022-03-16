@@ -7,6 +7,7 @@ import {
 } from "../../../hooks/useTypedSelector";
 import { changeHelp } from "../../../store/slices/configSlice";
 import { changeSiteConfig } from "../../../store/thunks/condifigThunk";
+import RootWrapper from "../../RootWrapper/RootWrapper";
 
 const Help: React.FC = ({}): JSX.Element => {
   const [helpTitle, setHelpTitle] = useState<string>("");
@@ -27,7 +28,9 @@ const Help: React.FC = ({}): JSX.Element => {
       <div className={s.wrapper}>
         <div className={s.container}>
           <div className={s.inner}>
-            <div className={s.inner_title}>Admin Panel - Помощь</div>
+            <RootWrapper blockBg>
+              <div className={s.inner_title}>Admin Panel - Помощь</div>
+            </RootWrapper>
             <div className={s.admin_panel_content}>
               <div className={s.inputs_container}>
                 <div className={s.set_title}>

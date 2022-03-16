@@ -27,7 +27,6 @@
 .inner_title {
   text-align: center;
   padding: 7px;
-  background-color: var(--light-blue);
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
@@ -54,10 +53,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 3px;
-  width: 135px;
   height: 40px;
   transition: 0.2s;
-  background-color: var(--light-blue);
   margin-top: 13px;
   margin-left: 15px;
 }
@@ -134,10 +131,18 @@
 .color_preview {
   width: 40px;
   height: 40px;
-  background-color: #fff;
   border-radius: 5px;
+  border: 1px solid white;
+  overflow: hidden;
+}
+
+.color_holder {
+  width: 40px;
+  height: 40px;
   margin-left: 15px;
+  border-radius: 5px;
   margin-top: 13px;
+  overflow: hidden;
 }
 
 .msg_container {

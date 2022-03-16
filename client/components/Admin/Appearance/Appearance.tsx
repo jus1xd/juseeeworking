@@ -10,6 +10,8 @@ import {
 } from "../../../hooks/useTypedSelector";
 import { changeColorsAndSiteLogo } from "../../../store/slices/configSlice";
 import { changeSiteConfig } from "../../../store/thunks/condifigThunk";
+import Button from "../../Button/Button";
+import RootWrapper from "../../RootWrapper/RootWrapper";
 
 const Appearance: React.FC = ({}): JSX.Element => {
   const [headerColor, setHeaderColor] = useState<string>("");
@@ -49,7 +51,9 @@ const Appearance: React.FC = ({}): JSX.Element => {
       <div className={s.wrapper}>
         <div className={s.container}>
           <div className={s.inner}>
-            <div className={s.inner_title}>Admin Panel - Внешний вид</div>
+            <RootWrapper blockBg>
+              <div className={s.inner_title}>Admin Panel - Внешний вид</div>
+            </RootWrapper>
             <div className={s.columns_container}>
               <div className={s.column}>
                 <div className={s.column_title}>Цвета сайта</div>
@@ -61,9 +65,13 @@ const Appearance: React.FC = ({}): JSX.Element => {
                     value={headerColor}
                     setInputValue={setHeaderColor}
                   />
-                  <div className={s.color_preview} />
+                  <div className={s.color_holder}>
+                    <RootWrapper headerBg>
+                      <div className={s.color_preview} />
+                    </RootWrapper>
+                  </div>
                   <div className={s.main_btn} onClick={onClickHandler}>
-                    Изменить
+                    <Button text={"Изменить"} />
                   </div>
                 </div>
 
@@ -76,23 +84,30 @@ const Appearance: React.FC = ({}): JSX.Element => {
                     value={underHeaderColor}
                     setInputValue={setUnderHeaderColor}
                   />
-                  <div className={s.color_preview} />
+                  <div className={s.color_holder}>
+                    <RootWrapper underHeadColor>
+                      <div className={s.color_preview} />
+                    </RootWrapper>
+                  </div>
+
                   <div className={s.main_btn} onClick={onClickHandler}>
-                    Изменить
+                    <Button text={"Изменить"} />
                   </div>
                 </div>
-                <div className={s.colorpicker_row}>
+                {/* <div className={s.colorpicker_row}>
                   <AdminInput
                     placeholder={"Цвет шрифта"}
                     type={"text"}
                     value={fontColor}
                     setInputValue={setFontColorL}
                   />
-                  <div className={s.color_preview} />
+                  <RootWrapper underHeadColor>
+                    <div className={s.color_preview} />
+                  </RootWrapper>
                   <div className={s.main_btn} onClick={onClickHandler}>
-                    Изменить
+                    <Button text={"Изменить"} />
                   </div>
-                </div>
+                </div> */}
                 <div className={s.colorpicker_row}>
                   <AdminInput
                     placeholder={"Цвет заднего фона"}
@@ -100,9 +115,14 @@ const Appearance: React.FC = ({}): JSX.Element => {
                     value={backgroundColor}
                     setInputValue={setBackgroundColor}
                   />
-                  <div className={s.color_preview} />
+                  <div className={s.color_holder}>
+                    <RootWrapper appBg>
+                      <div className={s.color_preview} />
+                    </RootWrapper>
+                  </div>
+
                   <div className={s.main_btn} onClick={onClickHandler}>
-                    Изменить
+                    <Button text={"Изменить"} />
                   </div>
                 </div>
                 <div className={s.colorpicker_row}>
@@ -112,9 +132,14 @@ const Appearance: React.FC = ({}): JSX.Element => {
                     value={blockBackgroundColor}
                     setInputValue={setBlockBackgroundColor}
                   />
-                  <div className={s.color_preview} />
+                  <div className={s.color_holder}>
+                    <RootWrapper blockBg>
+                      <div className={s.color_preview} />
+                    </RootWrapper>
+                  </div>
+
                   <div className={s.main_btn} onClick={onClickHandler}>
-                    Изменить
+                    <Button text={"Изменить"} />
                   </div>
                 </div>
                 <div className={s.colorpicker_row}>
@@ -124,9 +149,14 @@ const Appearance: React.FC = ({}): JSX.Element => {
                     value={buttonColor}
                     setInputValue={setButtonColor}
                   />
-                  <div className={s.color_preview} />
+                  <div className={s.color_holder}>
+                    <RootWrapper btnColor>
+                      <div className={s.color_preview} />
+                    </RootWrapper>
+                  </div>
+
                   <div className={s.main_btn} onClick={onClickHandler}>
-                    Изменить
+                    <Button text={"Изменить"} />
                   </div>
                 </div>
                 <div className={s.colorpicker_row}>
@@ -136,9 +166,13 @@ const Appearance: React.FC = ({}): JSX.Element => {
                     value={buttonHoverColor}
                     setInputValue={setButtonHoverColor}
                   />
-                  <div className={s.color_preview} />
+                  <div className={s.color_holder}>
+                    <RootWrapper btnHoverColor>
+                      <div className={s.color_preview} />
+                    </RootWrapper>
+                  </div>
                   <div className={s.main_btn} onClick={onClickHandler}>
-                    Изменить
+                    <Button text={"Изменить"} />
                   </div>
                 </div>
               </div>
@@ -152,7 +186,7 @@ const Appearance: React.FC = ({}): JSX.Element => {
                     setInputValue={setSiteLogo}
                   />
                   <div className={s.main_btn} onClick={onClickHandler}>
-                    Добавить
+                    <Button text={"Изменить"} />
                   </div>
                 </div>
                 <div className={s.msg_container}>Логотип успешно изменен</div>

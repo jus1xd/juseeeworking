@@ -27,7 +27,7 @@
 .inner_title {
   text-align: center;
   padding: 7px;
-  background-color: var(--light-blue);
+  background-color: transparent;
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;

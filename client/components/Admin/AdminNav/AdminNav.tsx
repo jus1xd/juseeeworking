@@ -12,9 +12,6 @@ const AdminNav: React.FC = ({}): JSX.Element => {
             <Link href="/admin/create">
               <div className={s.nav_item}>Страницы</div>
             </Link>
-            <Link href="/admin/edit">
-              <div className={s.nav_item}>Редактировать</div>
-            </Link>
             <Link href="/admin/category">
               <div className={s.nav_item}>Категории</div>
             </Link>
@@ -26,6 +23,9 @@ const AdminNav: React.FC = ({}): JSX.Element => {
             </Link>
             <Link href="/admin/help">
               <div className={s.nav_item}>Помощь</div>
+            </Link>
+            <Link href="/admin/logout">
+              <div className={s.nav_item} style={{backgroundColor: "#ED4B4B90"}}>Выйти</div>
             </Link>
           </div>
         </div>

@@ -5,6 +5,15 @@ import { getSiteConfig } from "../../store/thunks/condifigThunk";
 
 const AppWrapper = styled.div`
   background-color: ${(props) => props.color || "#08121D"};
+  height: max-content;
+`;
+
+const BtnWrapper = styled.div`
+  background-color: ${(props) => props.color || "#08121D"};
+  box-shadow: 0px 0px 30px 1px ${(props) => props.color || "#08121D"}65;
+  height: max-content;
+  overflow: hidden;
+  border-radius: 3px;
 `;
 
 type TProps = {
@@ -62,7 +71,11 @@ const RootWrapper: React.FC<TProps> = ({
 
   return (
     <>
-      <AppWrapper color={curColor}>{children}</AppWrapper>
+      {btnColor ? (
+        <BtnWrapper color={curColor}>{children}</BtnWrapper>
+      ) : (
+        <AppWrapper color={curColor}>{children}</AppWrapper>
+      )}
     </>
   );
 };

@@ -4,6 +4,7 @@ import s from "./Software.module.css";
 import Image from "next/image";
 import Comment from "./Comment/Comment";
 import { IProduct } from "../../types/products";
+import RootWrapper from "../RootWrapper/RootWrapper";
 
 const Software = ({ product }: IProduct) => {
   const sliderContent = useRef(null);
@@ -111,100 +112,94 @@ const Software = ({ product }: IProduct) => {
         </div>
       </div>
 
-      <RootWrapper blockBg>
-        <div className={s.wrapper}>
-          <div className={s.container}>
-            <div className={s.inner}>
+      <div className={s.wrapper}>
+        <div className={s.container}>
+          <div className={s.inner}>
+            <RootWrapper blockBg>
               <div className={s.inner_title}>General Details</div>
-              <ul className={s.details_container}>
-                <li className={s.detail_item}>
-                  File Format: {product.fileFormat}
-                </li>
-                <li className={s.detail_item}>
-                  File Size: {product.fileSize} GB
-                </li>
-                <li className={s.detail_item}>
-                  Download Source: {product.downloadSource}
-                </li>
-                <li className={s.detail_item}>
-                  Unlock Password: {product.unlockPassword}
-                </li>
-              </ul>
-            </div>
+            </RootWrapper>
+            <ul className={s.details_container}>
+              <li className={s.detail_item}>
+                File Format: {product.fileFormat}
+              </li>
+              <li className={s.detail_item}>
+                File Size: {product.fileSize} GB
+              </li>
+              <li className={s.detail_item}>
+                Download Source: {product.downloadSource}
+              </li>
+              <li className={s.detail_item}>
+                Unlock Password: {product.unlockPassword}
+              </li>
+            </ul>
           </div>
         </div>
-      </RootWrapper>
+      </div>
 
-      <RootWrapper blockBg>
-        <div className={s.wrapper}>
-          <div className={s.container}>
-            <div className={s.inner}>
+      <div className={s.wrapper}>
+        <div className={s.container}>
+          <div className={s.inner}>
+            <RootWrapper blockBg>
               <div className={s.inner_title}>How to install</div>
+            </RootWrapper>
+            <ol className={s.details_container}>
+              <li className={s.detail_item}> {product.howToInstall.stepOne}</li>
+              <li className={s.detail_item}> {product.howToInstall.stepTwo}</li>
+              <li className={s.detail_item}>
+                {product.howToInstall.stepThree}
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div className={s.wrapper}>
+        <div className={s.container}>
+          <div className={s.inner}>
+            <RootWrapper blockBg>
+              <div className={s.inner_title}>Download links</div>
+            </RootWrapper>
+            <div className={s.download_section}>
               <ol className={s.details_container}>
                 <li className={s.detail_item}>
-                  {" "}
-                  {product.howToInstall.stepOne}
+                  Mirror link: {product.downloadLinks.firstLink}
                 </li>
                 <li className={s.detail_item}>
-                  {" "}
-                  {product.howToInstall.stepTwo}
-                </li>
-                <li className={s.detail_item}>
-                  {product.howToInstall.stepThree}
+                  Mirror link: {product.downloadLinks.secondLink}
                 </li>
               </ol>
-            </div>
-          </div>
-        </div>
-      </RootWrapper>
-
-      <RootWrapper blockBg>
-        <div className={s.wrapper}>
-          <div className={s.container}>
-            <div className={s.inner}>
-              <div className={s.inner_title}>Download links</div>
-              <div className={s.download_section}>
-                <ol className={s.details_container}>
-                  <li className={s.detail_item}>
-                    Mirror link: {product.downloadLinks.firstLink}
-                  </li>
-                  <li className={s.detail_item}>
-                    Mirror link: {product.downloadLinks.secondLink}
-                  </li>
-                </ol>
-                <div className={s.btn_wrapper_b}>
-                  <div className={s.main_btn}>Download</div>
-                </div>
+              <div className={s.btn_wrapper_b}>
+                <div className={s.main_btn}>Download</div>
               </div>
             </div>
           </div>
         </div>
-      </RootWrapper>
+      </div>
 
-      <RootWrapper blockBg>
-        <div className={s.wrapper}>
-          <div className={s.container}>
-            <div className={`${s.inner} ${s.comments}`}>
+      <div className={s.wrapper}>
+        <div className={s.container}>
+          <div className={`${s.inner} ${s.comments}`}>
+            <RootWrapper blockBg>
               <div className={s.inner_title}>Comments</div>
-              <div className={s.comments_section}>
-                <Comment />
-                <Comment />
-                <Comment />
-              </div>
-              <div className={s.submit_area}>
-                <input
-                  type="text"
-                  className={s.comment_input}
-                  placeholder="Type comment..."
-                />
-                <div className={s.btn_wrapper_c}>
-                  <div className={s.main_btn}>Submit</div>
-                </div>
+            </RootWrapper>
+            <div className={s.comments_section}>
+              <Comment />
+              <Comment />
+              <Comment />
+            </div>
+            <div className={s.submit_area}>
+              <input
+                type="text"
+                className={s.comment_input}
+                placeholder="Type comment..."
+              />
+              <div className={s.btn_wrapper_c}>
+                <div className={s.main_btn}>Submit</div>
               </div>
             </div>
           </div>
         </div>
-      </RootWrapper>
+      </div>
     </>
   );
 };

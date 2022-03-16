@@ -30,8 +30,8 @@
   width: 155px;
   height: 40px;
   transition: 0.2s;
-  background-color: var(--light-blue);
-  box-shadow: 0px 0px 30px rgba(16, 122, 212, 0.3);
+  /* background-color: var(--light-blue); */
+  /* box-shadow: 0px 0px 30px rgba(16, 122, 212, 0.3); */
 }
 
 .main_btn:hover {
@@ -73,7 +73,7 @@
 .card_photo {
   min-width: 160px;
   height: 160px;
-} 
+}
 
 .mob_card_inner {
   display: none;
@@ -114,6 +114,4 @@
     display: flex;
     align-items: center;
   }
-
-  
 }

@@ -3,6 +3,7 @@ import s from "./Rules.module.css";
 import AdminInput from "../Input/Input";
 import { useAppDispatch } from "../../../hooks/useTypedSelector";
 import { changeTof } from "../../../store/slices/configSlice";
+import RootWrapper from "../../RootWrapper/RootWrapper";
 
 const Rules: React.FC = ({}): JSX.Element => {
   const [tofTitle, setTofTitle] = useState<string>("");
@@ -16,7 +17,9 @@ const Rules: React.FC = ({}): JSX.Element => {
       <div className={s.wrapper}>
         <div className={s.container}>
           <div className={s.inner}>
-            <div className={s.inner_title}>Admin Panel - Правила</div>
+            <RootWrapper blockBg>
+              <div className={s.inner_title}>Admin Panel - Правила</div>
+            </RootWrapper>
             <div className={s.admin_panel_content}>
               <div className={s.set_title}>
                 <AdminInput
@@ -29,7 +32,7 @@ const Rules: React.FC = ({}): JSX.Element => {
               <AdminInput
                 placeholder={"Заголовок"}
                 type={"text"}
-                value={description}     
+                value={description}
                 setInputValue={setDescription}
                 textArea
               />
