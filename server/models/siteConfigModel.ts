@@ -13,7 +13,7 @@ const siteConfigModel = new Schema<ISiteConfig> ( {
     colors: {
         headerColor: {type: String, required: true},
         underHeaderColor: {type: String, required: true},
-        fontColorL: {type: String, required: true},
+        fontColor: {type: String, required: true},
         backgroundColor: {type: String, required: true},
         blockBackgroundColor: {type: String, required: true},
         buttonColor: {type: String, required: true},

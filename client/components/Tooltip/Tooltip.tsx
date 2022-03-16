@@ -13,8 +13,8 @@ const Tooltip: React.FC<TProps> = ({ active, setActive }): JSX.Element => {
     (state) => state.configSlice.config.categories
   );
 
-  const categoryItems = categories.map((el) => (
-    <Link href="">
+  const categoryItems = categories.map((el, idx) => (
+    <Link href="" key={idx}>
       <a className={s.nav_link}>{el}</a>
     </Link>
   ));

@@ -119,6 +119,10 @@
   text-align: left;
   color: var(--light-blue);
 }
+.msg_container_red {
+  text-align: left;
+  color: firebrick;
+}
 
 .error_container {
   text-align: left;

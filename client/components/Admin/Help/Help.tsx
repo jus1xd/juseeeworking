@@ -17,8 +17,16 @@ const Help: React.FC = ({}): JSX.Element => {
   const dispatch = useAppDispatch();
   const config = useAppSelector((state) => state.configSlice.config);
   const username = useAppSelector((state) => state.adminSlice.username);
+  const [isEdit, setIsEdit] = useState<boolean> ( false )
+  const [isEmpty, setIsEmpty] = useState<boolean> ( false )
   const onClickHandler = () => {
-    dispatch(changeHelp({ helpTitle, imageLink, firstBlock, secondTextBlock }));
+    if (Object.values ( {helpTitle, imageLink, firstBlock, secondTextBlock} ).every ( item => item.length != 0 )) {
+      dispatch ( changeHelp ( {helpTitle, imageLink, firstBlock, secondTextBlock} ) );
+      setIsEdit ( true )
+      setIsEmpty ( false )
+    } else {
+      setIsEmpty ( true ), setIsEdit ( false )
+    }
   };
   useEffect(() => {
     dispatch(changeSiteConfig({ config, username }));
@@ -69,7 +77,8 @@ const Help: React.FC = ({}): JSX.Element => {
                   Добавить
                 </div>
               </div>
-              <div className={s.msg_container}>Помощь успешно изменен</div>
+              {isEdit && <div className={s.msg_container}>Блок помощи успешно изменён</div>}
+              {isEmpty && <div className={s.msg_container_red}>Не все поля заполнены</div>}
             </div>
           </div>
         </div>
