@@ -199,11 +199,8 @@ const Edit: React.FC = ({}): JSX.Element => {
                 </div>
               </div>
             </div>
-            <div className={s.btn_wrapper} onClick={onEditHandler}>
+            <div className={s.main_btn} onClick={onEditHandler}>
               <Button text={"Редактировать страницу"} />
-            </div>
-            <div className={s.error_container}>
-              Не все поля заполнены, заполните поля
             </div>
           </div>
         </div>

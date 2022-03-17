@@ -182,7 +182,7 @@ const Create: React.FC = ({}): JSX.Element => {
             </div>
             <div className={s.btn_wrapper}>
               <div className={s.main_btn} onClick={onSubmitHandler}>
-                <Button text={"Создать страницу"} />
+                <Button text="Создать страницу" />
               </div>
             </div>
             {isEmpty && (
@@ -197,17 +197,16 @@ const Create: React.FC = ({}): JSX.Element => {
         <div className={s.wrapper}>
           <div className={s.container}>
             <div className={s.inner}>
-              <RootWrapper blockBg>
-                <div className={s.inner_title}>
-                  Admin Panel - Редактирование и удаление страницы
-                </div>
-              </RootWrapper>
+              <div className={s.inner_title}>
+                Admin Panel - Редактирование и удаление страницы
+              </div>
               <div className={s.pages_container}>
                 {products.map((product) => (
                   <PageItem
                     title={product.title}
                     key={product._id}
                     id={product._id}
+                    src={product.productPhoto}
                   />
                 ))}
               </div>

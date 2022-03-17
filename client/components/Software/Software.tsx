@@ -32,10 +32,11 @@ const Software = ({ product }: IProduct) => {
         <div className={s.container}>
           <div className={s.info_inner}>
             <div className={s.soft_photo}>
-              <Image
-                src="/img/SoftCard/cardAvatar.png"
+              <img
+                src={product.productPhoto}
                 width={200}
                 height={200}
+                alt = {'productPhoto'}
               />
               <div className={s.btn_wrapper}>
                 <div className={s.main_btn}>Download</div>
@@ -72,36 +73,15 @@ const Software = ({ product }: IProduct) => {
             <div className={s.track}>
               <div className={s.slider_content} ref={sliderContent}>
                 <div className={s.image_container}>
-                  <Image
-                    src="/img/Software/sliderImg.png"
+                  <img
+                    src={product.previewPicture.firstPicture}
                     width={412}
                     height={265}
                   />
                 </div>
                 <div className={s.image_container}>
-                  <Image
-                    src="/img/Software/sliderImg.png"
-                    width={412}
-                    height={265}
-                  />
-                </div>
-                <div className={s.image_container}>
-                  <Image
-                    src="/img/Software/sliderImg.png"
-                    width={412}
-                    height={265}
-                  />
-                </div>
-                <div className={s.image_container}>
-                  <Image
-                    src="/img/Software/sliderImg.png"
-                    width={412}
-                    height={265}
-                  />
-                </div>
-                <div className={s.image_container}>
-                  <Image
-                    src="/img/Software/sliderImg.png"
+                  <img
+                    src={product.previewPicture.secondPicture}
                     width={412}
                     height={265}
                   />

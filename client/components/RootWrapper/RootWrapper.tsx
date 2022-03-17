@@ -40,11 +40,8 @@ const RootWrapper: React.FC<TProps> = ({
   useEffect(() => {
     dispatch(getSiteConfig());
   }, []);
-
-  let curColor: string = "";
-
   const config = useAppSelector((state) => state.configSlice.config);
-
+  let curColor: string = "";
   if (Object.keys(config).length !== 0) {
     if (headerBg) {
       curColor = useAppSelector(
@@ -72,32 +69,6 @@ const RootWrapper: React.FC<TProps> = ({
       );
     }
   }
-
-  // if (headerBg) {
-  //   curColor = useAppSelector(
-  //     (state) => state.configSlice.config.colors.headerColor
-  //   );
-  // } else if (underHeadColor) {
-  //   curColor = useAppSelector(
-  //     (state) => state.configSlice.config.colors.underHeaderColor
-  //   );
-  // } else if (appBg) {
-  //   curColor = useAppSelector(
-  //     (state) => state.configSlice.config.colors.backgroundColor
-  //   );
-  // } else if (btnColor) {
-  //   curColor = useAppSelector(
-  //     (state) => state.configSlice.config.colors.buttonColor
-  //   );
-  // } else if (btnHoverColor) {
-  //   curColor = useAppSelector(
-  //     (state) => state.configSlice.config.colors.buttonHoverColor
-  //   );
-  // } else if (blockBg) {
-  //   curColor = useAppSelector(
-  //     (state) => state.configSlice.config.colors.blockBackgroundColor
-  //   );
-  // }
 
   return (
     <>

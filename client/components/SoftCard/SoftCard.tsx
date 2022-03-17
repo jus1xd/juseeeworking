@@ -20,8 +20,8 @@ const SoftCard = ({
           <div className={s.card_inner}>
             <Link href={`./software/${id}`}>
               <a className={s.card_photo}>
-                <Image
-                  src="/img/SoftCard/cardAvatar.png"
+                <img
+                  src={productPhoto}
                   width={163}
                   height={163}
                 />
