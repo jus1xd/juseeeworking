@@ -6,7 +6,7 @@ import {
   useAppSelector,
 } from "../../../hooks/useTypedSelector";
 import { changeHelp } from "../../../store/slices/configSlice";
-import { changeSiteConfig } from "../../../store/thunks/condifigThunk";
+import { changeSiteConfig } from "../../../store/thunks/configThunk";
 import RootWrapper from "../../RootWrapper/RootWrapper";
 
 const Help: React.FC = ({}): JSX.Element => {

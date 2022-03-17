@@ -57,7 +57,7 @@ class ProductsController {
 
     async addComment ( req, res ) {
         try {
-            const product = await ProductService.addComment ( req.params.id, req.body )
+            const product = await ProductService.addComment ( req.params.id, req.body.comment )
             return res.json ( product );
         } catch (e) {
             res.status ( 500 ).json ( e.message );

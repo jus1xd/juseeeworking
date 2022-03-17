@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { changeSiteConfig, getSiteConfig } from "../thunks/condifigThunk";
+import { changeSiteConfig, getSiteConfig } from "../thunks/configThunk";
 import { ISiteConfig } from "../../types/config";
 
 const initialState = {

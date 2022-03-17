@@ -11,7 +11,11 @@ const initialState = {
 export const adminSlice = createSlice ( {
     name: "adminSlice",
     initialState,
-    reducers: {},
+    reducers:{
+        logout: ( state, action) => {
+            state.username = ''
+        }
+    },
     extraReducers: {
         [adminLogin.fulfilled.type]: ( state, action) => {
             state.username = action.payload.data.username
@@ -25,4 +29,5 @@ export const adminSlice = createSlice ( {
     }
 } )
 
+export const {logout} = adminSlice.actions
 export default adminSlice.reducer

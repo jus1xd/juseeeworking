@@ -9,7 +9,7 @@ import {
   useAppSelector,
 } from "../../../hooks/useTypedSelector";
 import { changeColorsAndSiteLogo } from "../../../store/slices/configSlice";
-import { changeSiteConfig } from "../../../store/thunks/condifigThunk";
+import { changeSiteConfig } from "../../../store/thunks/configThunk";
 import Button from "../../Button/Button";
 import RootWrapper from "../../RootWrapper/RootWrapper";
 

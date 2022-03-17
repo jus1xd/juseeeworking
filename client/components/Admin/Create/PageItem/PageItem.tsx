@@ -4,21 +4,25 @@ import s from "./PageItem.module.css";
 import {useAppDispatch, useAppSelector} from "../../../../hooks/useTypedSelector";
 import {deleteProduct, getProduct} from "../../../../store/thunks/productThunk";
 import {useRouter} from "next/router";
+
 interface IPageProps {
     title: string,
     id: string
 }
 
-const PageItem: React.FC<IPageProps> = ( {title,id,src}: IPageProps ): JSX.Element => {
+const PageItem: React.FC<IPageProps> = ( {title, id, src}: IPageProps ): JSX.Element => {
     const username = useAppSelector ( state => state.adminSlice.username )
     const dispatch = useAppDispatch ()
-    const router = useRouter()
+    const router = useRouter ()
     const onDeleteHandler = () => {
         dispatch ( deleteProduct ( {id, username} ) )
     }
+    const product = useAppSelector ( state => state.productsSlice.product )
     const onEditHandler = () => {
-        dispatch(getProduct(id))
-        setTimeout(() =>   router.push('edit'), 100)
+        dispatch ( getProduct ( id ) )
+        if (Object.keys ( product ).length !== 0) {
+            router.push ( 'edit' )
+        }
     }
     return (
         <div className={s.wrapper}>

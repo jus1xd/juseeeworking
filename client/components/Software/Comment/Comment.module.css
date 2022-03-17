@@ -1,29 +1,51 @@
 .wrapper {
-  background: rgba(73, 75, 94, 0.4);
-  box-shadow: 0px 0px 30px rgba(37, 50, 69, 0.3);
-  border-radius: 7px;
-  width: max-content;
-  margin-bottom: 15px;
+    background: rgba(73, 75, 94, 0.4);
+    box-shadow: 0px 0px 30px rgba(37, 50, 69, 0.3);
+    border-radius: 7px;
+    width: max-content;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    position: relative;
 }
 
 .author {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .comment_item {
-  padding: 10px;
+    padding: 10px;
+}
+
+.comment_text {
+    padding-top: 5px;
 }
 
 .author_name {
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
-  margin-left: 10px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    margin-left: 10px;
 }
 
+.author_name_admin {
+    color: firebrick;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    margin-left: 10px;
+}
+.btnDel{
+    width: 16px;
+    height: 16px;
+    background: white;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 15px;
+}
 @media screen and (max-width: 600px) {
-  .wrapper {
-    width: 100%;
-  }
+    .wrapper {
+        width: 100%;
+    }
 }
