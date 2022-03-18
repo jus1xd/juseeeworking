@@ -7,7 +7,8 @@ import {useRouter} from "next/router";
 
 interface IPageProps {
     title: string,
-    id: string
+    id?: string
+    src: string
 }
 
 const PageItem: React.FC<IPageProps> = ( {title, id, src}: IPageProps ): JSX.Element => {

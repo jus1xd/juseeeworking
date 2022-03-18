@@ -1,29 +1,23 @@
+// @ts-nocheck
 import React, { useState } from "react";
 import s from "./Edit.module.css";
-
 import AdminInput from "../Input/Input";
 import { IProduct } from "../../../types/products";
 import {
   useAppDispatch,
   useAppSelector,
 } from "../../../hooks/useTypedSelector";
-import { addProduct, updateProduct } from "../../../store/thunks/productThunk";
+import {updateProduct } from "../../../store/thunks/productThunk";
 import RootWrapper from "../../RootWrapper/RootWrapper";
 
 const Edit: React.FC = ({}): JSX.Element => {
   const product = useAppSelector((state) => state.productsSlice.product);
   const username = useAppSelector((state) => state.adminSlice.username);
   const [title, setTitle] = useState<string>(product.title);
-  const [productPhoto, serProductPhoto] = useState<string>(
-    product.productPhoto
-  );
+  const [productPhoto, serProductPhoto] = useState<string>(product.productPhoto );
   const [description, setDescription] = useState<string>(product.description);
-  const [previewPictureFirst, setPreviewPictureFirst] = useState<string>(
-    product.previewPicture.firstPicture
-  );
-  const [previewPictureSecond, setPreviewPictureSecond] = useState<string>(
-    product.previewPicture.secondPicture
-  );
+  const [previewPictureFirst, setPreviewPictureFirst] = useState<string>( product.previewPicture.firstPicture );
+  const [previewPictureSecond, setPreviewPictureSecond] = useState<string>( product.previewPicture.secondPicture );
   const [fileFormat, setFileFormat] = useState<string>(product.fileFormat);
   const [fileSize, setFileSize] = useState<string>(product.fileSize);
   const [downloadSource, setDownloadSource] = useState<string>(

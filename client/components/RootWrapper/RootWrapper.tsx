@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {Dispatch, SetStateAction, useEffect} from "react";
 import {useAppDispatch, useAppSelector} from "../../hooks/useTypedSelector";
 import styled from "styled-components";
 import {getSiteConfig} from "../../store/thunks/configThunk";
@@ -35,40 +35,27 @@ const RootWrapper: React.FC<TProps> = ( {
                                             btnHoverColor,
                                             blockBg,
                                         } ): JSX.Element => {
-    const dispatch = useAppDispatch ();
-    const config = useAppSelector(state => state.configSlice.config)
-    useEffect ( () => {
-        dispatch ( getSiteConfig () );
-    }, [] );
+    const config = useAppSelector ( state => state.configSlice.config )
+    const headerColor = config.colors.headerColor
+    const underHeadColorCfg = config.colors.underHeadColor
+    const backgroundColor = config.colors.backgroundColor
+    const buttonColor = config.colors.buttonColor
+    const buttonHover = config.colors.buttonHoverColor
+    const blockBgColor = config.colors.blockBackgroundColor
     let curColor: string = "";
-    if (Object.keys ( config ).length !== 0) {
         if (headerBg) {
-            curColor = useAppSelector (
-                ( state ) => state.configSlice.config.colors.headerColor
-            );
+            curColor = headerColor
         } else if (underHeadColor) {
-            curColor = useAppSelector (
-                ( state ) => state.configSlice.config.colors.underHeaderColor
-            );
+            curColor = underHeadColorCfg
         } else if (appBg) {
-            curColor = useAppSelector (
-                ( state ) => state.configSlice.config.colors.backgroundColor
-            );
+            curColor = backgroundColor
         } else if (btnColor) {
-            curColor = useAppSelector (
-                ( state ) => state.configSlice.config.colors.buttonColor
-            );
+            curColor = buttonColor
         } else if (btnHoverColor) {
-            curColor = useAppSelector (
-                ( state ) => state.configSlice.config.colors.buttonHoverColor
-            );
+            curColor = buttonHover
         } else if (blockBg) {
-            curColor = useAppSelector (
-                ( state ) => state.configSlice.config.colors.blockBackgroundColor
-            );
+            curColor = blockBgColor
         }
-    }
-
 
     return (
         <>

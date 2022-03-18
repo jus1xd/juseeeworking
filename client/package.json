@@ -1,6 +1,7 @@
 {
   "name": "soft",
   "version": "0.1.0",
+  "homepage": "https://awesome-app.vercel.app",
   "private": true,
   "scripts": {
     "dev": "next dev",

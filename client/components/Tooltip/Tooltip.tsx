@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, {Dispatch, SetStateAction, useRef} from "react";
+import React, {Dispatch, SetStateAction} from "react";
 import {useAppDispatch, useAppSelector} from "../../hooks/useTypedSelector";
 import s from "./Tooltip.module.css";
 import {getByCategory} from "../../store/thunks/productThunk";
@@ -13,10 +13,10 @@ const Tooltip: React.FC<TProps> = ( {active, setActive} ): JSX.Element => {
     const categories = useAppSelector (
         ( state ) => state.configSlice.config.categories
     );
-    const dispatch = useAppDispatch()
-    const onClickHandler = (el) => {
+    const dispatch = useAppDispatch ()
+    const onClickHandler = ( el: any ) => {
         setActive ( false )
-        dispatch(getByCategory(el))
+        dispatch ( getByCategory ( el ) )
     }
     return (
         <div
@@ -26,7 +26,7 @@ const Tooltip: React.FC<TProps> = ( {active, setActive} ): JSX.Element => {
             <div className={s.wrapper}>
                 <div className={s.inner}>{categories && categories.map ( ( el, idx ) => (
                     <Link href="" key={idx}>
-                        <a className={s.nav_link} onClick={()=> onClickHandler(el)}>{el}</a>
+                        <a className={s.nav_link} onClick={() => onClickHandler ( el )}>{el}</a>
                     </Link>
                 ) )}</div>
             </div>
