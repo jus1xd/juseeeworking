@@ -5,7 +5,7 @@ import Header from "../components/Header/header";
 import Nav from "../components/Nav/nav";
 import SoftCard from "../components/SoftCard/SoftCard";
 import s from "../styles/Home.module.css";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useAppDispatch, useAppSelector} from "../hooks/useTypedSelector";
 import {getSiteConfig} from "../store/thunks/configThunk";
 import {getAllProducts} from "../store/thunks/productThunk";
