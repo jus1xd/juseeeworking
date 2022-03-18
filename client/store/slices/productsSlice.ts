@@ -5,13 +5,14 @@ import {
     addProduct,
     deleteComment,
     deleteProduct,
-    getAllProducts,
+    getAllProducts, getByCategory,
     getProduct,
     updateProduct
 } from "../thunks/productThunk";
 
 const initialState = {
     products: [{} as IProduct],
+    sortedProducts: [{} as IProduct],
     product: {},
     errors: ''
 }
@@ -19,7 +20,11 @@ const initialState = {
 const productSlice = createSlice ( {
     name: "productSlice",
     initialState,
-    reducers: {},
+    reducers: {
+        deleteSorted: (state, action) => {
+            state.sortedProducts.length = 0
+        }
+    },
     extraReducers: {
         [addProduct.fulfilled.type]: ( state, action ) => {
             state.products.push ( action.payload )
@@ -52,6 +57,10 @@ const productSlice = createSlice ( {
             const product = state.products.findIndex ( product => product._id == action.payload._id )
             state.products[product].comments = action.payload.comments
         },
+        [getByCategory.fulfilled.type]: ( state, action: PayloadAction<IProduct[]> ) => {
+            state.sortedProducts = action.payload
+        },
     }
 } )
+export const {deleteSorted} = productSlice.actions
 export default productSlice.reducer

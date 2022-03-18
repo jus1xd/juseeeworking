@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction, useState} from "react";
+import React from "react";
 import s from "./Comment.module.css";
 import Image from "next/image";
 import {useAppDispatch, useAppSelector} from "../../../hooks/useTypedSelector";

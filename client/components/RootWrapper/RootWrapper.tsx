@@ -36,11 +36,10 @@ const RootWrapper: React.FC<TProps> = ( {
                                             blockBg,
                                         } ): JSX.Element => {
     const dispatch = useAppDispatch ();
-
+    const config = useAppSelector(state => state.configSlice.config)
     useEffect ( () => {
         dispatch ( getSiteConfig () );
     }, [] );
-    const config = useAppSelector ( state => state.configSlice.config )
     let curColor: string = "";
     if (Object.keys ( config ).length !== 0) {
         if (headerBg) {
