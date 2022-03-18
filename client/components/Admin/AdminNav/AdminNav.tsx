@@ -2,8 +2,17 @@ import Link from "next/link";
 import React from "react";
 import RootWrapper from "../../RootWrapper/RootWrapper";
 import s from "./AdminNav.module.css";
+import {useAppDispatch} from "../../../hooks/useTypedSelector";
+import {logout} from "../../../store/slices/adminSlice";
+import {useRouter} from "next/router";
 
 const AdminNav: React.FC = ({}): JSX.Element => {
+  const dispatch = useAppDispatch()
+  const router = useRouter()
+  const onLogoutHandler = () => {
+    dispatch(logout())
+    router.push('/admin')
+  }
   return (
     <RootWrapper underHeadColor>
       <div className={s.wrapper}>
@@ -25,7 +34,7 @@ const AdminNav: React.FC = ({}): JSX.Element => {
               <div className={s.nav_item}>Помощь</div>
             </Link>
             <Link href="/admin/logout">
-              <div className={s.nav_item} style={{backgroundColor: "#ED4B4B90"}}>Выйти</div>
+              <div className={s.nav_item} style={{backgroundColor: "#ED4B4B90"}} onClick={onLogoutHandler }>Выйти</div>
             </Link>
           </div>
         </div>

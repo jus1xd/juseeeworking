@@ -1,18 +1,11 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import s from "./Nav.module.css";
-
-// import enFlag from "../public/img/enFlag.svg";
-import Image from "next/image";
-import Head from "next/head";
 import Link from "next/link";
 import Tooltip from "../Tooltip/Tooltip";
-import { useDispatch } from "react-redux";
-import { useAppSelector } from "../../hooks/useTypedSelector";
 import Button from "../Button/Button";
 
 const Nav: React.FC = ({}): JSX.Element => {
   const [tooltipActive, setTooltipActive] = useState<boolean>(false);
-
   return (
     <>
       <div className={s.wrapper}>
@@ -40,7 +33,7 @@ const Nav: React.FC = ({}): JSX.Element => {
               </a>
             </Link>
           </div>
-          <Tooltip setActive={setTooltipActive} active={tooltipActive} />
+          <Tooltip setActive={setTooltipActive} active={tooltipActive}/>
         </div>
       </div>
     </>

@@ -3,9 +3,6 @@ import { store } from "../store/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
-
-import { useAppSelector } from "../hooks/useTypedSelector";
-import RootWrapper from "../components/RootWrapper/RootWrapper";
 import { AppProps } from "next/app";
 const persistor = persistStore(store);
 

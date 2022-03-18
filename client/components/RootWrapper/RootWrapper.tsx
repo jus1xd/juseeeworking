@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/useTypedSelector";
 import styled from "styled-components";
-import { getSiteConfig } from "../../store/thunks/condifigThunk";
+import {getSiteConfig} from "../../store/thunks/configThunk";
 
 const AppWrapper = styled.div`
   background-color: ${(props) => props.color || "#08121D"};

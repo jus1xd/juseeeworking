@@ -10,8 +10,19 @@ const Rules: React.FC = ({}): JSX.Element => {
   const [tofTitle, setTofTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const dispatch = useAppDispatch();
+  const [isEdit, setIsEdit] = useState<boolean>(false);
+  const [isEmpty, setIsEmpty] = useState<boolean>(false);
+
   const onClickHandler = () => {
-    dispatch(changeTof({ tofTitle, description }));
+    if (
+      Object.values({ tofTitle, description }).every((item) => item.length != 0)
+    ) {
+      dispatch(changeTof({ tofTitle, description }));
+      setIsEdit(true);
+      setIsEmpty(false);
+    } else {
+      setIsEmpty(true), setIsEdit(false);
+    }
   };
   return (
     <>
@@ -38,11 +49,16 @@ const Rules: React.FC = ({}): JSX.Element => {
                 textArea
               />
               <div className={s.btn_wrapper} onClick={onClickHandler}>
-                <div className={s.main_btn}>
-                  <Button text={"Добавить"} />
-                </div>
+                <Button text="Добавить" />
               </div>
-              <div className={s.msg_container}>Правила успешно изменены</div>
+              {isEdit && (
+                <div className={s.msg_container}>
+                  Блок помощи успешно изменён
+                </div>
+              )}
+              {isEmpty && (
+                <div className={s.msg_container_red}>Не все поля заполнены</div>
+              )}
             </div>
           </div>
         </div>

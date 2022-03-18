@@ -66,7 +66,7 @@ export const getByCategory = createAsyncThunk (
 export const addComment = createAsyncThunk (
     "addComment",
     async ( data: any, thunkAPI ) => {
-        const comment = data.comment
+        const comment = data.user
         const res = await axios.post<Promise<IProduct>> (
             `http://localhost:5000/products/${data.id}`, {comment}, );
         return res.data;
@@ -76,12 +76,10 @@ export const deleteComment = createAsyncThunk (
     "deleteComment",
     async ( data: any, thunkAPI ) => {
         const comment = data.comment
-        const res = await axios.post<Promise<IProduct>> (
-            `http://localhost:5000/products/${data.id}`, {comment}, {
-                headers: {
-                    "adminUsername": data.username
-                }
-            } );
+        const res = await axios.delete<Promise<IProduct>> ( `http://localhost:5000/products/${data.id}`, {
+            data: comment,
+            headers: {"adminUsername": data.username}
+        } )
         return res.data;
     }
 );

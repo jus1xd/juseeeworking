@@ -141,4 +141,6 @@
 .msg_container {
   color: var(--light-blue);
 }
-
+.msg_container_red {
+  color: firebrick;
+}

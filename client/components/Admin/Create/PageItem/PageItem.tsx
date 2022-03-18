@@ -11,9 +11,11 @@ import {
 } from "../../../../store/thunks/productThunk";
 import { useRouter } from "next/router";
 import Button from "../../../Button/Button";
+
 interface IPageProps {
   title: string;
   id: string;
+  src: string;
 }
 
 const PageItem: React.FC<IPageProps> = ({
@@ -35,22 +37,24 @@ const PageItem: React.FC<IPageProps> = ({
     }
   };
   return (
-    <div className={s.wrapper}>
-      <div className={s.page_item}>
-        <div className={s.item_content}>
-          <img src={src} width={60} height={60} />
-          <div className={s.page_title}>{title}</div>
-        </div>
-        <div className={s.btns_container}>
-          <div className={s.main_btn} onClick={onEditHandler}>
-            <Button text="Изменить" />
+    <>
+      <div className={s.wrapper}>
+        <div className={s.page_item}>
+          <div className={s.item_content}>
+            <img src={src} width={60} height={60} />
+            <div className={s.page_title}>{title}</div>
           </div>
-          <div className={s.remove_btn} onClick={onDeleteHandler}>
-            Remove
+          <div className={s.btns_container}>
+            <div className={s.main_btn} onClick={onEditHandler}>
+              <Button text="Изменить" />
+            </div>
+            <div className={s.remove_btn} onClick={onDeleteHandler}>
+              Remove
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -7,7 +7,7 @@ import { IAdminData } from "../types/admin";
 import { useAppDispatch, useAppSelector } from "../hooks/useTypedSelector";
 import { adminLogin } from "../store/thunks/adminThunk";
 import { useRouter } from "next/router";
-import { getSiteConfig } from "../store/thunks/condifigThunk";
+import { getSiteConfig } from "../store/thunks/configThunk";
 import RootWrapper from "../components/RootWrapper/RootWrapper";
 import Button from "../components/Button/Button";
 

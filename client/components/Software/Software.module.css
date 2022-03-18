@@ -87,7 +87,11 @@
 }
 
 /* /buttons -------------------- */
-
+.error{
+  color: firebrick;
+  margin-top: 20px;
+  font-size: 18px;
+}
 .btn_wrapper {
   width: max-content;
   margin-top: 15px;
