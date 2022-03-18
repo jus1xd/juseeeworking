@@ -6,7 +6,7 @@ export const getSiteConfig = createAsyncThunk (
     "getSiteConfig",
     async ( _, thunkAPI ) => {
         const res = await axios.get<Promise<ISiteConfig>> (
-            `${process.env.BASE_URL}/config/getConfig`
+            `/config/getConfig`
         );
         return res.data;
     }
@@ -16,7 +16,7 @@ export const changeSiteConfig = createAsyncThunk (
     async ( data: any, thunkAPI ) => {
         const config = data.config
         const res = await axios.put<Promise<ISiteConfig>> (
-            `${process.env.BASE_URL}/config/updateConfig`, {config}, {
+            `/config/updateConfig`, {config}, {
                 headers: {
                     "adminUsername": data.username
                 }
