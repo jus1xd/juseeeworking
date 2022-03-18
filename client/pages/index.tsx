@@ -19,6 +19,7 @@ const Home: NextPage = () => {
         dispatch ( getAllProducts () );
     }, [] );
     const products = useAppSelector ( ( state ) => state.productsSlice.products );
+    const sortedProducts = useAppSelector ( state => state.productsSlice.sortedProducts )
     return (
         <>
             <RootWrapper appBg>
@@ -26,16 +27,28 @@ const Home: NextPage = () => {
                     <Header/>
                     <Nav/>
                     <div className={s.soft_cards}>
-                        {products.map ( ( product, idx ) => (
-                                <SoftCard
-                                    key={idx}
-                                    id={product._id}
-                                    title={product.title}
-                                    categories={product.categories}
-                                    description={product.description}
-                                    productPhoto={product.productPhoto}
-                                />
-                        ) )}
+                        {sortedProducts.length != 0 ? sortedProducts.map ( ( product, idx ) => (
+                            <SoftCard
+                                key={idx}
+                                id={product._id}
+                                title={product.title}
+                                categories={product.categories}
+                                description={product.description}
+                                productPhoto={product.productPhoto}
+                            />
+                        ) ) : products.map ( ( product, idx ) => (
+                            <SoftCard
+                                key={idx}
+                                id={product._id}
+                                title={product.title}
+                                categories={product.categories}
+                                description={product.description}
+                                productPhoto={product.productPhoto}
+                            />
+                        ) )
+
+
+                        }
                         <div className={s.totop_btn}>
                             <Image
                                 src="/img/icons/Home/totop.svg"
