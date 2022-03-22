@@ -48,7 +48,7 @@ const Create: React.FC = ( {} ): JSX.Element => {
             stepTwo: howToInstallSecond,
             stepThree: howToInstallThird,
         },
-        categories: categories.split ( "," ),
+        categories: categories.trim().split ( "," )
     };
     const dispatch = useAppDispatch ();
     const username = useAppSelector ( ( state ) => state.adminSlice.username );
