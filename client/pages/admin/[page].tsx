@@ -13,40 +13,43 @@ import s from "../../styles/Admin.module.css";
 import { useAppSelector } from "../../hooks/useTypedSelector";
 import Admin from "../admin";
 import RootWrapper from "../../components/RootWrapper/RootWrapper";
+import GlobalWrapper from "../../components/GlobalWrapper/GlobalWrapper";
 
 const Page: React.FC = ({}): JSX.Element => {
   const router = useRouter();
   const { page } = router.query;
   const username = useAppSelector((state) => state.adminSlice.username);
   return (
-    <RootWrapper appBg>
-      {username !== "" ? (
-        <div>
-          <Header />
-          <AdminNav />
-          <div className={s.content_wrapper}>
-            {page === "edit" ? (
-              <Edit />
-            ) : page === "create" ? (
-              <Create />
-            ) : page === "category" ? (
-              <Category />
-            ) : page === "rules" ? (
-              <Rules />
-            ) : page === "help" ? (
-              <Help />
-            ) : page === "appearance" ? (
-              <Appearance />
-            ) : (
-              ""
-            )}
+    <GlobalWrapper>
+      <RootWrapper appBg>
+        {username !== "" ? (
+          <div>
+            <Header />
+            <AdminNav />
+            <div className={s.content_wrapper}>
+              {page === "edit" ? (
+                <Edit />
+              ) : page === "create" ? (
+                <Create />
+              ) : page === "category" ? (
+                <Category />
+              ) : page === "rules" ? (
+                <Rules />
+              ) : page === "help" ? (
+                <Help />
+              ) : page === "appearance" ? (
+                <Appearance />
+              ) : (
+                ""
+              )}
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
-      ) : (
-        <Admin />
-      )}
-    </RootWrapper>
+        ) : (
+          <Admin />
+        )}
+      </RootWrapper>
+    </GlobalWrapper>
   );
 };
 

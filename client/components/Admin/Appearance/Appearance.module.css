@@ -63,6 +63,9 @@
   transition: 0.2s;
   opacity: 0.8;
 }
+.glob_input_inner {
+  display: flex;
+}
 
 .remove_btn {
   margin: 0 auto;
@@ -125,8 +128,10 @@
 }
 
 .colorpicker_row {
-  display: flex;
+  margin-top: 10px;
 }
+
+
 
 .color_preview {
   width: 40px;

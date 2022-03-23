@@ -11,13 +11,15 @@ import RootWrapper from "../../RootWrapper/RootWrapper";
 import Button from "../../Button/Button";
 
 const Help: React.FC = ({}): JSX.Element => {
-  const [helpTitle, setHelpTitle] = useState<string>("");
-  const [imageLink, setImageLink] = useState<string>("");
-  const [firstBlock, setFirstBlock] = useState<string>("");
-  const [secondTextBlock, setSecondTextBlock] = useState<string>("");
-  const dispatch = useAppDispatch();
   const config = useAppSelector((state) => state.configSlice.config);
   const username = useAppSelector((state) => state.adminSlice.username);
+  const [helpTitle, setHelpTitle] = useState<string>(config.help.helpTitle);
+  const [imageLink, setImageLink] = useState<string>(config.help.imageLink);
+  const [firstBlock, setFirstBlock] = useState<string>(config.help.firstBlock);
+  const [secondTextBlock, setSecondTextBlock] = useState<string>(
+    config.help.secondTextBlock
+  );
+  const dispatch = useAppDispatch();
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [isEmpty, setIsEmpty] = useState<boolean>(false);
   const onClickHandler = () => {
@@ -84,7 +86,7 @@ const Help: React.FC = ({}): JSX.Element => {
               />
               <div className={s.btn_wrapper}>
                 <div className={s.main_btn} onClick={onClickHandler}>
-                  <Button text={"Добавить"} />
+                  Добавить
                 </div>
               </div>
               {isEdit && (

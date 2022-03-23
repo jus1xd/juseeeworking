@@ -6,6 +6,7 @@ import { getSiteConfig } from "../../store/thunks/configThunk";
 const AppWrapper = styled.div`
   background-color: ${(props) => props.color || "#08121D"};
   height: max-content;
+  transition: .9s;
 `;
 
 const BtnWrapper = styled.div`
@@ -14,6 +15,12 @@ const BtnWrapper = styled.div`
   height: max-content;
   overflow: hidden;
   border-radius: 3px;
+  transition: .2s;
+
+  &:hover {
+    transition: .2s;
+    background-color: ${(props) => props.title || "#08121D"};
+  }
 `;
 
 type TProps = {
@@ -37,12 +44,14 @@ const RootWrapper: React.FC<TProps> = ({
 }): JSX.Element => {
   const config = useAppSelector((state) => state.configSlice.config);
   const headerColor = config.colors.headerColor;
-  const underHeadColorCfg = config.colors.underHeadColor;
+  const underHeadColorCfg = config.colors.underHeaderColor;
   const backgroundColor = config.colors.backgroundColor;
   const buttonColor = config.colors.buttonColor;
   const buttonHover = config.colors.buttonHoverColor;
   const blockBgColor = config.colors.blockBackgroundColor;
   let curColor: string = "";
+  let curColorHover: string = "";
+
   if (headerBg) {
     curColor = headerColor;
   } else if (underHeadColor) {
@@ -51,8 +60,9 @@ const RootWrapper: React.FC<TProps> = ({
     curColor = backgroundColor;
   } else if (btnColor) {
     curColor = buttonColor;
-  } else if (btnHoverColor) {
-    curColor = buttonHover;
+    if (btnHoverColor) {
+       curColorHover = buttonHover;
+    }
   } else if (blockBg) {
     curColor = blockBgColor;
   }
@@ -60,7 +70,9 @@ const RootWrapper: React.FC<TProps> = ({
   return (
     <>
       {btnColor ? (
-        <BtnWrapper color={curColor}>{children}</BtnWrapper>
+        <BtnWrapper color={curColor} title={curColorHover}>
+          {children}
+        </BtnWrapper>
       ) : (
         <AppWrapper color={curColor}>{children}</AppWrapper>
       )}

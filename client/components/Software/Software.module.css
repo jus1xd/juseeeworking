@@ -58,7 +58,7 @@
   width: 205px;
   height: 40px;
   transition: 0.2s;
-  background-color: var(--light-blue);
+  background-color: transparent;
   box-shadow: 0px 0px 30px rgba(16, 122, 212, 0.3);
 }
 
@@ -92,7 +92,7 @@
   font-size: 18px;
 }
 .btn_wrapper {
-  width: max-content;
+  width: 100%;
   margin-top: 15px;
 }
 
@@ -131,8 +131,8 @@
   align-items: center;
 }
 
-.soft_info {
-  margin-top: 50px;
+.soft_wrapper {
+  padding: 50px 0;
 }
 
 .info_inner {
@@ -160,7 +160,7 @@
 }
 
 .btn_wrapper_b {
-  width: max-content;
+  width: 175px;
   margin-right: 40px;
 }
 
@@ -173,11 +173,11 @@
 }
 
 .btn_wrapper_c {
-  width: max-content;
+  width: 18%;
 }
 
 .comments {
-  background: #0e2133;
+  background: transparent;
 }
 
 .comments_section {

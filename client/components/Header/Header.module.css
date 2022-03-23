@@ -63,7 +63,7 @@
 
 .find_input {
   outline: none;
-  background-color: var(--main-dark);
+  background-color: transparent;
   border: 2px solid white;
   border-radius: 5px;
   color: rgba(255, 255, 255, 1);

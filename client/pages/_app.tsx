@@ -6,12 +6,11 @@ import { persistStore } from "redux-persist";
 import { AppProps } from "next/app";
 const persistor = persistStore(store);
 
-
-function MyApp({Component, pageProps}: AppProps, props: any) {
+function MyApp({ Component, pageProps }: AppProps, props: any) {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-          <Component {...pageProps} />
+        <Component {...pageProps} />
       </PersistGate>
     </Provider>
   );

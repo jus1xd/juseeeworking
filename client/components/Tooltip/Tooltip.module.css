@@ -16,9 +16,9 @@
 }
 
 .wrapper {
-  padding: 12px 24px;
-  background: #0e2133;
+  background: transparent;
   border-radius: 10px;
+  overflow: hidden;
   position: absolute;
   z-index: 10;
   top: 140px;
@@ -37,4 +37,5 @@
 .inner {
   display: flex;
   flex-direction: column;
+  padding: 25px;
 }

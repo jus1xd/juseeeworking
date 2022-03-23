@@ -8,7 +8,7 @@ type TProps = {
 
 const Button: React.FC<TProps> = ({ text }): JSX.Element => {
   return (
-    <RootWrapper btnColor>
+    <RootWrapper btnColor btnHoverColor>
       <a className={s.main_btn}>{text}</a>
     </RootWrapper>
   );

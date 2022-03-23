@@ -1,18 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import s from "./Rules.module.css";
 import AdminInput from "../Input/Input";
-import { useAppDispatch } from "../../../hooks/useTypedSelector";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../hooks/useTypedSelector";
 import { changeTof } from "../../../store/slices/configSlice";
 import RootWrapper from "../../RootWrapper/RootWrapper";
 import Button from "../../Button/Button";
+import { changeSiteConfig } from "../../../store/thunks/configThunk";
 
 const Rules: React.FC = ({}): JSX.Element => {
-  const [tofTitle, setTofTitle] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
+  const config = useAppSelector((state) => state.configSlice.config);
+  const username = useAppSelector((state) => state.adminSlice.username);
+  const [tofTitle, setTofTitle] = useState<string>(config.tof.tofTitle);
+  const [description, setDescription] = useState<string>(
+    config.tof.description
+  );
   const dispatch = useAppDispatch();
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [isEmpty, setIsEmpty] = useState<boolean>(false);
-
+  useEffect(() => {
+    dispatch(changeSiteConfig({ config, username }));
+  }, [config]);
   const onClickHandler = () => {
     if (
       Object.values({ tofTitle, description }).every((item) => item.length != 0)
@@ -21,7 +31,8 @@ const Rules: React.FC = ({}): JSX.Element => {
       setIsEdit(true);
       setIsEmpty(false);
     } else {
-      setIsEmpty(true), setIsEdit(false);
+      setIsEmpty(true);
+      setIsEdit(false);
     }
   };
   return (

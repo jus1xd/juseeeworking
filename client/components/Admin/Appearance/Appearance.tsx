@@ -26,6 +26,7 @@ const Appearance: React.FC = ({}): JSX.Element => {
     colorConfig.underHeaderColor
   );
   const [fontColor, setFontColor] = useState<string>(colorConfig.fontColor);
+
   const [backgroundColor, setBackgroundColor] = useState<string>(
     colorConfig.backgroundColor
   );
@@ -73,10 +74,6 @@ const Appearance: React.FC = ({}): JSX.Element => {
     dispatch(changeSiteConfig({ config, username }));
   }, [config]);
 
-  const changeColorHandler = (e: any) => {
-    setHeaderColor(e.target.value);
-  };
-
   return (
     <>
       <div className={s.wrapper}>
@@ -88,136 +85,167 @@ const Appearance: React.FC = ({}): JSX.Element => {
             <div className={s.columns_container}>
               <div className={s.column}>
                 <div className={s.column_title}>Цвета сайта</div>
-
                 <div className={s.colorpicker_row}>
-                  <AdminInput
-                    placeholder={"Цвет хедера"}
-                    type={"text"}
-                    value={headerColor}
-                    setInputValue={setHeaderColor}
-                  />
-                  <div className={s.color_holder}>
-                    <input
-                      type="color"
-                      className={s.color_input}
+                  <div className={s.glob_input_wrap}>Цвет хедера</div>
+                  <div className={s.glob_input_inner}>
+                    <AdminInput
+                      placeholder={"Цвет хедера"}
+                      type={"text"}
                       value={headerColor}
-                      onChange={(e) => changeColorHandler(e)}
+                      setInputValue={setHeaderColor}
                     />
-                  </div>
-                  <div className={s.main_btn} onClick={onClickHandler}>
-                    <Button text={"Изменить"} />
+                    <div className={s.color_holder}>
+                      <input
+                        type="color"
+                        className={s.color_input}
+                        value={headerColor}
+                        onChange={(e) => setHeaderColor(e.target.value)}
+                      />
+                    </div>
+                    <div className={s.main_btn} onClick={onClickHandler}>
+                      <Button text={"Изменить"} />
+                    </div>
                   </div>
                 </div>
                 <div className={s.colorpicker_row}>
-                  <AdminInput
-                    placeholder={"Цвет под хедером"}
-                    type={"text"}
-                    value={underHeaderColor}
-                    setInputValue={setUnderHeaderColor}
-                  />
-                  <div className={s.color_holder}>
-                    <input
-                      type="color"
-                      className={s.color_input}
+                  <div className={s.glob_input_wrap}>Цвет под хедером</div>
+                  <div className={s.glob_input_inner}>
+                    <AdminInput
+                      placeholder={"Цвет под хедером"}
+                      type={"text"}
                       value={underHeaderColor}
-                      onChange={(e) => setUnderHeaderColor(e.target.value)}
+                      setInputValue={setUnderHeaderColor}
                     />
-                  </div>
-                  <div className={s.main_btn} onClick={onClickHandler}>
-                    <Button text={"Изменить"} />
+                    <div className={s.color_holder}>
+                      <input
+                        type="color"
+                        className={s.color_input}
+                        value={underHeaderColor}
+                        onChange={(e) => setUnderHeaderColor(e.target.value)}
+                      />
+                    </div>
+                    <div className={s.main_btn} onClick={onClickHandler}>
+                      <Button text={"Изменить"} />
+                    </div>
                   </div>
                 </div>
+
                 <div className={s.colorpicker_row}>
-                  {/*<AdminInput*/}
-                  {/*  placeholder={"Цвет шрифта"}*/}
-                  {/*  type={"text"}*/}
-                  {/*  value={fontColor}*/}
-                  {/*  setInputValue={setFontColor}*/}
-                  {/*/>*/}
-                  {/*<RootWrapper underHeadColor>*/}
-                  {/*  <div className={s.color_preview} />*/}
-                  {/*</RootWrapper>*/}
-                  {/*<div className={s.main_btn} onClick={onClickHandler}>*/}
-                  {/*  <Button text={"Изменить"} />*/}
-                  {/*</div>*/}
-                </div>
-                <div className={s.colorpicker_row}>
-                  <AdminInput
-                    placeholder={"Цвет заднего фона"}
-                    type={"text"}
-                    value={backgroundColor}
-                    setInputValue={setBackgroundColor}
-                  />
-                  <div className={s.color_holder}>
-                    <input
-                      type="color"
-                      className={s.color_input}
+                  <div className={s.glob_input_wrap}>Цвет заднего фона</div>
+                  <div className={s.glob_input_inner}>
+                    <AdminInput
+                      placeholder={"Цвет заднего фона"}
+                      type={"text"}
                       value={backgroundColor}
-                      onChange={(e) => setBackgroundColor(e.target.value)}
+                      setInputValue={setBackgroundColor}
                     />
-                  </div>
+                    <div className={s.color_holder}>
+                      <input
+                        type="color"
+                        className={s.color_input}
+                        value={backgroundColor}
+                        onChange={(e) => setBackgroundColor(e.target.value)}
+                      />
+                    </div>
 
-                  <div className={s.main_btn} onClick={onClickHandler}>
-                    <Button text={"Изменить"} />
+                    <div className={s.main_btn} onClick={onClickHandler}>
+                      <Button text={"Изменить"} />
+                    </div>
                   </div>
                 </div>
                 <div className={s.colorpicker_row}>
-                  <AdminInput
-                    placeholder={"Цвет заднего фона блока"}
-                    type={"text"}
-                    value={blockBackgroundColor}
-                    setInputValue={setBlockBackgroundColor}
-                  />
-                  <div className={s.color_holder}>
-                    <input
-                      type="color"
-                      className={s.color_input}
+                  <div className={s.glob_input_wrap}>
+                    Цвет заднего фона блока
+                  </div>
+                  <div className={s.glob_input_inner}>
+                    <AdminInput
+                      placeholder={"Цвет заднего фона блока"}
+                      type={"text"}
                       value={blockBackgroundColor}
-                      onChange={(e) => setBlockBackgroundColor(e.target.value)}
+                      setInputValue={setBlockBackgroundColor}
                     />
-                  </div>
+                    <div className={s.color_holder}>
+                      <input
+                        type="color"
+                        className={s.color_input}
+                        value={blockBackgroundColor}
+                        onChange={(e) =>
+                          setBlockBackgroundColor(e.target.value)
+                        }
+                      />
+                    </div>
 
-                  <div className={s.main_btn} onClick={onClickHandler}>
-                    <Button text={"Изменить"} />
+                    <div className={s.main_btn} onClick={onClickHandler}>
+                      <Button text={"Изменить"} />
+                    </div>
                   </div>
                 </div>
                 <div className={s.colorpicker_row}>
-                  <AdminInput
-                    placeholder={"Цвет кнопки"}
-                    type={"text"}
-                    value={buttonColor}
-                    setInputValue={setButtonColor}
-                  />
-                  <div className={s.color_holder}>
-                    <input
-                      type="color"
-                      className={s.color_input}
+                  <div className={s.glob_input_wrap}>Цвет кнопки</div>
+                  <div className={s.glob_input_inner}>
+                    <AdminInput
+                      placeholder={"Цвет кнопки"}
+                      type={"text"}
                       value={buttonColor}
-                      onChange={(e) => setButtonColor(e.target.value)}
+                      setInputValue={setButtonColor}
                     />
-                  </div>
+                    <div className={s.color_holder}>
+                      <input
+                        type="color"
+                        className={s.color_input}
+                        value={buttonColor}
+                        onChange={(e) => setButtonColor(e.target.value)}
+                      />
+                    </div>
 
-                  <div className={s.main_btn} onClick={onClickHandler}>
-                    <Button text={"Изменить"} />
+                    <div className={s.main_btn} onClick={onClickHandler}>
+                      <Button text={"Изменить"} />
+                    </div>
                   </div>
                 </div>
                 <div className={s.colorpicker_row}>
-                  <AdminInput
-                    placeholder={"Цвет при Hover кнопки"}
-                    type={"text"}
-                    value={buttonHoverColor}
-                    setInputValue={setButtonHoverColor}
-                  />
-                  <div className={s.color_holder}>
-                    <input
-                      type="color"
-                      className={s.color_input}
-                      value={buttonHoverColor}
-                      onChange={(e) => setButtonHoverColor(e.target.value)}
+                  <div className={s.glob_input_wrap}>Цвет шрифта</div>
+                  <div className={s.glob_input_inner}>
+                    <AdminInput
+                      placeholder={"Цвет шрифта"}
+                      type={"text"}
+                      value={fontColor}
+                      setInputValue={setFontColor}
                     />
+                    <div className={s.color_holder}>
+                      <input
+                        type="color"
+                        className={s.color_input}
+                        value={fontColor}
+                        onChange={(e) => setFontColor(e.target.value)}
+                      />
+                    </div>
+                    <div className={s.main_btn} onClick={onClickHandler}>
+                      <Button text={"Изменить"} />
+                    </div>
                   </div>
-                  <div className={s.main_btn} onClick={onClickHandler}>
-                    <Button text={"Изменить"} />
+                </div>
+
+                <div className={s.colorpicker_row}>
+                  <div className={s.glob_input_wrap}>Цвет при Hover кнопки</div>
+                  <div className={s.glob_input_inner}>
+                    <AdminInput
+                      placeholder={"Цвет при Hover кнопки"}
+                      type={"text"}
+                      value={buttonHoverColor}
+                      setInputValue={setButtonHoverColor}
+                    />
+                    <div className={s.color_holder}>
+                      <input
+                        type="color"
+                        className={s.color_input}
+                        value={buttonHoverColor}
+                        onChange={(e) => setButtonHoverColor(e.target.value)}
+                      />
+                    </div>
+                    <div className={s.main_btn} onClick={onClickHandler}>
+                      <Button text={"Изменить"} />
+                    </div>
                   </div>
                 </div>
                 {isEdit && (

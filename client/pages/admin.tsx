@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import { getSiteConfig } from "../store/thunks/configThunk";
 import RootWrapper from "../components/RootWrapper/RootWrapper";
 import Button from "../components/Button/Button";
+import GlobalWrapper from "../components/GlobalWrapper/GlobalWrapper";
 
 const Admin: React.FC = ({}): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -38,37 +39,41 @@ const Admin: React.FC = ({}): JSX.Element => {
   };
   return (
     <>
-      <RootWrapper appBg>
-        <Header />
-        <div className={s.login_wrapper}>
-          <div className={s.container}>
-            <div className={s.log_inner}>
-              <div className={s.login_title}>Admin Panel</div>
-              <div className={s.inputs_container}>
-                <AdminInput
-                  placeholder={"Login"}
-                  type={"text"}
-                  value={username}
-                  setInputValue={setUsername}
-                />
-                <AdminInput
-                  placeholder={"Password"}
-                  type={"password"}
-                  value={password}
-                  setInputValue={setPassword}
-                />
+      <GlobalWrapper>
+        <RootWrapper appBg>
+          <Header />
+          <div className={s.login_wrapper}>
+            <div className={s.container}>
+              <div className={s.log_inner}>
+                <div className={s.login_title}>Admin Panel</div>
+                <div className={s.inputs_container}>
+                  <AdminInput
+                    placeholder={"Login"}
+                    type={"text"}
+                    value={username}
+                    setInputValue={setUsername}
+                  />
+                  <AdminInput
+                    placeholder={"Password"}
+                    type={"password"}
+                    value={password}
+                    setInputValue={setPassword}
+                  />
+                </div>
+                <div className={s.main_btn} onClick={onAdminSubmit}>
+                  <Button text={"Log in"} />
+                </div>
+                {errors && (
+                  <div className={s.error_message}>
+                    Invalid login or password
+                  </div>
+                )}
               </div>
-              <div className={s.main_btn} onClick={onAdminSubmit}>
-                <Button text={"Log in"} />
-              </div>
-              {errors && (
-                <div className={s.error_message}>Invalid login or password</div>
-              )}
             </div>
           </div>
-        </div>
-        <Footer />
-      </RootWrapper>
+          <Footer />
+        </RootWrapper>
+      </GlobalWrapper>
     </>
   );
 };

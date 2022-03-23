@@ -24,7 +24,7 @@ a {
   box-sizing: border-box;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   background-color: var(--sec-dark);
   width: 10px;
 }
@@ -37,4 +37,4 @@ a {
   border-radius: 5px;
   width: 5px;
   background-color: var(--light-blue);
-}
+} */

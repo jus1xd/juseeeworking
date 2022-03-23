@@ -5,10 +5,12 @@ import Nav from "../components/Nav/nav";
 import RootWrapper from "../components/RootWrapper/RootWrapper";
 import s from "../styles/Help.module.css";
 import { useAppSelector } from "../hooks/useTypedSelector";
+import GlobalWrapper from "../components/GlobalWrapper/GlobalWrapper";
 
 const Help: React.FC = ({}): JSX.Element => {
   const config = useAppSelector((state) => state.configSlice.config);
   return (
+    <GlobalWrapper>
     <RootWrapper appBg>
       <Header />
       <Nav />
@@ -31,6 +33,7 @@ const Help: React.FC = ({}): JSX.Element => {
       </div>
       <Footer />
     </RootWrapper>
+    </GlobalWrapper>
   );
 };
 
