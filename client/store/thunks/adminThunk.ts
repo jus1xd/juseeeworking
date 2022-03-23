@@ -6,7 +6,7 @@ export const adminLogin = createAsyncThunk (
     "adminLogin",
     async ( adminData: IAdminData, thunkAPI ) => {
         return await axios.post<Promise<IAdminData>> (
-            "http://localhost:5000/admin/login", {...adminData},
+            `/admin/login`, {...adminData},
             {
                 headers: {
                     "adminUsername": adminData.username

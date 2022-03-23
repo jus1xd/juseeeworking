@@ -3,12 +3,11 @@ import React, {useRef, useState} from "react";
 import s from "./Software.module.css";
 import Image from "next/image";
 import Comment from "./Comment/Comment";
-import {IProduct} from "../../types/products";
 import RootWrapper from "../RootWrapper/RootWrapper";
 import {useAppDispatch, useAppSelector} from "../../hooks/useTypedSelector";
 import {addComment} from "../../store/thunks/productThunk";
 
-const Software = ( {id}: string ) => {
+const Software = ( {id} ) => {
     const product = useAppSelector ( state => state.productsSlice.products.find ( item => item._id == id ) )
     const sliderContent = useRef ( null );
     let [curPosition, setCurPosition] = useState<number> ( 0 );
@@ -21,7 +20,6 @@ const Software = ( {id}: string ) => {
             setCurPosition ( 412 );
         }
     };
-    console.log ( isEmpty )
     const prevHandler = () => {
         if (curPosition <= -412) {
             setCurPosition ( ( curPosition += 412 ) );

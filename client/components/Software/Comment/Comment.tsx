@@ -14,7 +14,7 @@ const Comment = ( {commentText, author, id}: ICommentProps ): JSX.Element => {
     const username = useAppSelector ( state => state.adminSlice.username )
     const dispatch = useAppDispatch ()
     const onDeleteHandler = () => {
-            dispatch ( deleteComment ( {comment: {username: author, text: commentText}, username, id} ) )
+        dispatch ( deleteComment ( {comment: {username: author, text: commentText}, username, id} ) )
     }
     return (
         <>
@@ -24,13 +24,14 @@ const Comment = ( {commentText, author, id}: ICommentProps ): JSX.Element => {
                         <div className={s.author_avatar}>
                             <Image src="/img/icons/Software/avatar.svg" width={40} height={40}/>
                         </div>
-                        <div className={author == 'Admin' ? s.author_name_admin : s.author_name}>{author}</div>
+                        <div
+                            className={username == 'Admin' || author == 'Admin' ? s.author_name_admin : s.author_name}>{author}</div>
                     </div>
                     <div className={s.comment_text}>
                         {commentText}
                     </div>
                 </div>
-                {author === 'Admin' && <div className={s.btnDel} onClick={onDeleteHandler}/>}
+                {username && <div className={s.btnDel} onClick={onDeleteHandler}/>}
             </div>
         </>
     );

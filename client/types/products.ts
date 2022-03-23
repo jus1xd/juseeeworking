@@ -20,7 +20,7 @@ export interface IProduct {
 }
 
 export interface IProductProps {
-    id: string
+    id?: string
     title: string
     categories: string[]
     description: string

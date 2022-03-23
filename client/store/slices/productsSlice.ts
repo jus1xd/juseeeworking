@@ -21,7 +21,7 @@ const productSlice = createSlice ( {
     name: "productSlice",
     initialState,
     reducers: {
-        deleteSorted: (state, action) => {
+        deleteSorted: ( state ) => {
             state.sortedProducts.length = 0
         }
     },
@@ -46,12 +46,14 @@ const productSlice = createSlice ( {
         },
         [updateProduct.fulfilled.type]: ( state, action: PayloadAction<IProduct> ) => {
             const product = state.products.find ( product => product._id == action.payload._id )
+            // @ts-ignore
             const productId = state.products.indexOf ( product )
             state.products[productId] = action.payload
         },
         [addComment.fulfilled.type]: ( state, action: PayloadAction<IProduct> ) => {
             const product = state.products.findIndex ( product => product._id == action.payload._id )
-            state.products[product].comments.push ( action.payload.comments[0] )
+            // @ts-ignore
+            state.products[product].comments.push ( action.payload.comments[action.payload.comments.length - 1] )
         },
         [deleteComment.fulfilled.type]: ( state, action: PayloadAction<IProduct> ) => {
             const product = state.products.findIndex ( product => product._id == action.payload._id )

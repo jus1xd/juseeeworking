@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { Dispatch, SetStateAction, useRef } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/useTypedSelector";
 import s from "./Tooltip.module.css";
 import { getByCategory } from "../../store/thunks/productThunk";
@@ -14,7 +14,7 @@ const Tooltip: React.FC<TProps> = ({ active, setActive }): JSX.Element => {
     (state) => state.configSlice.config.categories
   );
   const dispatch = useAppDispatch();
-  const onClickHandler = (el) => {
+  const onClickHandler = (el: any) => {
     setActive(false);
     dispatch(getByCategory(el));
   };

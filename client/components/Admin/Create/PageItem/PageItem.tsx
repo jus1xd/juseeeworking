@@ -13,9 +13,9 @@ import { useRouter } from "next/router";
 import Button from "../../../Button/Button";
 
 interface IPageProps {
-  title: string;
-  id: string;
-  src: string;
+    title: string,
+    id?: string
+    src: string
 }
 
 const PageItem: React.FC<IPageProps> = ({

@@ -12,7 +12,7 @@ export const adminSlice = createSlice ( {
     name: "adminSlice",
     initialState,
     reducers:{
-        logout: ( state, action) => {
+        logout: ( state) => {
             state.username = ''
         }
     },
