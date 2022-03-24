@@ -31,6 +31,7 @@ const productModel = new Schema<IProduct> ( {
     fileFormat: {type: String, required: true},
     fileSize: {type: String, required: true},
     downloadSource: {type: String, required: true},
+    downloadLink: {type: String, required: true},
     unlockPassword: {type: String, required: true},
     downloadLinks: {
         firstLink: {type: String, required: true},

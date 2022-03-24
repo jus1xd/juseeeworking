@@ -11,6 +11,7 @@ export interface IProduct {
     previewPicture: Record<string, string>,
     fileFormat: string
     fileSize: string
+    downloadLink : string
     downloadSource: string
     unlockPassword: string
     downloadLinks: Record<string, string>,

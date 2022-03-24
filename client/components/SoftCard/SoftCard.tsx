@@ -31,35 +31,38 @@ const SoftCard = ( {
                             <div className={s.main_content}>
                                 <div className={s.sub_content}>
                                     <Link href={`./software/${id}`}>
-                                        <a className={s.card_title}>{title}</a>
+                                        <div className={s.card_title}>{title}</div>
                                     </Link>
                                     <div className={s.card_tags}>
-                                        {categories && categories.map ( ( item, idx ) => <Tag key={idx} tagText={item}/> )}
+                                        {categories && categories.map ( ( item, idx ) => <Tag key={idx}
+                                                                                              tagText={item}/> )}
                                     </div>
                                 </div>
                                 <Link href={`./software/${id}`}>
-                                    <a className={s.main_btn}>
+                                    <div className={s.main_btn}>
                                         <Button text={"Details"}/>
-                                    </a>
+                                    </div>
                                 </Link>
                             </div>
-                            <div className={s.card_description}>{description}</div>
+                            <div
+                                dangerouslySetInnerHTML={{__html: description.replace ( new RegExp ( '\r?\n', 'g' ), '<br />' )}}
+                                className={s.card_description}/>
                         </div>
                     </div>
 
                     <div className={s.mob_card_inner}>
                         <div className={s.card_main_content}>
                             <Link href={`/software/${id}`}>
-                                <a className={s.card_photo}>
+                                <div className={s.card_photo}>
                                     <Image
                                         src="/img/SoftCard/cardAvatar.png"
                                         width={68}
                                         height={68}
                                     />
-                                </a>
+                                </div>
                             </Link>
                             <Link href={`/software/${id}`}>
-                                <a className={s.card_title}>{title}</a>
+                                <div className={s.card_title}>{title}</div>
                             </Link>
                         </div>
 

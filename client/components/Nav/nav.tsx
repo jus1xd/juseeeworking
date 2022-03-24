@@ -21,19 +21,19 @@ const Nav: React.FC = ( {} ): JSX.Element => {
                             Choose category
                         </div>
                         <Link href="/">
-                            <a className={s.nav_button} onClick={() => dispatch ( deleteSorted () )}>
+                            <div className={s.nav_button} onClick={() => dispatch ( deleteSorted () )}>
                                 <Button text={"Home Page"}/>
-                            </a>
+                            </div>
                         </Link>
                         <Link href="/help">
-                            <a className={s.nav_button}>
+                            <div className={s.nav_button}>
                                 <Button text={"Help"}/>
-                            </a>
+                            </div>
                         </Link>
                         <Link href="/terms">
-                            <a className={s.nav_button}>
+                            <div className={s.nav_button}>
                                 <Button text={"ToF"}/>
-                            </a>
+                            </div>
                         </Link>
                     </div>
                     <Tooltip setActive={setTooltipActive} active={tooltipActive}/>
