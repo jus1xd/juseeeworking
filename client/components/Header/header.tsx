@@ -1,10 +1,9 @@
+// @ts-nocheck
 import React, {Dispatch, SetStateAction, useState} from "react";
 import s from "./Header.module.css";
-
 import enFlag from "../../public/img/icons/Header/enFlag.svg";
 import burger from "../../public/img/icons/Header/burger.svg";
 import closeNav from "../../public/img/icons/Header/close.svg";
-
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";

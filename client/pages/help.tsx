@@ -20,7 +20,7 @@ const Help: React.FC = ( {} ): JSX.Element => {
                             <div className={s.help_title}>{config.help.helpTitle}</div>
                             <div
                                 dangerouslySetInnerHTML={{__html: config.help.firstBlock.replace ( new RegExp ( '\r?\n', 'g' ), '<br />' )}}
-                                className={s.help_text}>{}</div>
+                                className={s.help_text}/>
                             <div style={{margin: "44px 0px"}}>
                                 <img
                                     src={config.help.imageLink}
