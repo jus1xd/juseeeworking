@@ -18,7 +18,7 @@ const Home: NextPage = () => {
     const products = useAppSelector ( state => state.productsSlice.products );
     const sortedProducts = useAppSelector ( state => state.productsSlice.sortedProducts );
     const config = useAppSelector ( state => state.configSlice.config );
-    const searchString = useAppSelector(state => state.productsSlice.searchString)
+    const searchString = useAppSelector ( state => state.productsSlice.searchString )
     const dispatch = useAppDispatch ();
     const {history} = useHistory ()
     useEffect ( () => {
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
     }, [] );
     return (
         <>
-            {Object.keys ( config ).length !== 0 && (
+            {Object.keys ( config ).length !== 0 && products.length !== 0 && (
                 <GlobalWrapper>
                     <RootWrapper appBg>
                         <div className={s.wrapper}>
@@ -46,7 +46,7 @@ const Home: NextPage = () => {
                                             productPhoto={product.productPhoto}
                                         />
                                     ) )
-                                    : products.filter ( item => item?.title?.toLowerCase ().includes ( searchString.toLowerCase () ) ).map ( ( product, idx ) => (
+                                    : products.length !== 0 ? products.filter ( item => item?.title?.toLowerCase ().includes ( searchString.toLowerCase () ) ).map ( ( product, idx ) => (
                                         <SoftCard
                                             key={idx}
                                             id={product._id}
@@ -55,7 +55,7 @@ const Home: NextPage = () => {
                                             description={product.description}
                                             productPhoto={product.productPhoto}
                                         />
-                                    ) )}
+                                    ) ) : ''}
                                 <div className={s.totop_btn}>
                                     <Image
                                         src="/img/icons/Home/totop.svg"

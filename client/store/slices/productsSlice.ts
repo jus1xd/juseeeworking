@@ -19,7 +19,7 @@ interface IInitialState {
 }
 
 const initialState: IInitialState = {
-    products: [{} as IProduct],
+    products: [],
     sortedProducts: [],
     product: {} as IProduct,
     errors: '',
