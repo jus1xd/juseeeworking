@@ -46,16 +46,16 @@ const Home: NextPage = () => {
                                             productPhoto={product.productPhoto}
                                         />
                                     ) )
-                                    : products.length !== 0 ? products.filter ( item => item?.title?.toLowerCase ().includes ( searchString?.toLowerCase () ) ).map ( ( product, idx ) => (
-                                        <SoftCard
-                                            key={idx}
-                                            id={product._id}
-                                            title={product.title}
-                                            categories={product.categories}
-                                            description={product.description}
-                                            productPhoto={product.productPhoto}
-                                        />
-                                    ) ) : ''}
+                                    : products.length !== 0 && products.filter ( item => item?.title?.toLowerCase ().includes ( searchString?.toLowerCase () ) ).map ( ( product, idx ) => (
+                                    <SoftCard
+                                        key={idx}
+                                        id={product._id}
+                                        title={product.title}
+                                        categories={product.categories}
+                                        description={product.description}
+                                        productPhoto={product.productPhoto}
+                                    />
+                                ) )}
                                 <div className={s.totop_btn}>
                                     <Image
                                         src="/img/icons/Home/totop.svg"
