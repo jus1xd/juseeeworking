@@ -18,7 +18,8 @@ const Home: NextPage = () => {
     const products = useAppSelector ( state => state.productsSlice.products );
     const sortedProducts = useAppSelector ( state => state.productsSlice.sortedProducts );
     const config = useAppSelector ( state => state.configSlice.config );
-    const searchString = useAppSelector ( state => state.productsSlice.searchString )
+    const searchStringUncheck = useAppSelector ( state => state.productsSlice.searchString )
+    const searchString = searchStringUncheck ? searchStringUncheck : ''
     const dispatch = useAppDispatch ();
     const {history} = useHistory ()
     useEffect ( () => {
@@ -36,7 +37,7 @@ const Home: NextPage = () => {
                             <Nav/>
                             <div className={s.soft_cards}>
                                 {sortedProducts.length !== 0
-                                    ? sortedProducts.filter ( item => item?.title?.toLowerCase ().includes ( searchString?.toLowerCase () ) ).map ( ( product, idx ) => (
+                                    ? sortedProducts.filter ( item => item?.title?.toLowerCase ().includes (searchString.toLowerCase () ) ).map ( ( product, idx ) => (
                                         <SoftCard
                                             key={idx}
                                             id={product._id}
