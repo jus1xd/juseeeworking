@@ -8,6 +8,7 @@ import {
 import {changeHelp} from "../../../store/slices/configSlice";
 import {changeSiteConfig} from "../../../store/thunks/configThunk";
 import RootWrapper from "../../RootWrapper/RootWrapper";
+import Button from "../../Button/Button";
 
 const Help: React.FC = ( {} ): JSX.Element => {
     const config = useAppSelector ( ( state ) => state.configSlice.config );
@@ -83,7 +84,7 @@ const Help: React.FC = ( {} ): JSX.Element => {
                             />
                             <div className={s.btn_wrapper}>
                                 <div className={s.main_btn} onClick={onClickHandler}>
-                                    Добавить
+                                    <Button text={"Добавить"}/>
                                 </div>
                             </div>
                             {isEdit && (

@@ -23,6 +23,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  .wrapper{
+    min-height: calc(100vh - 116px)
+  }
   .soft_cards {
     margin-top: 30px;
   }

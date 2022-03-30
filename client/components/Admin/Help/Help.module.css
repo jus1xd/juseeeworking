@@ -88,7 +88,7 @@
 
 .error_container {
   text-align: center;
-  color: rgb(165, 33, 33);
+  color: rgb(165, 33, 33) !important;
   margin-bottom: 30px;
 }
 
@@ -138,10 +138,10 @@
 }
 
 .msg_container {
-   color: var(--light-blue);
+   color: var(--light-blue) !important;
  }
 .msg_container_red {
-  color: firebrick;
+  color: firebrick !important;
 }
 
 .inputs_container {

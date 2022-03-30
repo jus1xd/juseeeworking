@@ -94,7 +94,7 @@
 
 .error_container {
   text-align: center;
-  color: rgb(165, 33, 33);
+  color: rgb(165, 33, 33) !important;
   margin-bottom: 30px;
 }
 
@@ -152,12 +152,12 @@
 
 .msg_container {
   margin-top: 15px;
-  color: var(--light-blue);
+  color: var(--light-blue) !important;
 }
 
 .msg_container_red {
   margin-top: 15px;
-  color: firebrick;
+  color: firebrick !important;
 }
 
 .color_input {

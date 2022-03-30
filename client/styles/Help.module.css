@@ -11,7 +11,10 @@
   margin-bottom: 20px;
   min-height: calc(100vh - 280px);
 }
-
+.help__logo{
+  max-width: 100%;
+  width: 100%;
+}
 .help_title {
   font-weight: 500;
   font-size: 40px;
@@ -30,7 +33,7 @@
 
 @media screen and (max-width: 600px) {
   .wrapper {
-    margin-top: 20px;
+    margin-top: 74px;
   }
 
   .help_title {

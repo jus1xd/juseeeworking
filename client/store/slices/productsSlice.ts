@@ -1,5 +1,5 @@
 import {IProduct} from "../../types/products";
-import {createSlice, current, PayloadAction} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {
     addComment,
     addProduct,
@@ -10,11 +10,20 @@ import {
     updateProduct
 } from "../thunks/productThunk";
 
-const initialState = {
+interface IInitialState {
+    products: IProduct[],
+    sortedProducts: IProduct[],
+    product: IProduct
+    errors: string
+    searchString: string
+}
+
+const initialState: IInitialState = {
     products: [{} as IProduct],
-    sortedProducts: [{} as IProduct],
-    product: {},
-    errors: ''
+    sortedProducts: [],
+    product: {} as IProduct,
+    errors: '',
+    searchString: ''
 }
 
 const productSlice = createSlice ( {
@@ -23,6 +32,9 @@ const productSlice = createSlice ( {
     reducers: {
         deleteSorted: ( state ) => {
             state.sortedProducts.length = 0
+        },
+        changeSortString: ( state, action ) => {
+            state.searchString = action.payload
         }
     },
     extraReducers: {
@@ -64,5 +76,5 @@ const productSlice = createSlice ( {
         },
     }
 } )
-export const {deleteSorted} = productSlice.actions
+export const {deleteSorted, changeSortString} = productSlice.actions
 export default productSlice.reducer

@@ -12,28 +12,30 @@ import {getAllProducts} from "../store/thunks/productThunk";
 import RootWrapper from "../components/RootWrapper/RootWrapper";
 import {deleteSorted} from "../store/slices/productsSlice";
 import GlobalWrapper from "../components/GlobalWrapper/GlobalWrapper";
+import {useHistory} from "../hooks/historyProvider";
 
 const Home: NextPage = () => {
+    const products = useAppSelector ( state => state.productsSlice.products );
+    const sortedProducts = useAppSelector ( state => state.productsSlice.sortedProducts );
+    const config = useAppSelector ( state => state.configSlice.config );
+    const searchString = useAppSelector(state => state.productsSlice.searchString)
     const dispatch = useAppDispatch ();
+    const {history} = useHistory ()
     useEffect ( () => {
-        dispatch ( getSiteConfig () );
-        dispatch ( getAllProducts () );
-        dispatch ( deleteSorted () );
+        dispatch ( getSiteConfig () )
+        dispatch ( getAllProducts () )
+        if (history[history.length - 2] == '/help' || history[history.length - 2] == '/terms' || history[history.length - 1] == '/') dispatch ( deleteSorted () )
     }, [] );
-    const products = useAppSelector ( ( state ) => state.productsSlice.products );
-    const sortedProducts = useAppSelector ( ( state ) => state.productsSlice.sortedProducts );
-    const config = useAppSelector ( ( state ) => state.configSlice.config );
-    const [searchString, setSearchString] = useState<string> ( '' )
     return (
         <>
             {Object.keys ( config ).length !== 0 && (
                 <GlobalWrapper>
                     <RootWrapper appBg>
                         <div className={s.wrapper}>
-                            <Header searchString={searchString} setSearchString={setSearchString} />
+                            <Header/>
                             <Nav/>
                             <div className={s.soft_cards}>
-                                {sortedProducts.length != 0
+                                {sortedProducts.length !== 0
                                     ? sortedProducts.filter ( item => item.title.toLowerCase ().includes ( searchString.toLowerCase () ) ).map ( ( product, idx ) => (
                                         <SoftCard
                                             key={idx}

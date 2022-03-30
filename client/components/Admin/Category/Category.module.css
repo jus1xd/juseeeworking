@@ -115,16 +115,16 @@
 
 .msg_container {
   text-align: left;
-  color: var(--light-blue);
+  color: var(--light-blue) !important;
 }
 .msg_container_red {
   text-align: left;
-  color: firebrick;
+  color: firebrick !important;
 }
 
 .error_container {
   text-align: left;
-  color: rgb(165, 33, 33);
+  color: firebrick !important;;
   margin-bottom: 30px;
 }
 

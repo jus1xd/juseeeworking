@@ -7,7 +7,7 @@ import s from "../styles/Help.module.css";
 import {useAppSelector} from "../hooks/useTypedSelector";
 import GlobalWrapper from "../components/GlobalWrapper/GlobalWrapper";
 
-const Help: React.FC = ( {} ): JSX.Element => {
+const Help: React.FC = (  ): JSX.Element => {
     const config = useAppSelector ( ( state ) => state.configSlice.config );
     return (
         <GlobalWrapper>
@@ -23,6 +23,7 @@ const Help: React.FC = ( {} ): JSX.Element => {
                                 className={s.help_text}/>
                             <div style={{margin: "44px 0px"}}>
                                 <img
+                                    className = {s.help__logo}
                                     src={config.help.imageLink}
                                     width={1200}
                                     height={215}
