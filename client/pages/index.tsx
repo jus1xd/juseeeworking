@@ -36,7 +36,7 @@ const Home: NextPage = () => {
                             <Nav/>
                             <div className={s.soft_cards}>
                                 {sortedProducts.length !== 0
-                                    ? sortedProducts.filter ( item => item.title.toLowerCase ().includes ( searchString.toLowerCase () ) ).map ( ( product, idx ) => (
+                                    ? sortedProducts.filter ( item => item?.title?.toLowerCase ().includes ( searchString.toLowerCase () ) ).map ( ( product, idx ) => (
                                         <SoftCard
                                             key={idx}
                                             id={product._id}
@@ -46,7 +46,7 @@ const Home: NextPage = () => {
                                             productPhoto={product.productPhoto}
                                         />
                                     ) )
-                                    : products.filter ( item => item.title.toLowerCase ().includes ( searchString.toLowerCase () ) ).map ( ( product, idx ) => (
+                                    : products.filter ( item => item?.title?.toLowerCase ().includes ( searchString.toLowerCase () ) ).map ( ( product, idx ) => (
                                         <SoftCard
                                             key={idx}
                                             id={product._id}
