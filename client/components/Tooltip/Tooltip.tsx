@@ -12,9 +12,7 @@ type TProps = {
 };
 
 const Tooltip: React.FC<TProps> = ( {active, setActive} ): JSX.Element => {
-    const categories = useAppSelector (
-        ( state ) => state.configSlice.config.categories
-    );
+    const categories = useAppSelector ( ( state ) => state.configSlice.config.categories );
     const router = useRouter ();
     const dispatch = useAppDispatch ();
     const onClickHandler = async ( el: any ) => {
@@ -42,6 +40,6 @@ const Tooltip: React.FC<TProps> = ( {active, setActive} ): JSX.Element => {
             </div>
         </div>
     );
-};
+}
 
 export default Tooltip;

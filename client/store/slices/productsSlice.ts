@@ -12,7 +12,6 @@ import {
 
 interface IInitialState {
     products: IProduct[],
-    sortedProducts: IProduct[],
     product: IProduct
     errors: string
     searchString: string
@@ -20,7 +19,6 @@ interface IInitialState {
 
 const initialState: IInitialState = {
     products: [],
-    sortedProducts: [],
     product: {} as IProduct,
     errors: '',
     searchString: ''
@@ -30,9 +28,6 @@ const productSlice = createSlice ( {
     name: "productSlice",
     initialState,
     reducers: {
-        deleteSorted: ( state ) => {
-            state.sortedProducts.length = 0
-        },
         changeSortString: ( state, action ) => {
             state.searchString = action.payload
         }
@@ -72,9 +67,9 @@ const productSlice = createSlice ( {
             state.products[product].comments = action.payload.comments
         },
         [getByCategory.fulfilled.type]: ( state, action: PayloadAction<IProduct[]> ) => {
-            state.sortedProducts = action.payload
+            state.products = action.payload
         },
     }
 } )
-export const {deleteSorted, changeSortString} = productSlice.actions
+export const {changeSortString} = productSlice.actions
 export default productSlice.reducer

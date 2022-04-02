@@ -11,23 +11,26 @@ const initialState = {
 export const adminSlice = createSlice ( {
     name: "adminSlice",
     initialState,
-    reducers:{
-        logout: ( state) => {
+    reducers: {
+        logout: ( state ) => {
             state.username = ''
+        },
+        clearError: ( state ) => {
+            state.error = ''
         }
     },
     extraReducers: {
-        [adminLogin.fulfilled.type]: ( state, action) => {
+        [adminLogin.fulfilled.type]: ( state, action ) => {
             state.username = action.payload.data.username
             state.isAuth = true
             state.error = ''
         },
-        [adminLogin.rejected.type]: ( state, action) => {
+        [adminLogin.rejected.type]: ( state, action ) => {
             state.error = action.error.message;
             state.isAuth = false
         }
     }
 } )
 
-export const {logout} = adminSlice.actions
+export const {logout, clearError} = adminSlice.actions
 export default adminSlice.reducer

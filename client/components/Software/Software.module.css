@@ -165,9 +165,12 @@
 }
 
 .detail_item {
+  cursor: pointer;
   margin-bottom: 5px;
 }
-
+.aTag{
+  margin-left: 10px;
+}
 .detail_item:last-child {
   margin-bottom: 0px;
 }

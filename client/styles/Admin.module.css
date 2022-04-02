@@ -53,5 +53,5 @@
   line-height: 24px;
   margin-top: 30px;
 
-  color: rgba(237, 75, 75, 0.7);
+  color: rgba(237, 75, 75, 0.7) !important;
 }

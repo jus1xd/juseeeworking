@@ -18,7 +18,6 @@ const BtnWrapper = styled.div<any>`
   overflow: hidden;
   border-radius: 3px;
   transition: .2s;
-
   &:hover {
     transition: .2s;
     background-color: ${( props ) => props.colorHover || "#08121D"};

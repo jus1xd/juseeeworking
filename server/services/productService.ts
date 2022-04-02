@@ -11,7 +11,7 @@ class ProductService {
     }
 
     async getByCategory ( category: string ) {
-        return productModel.find ( {categories: [category]} )
+        return productModel.find ( {categories: {$in: category}} )
     }
 
     async getOne ( id: string ) {

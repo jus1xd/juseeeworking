@@ -26,7 +26,6 @@ const Help: React.FC = (  ): JSX.Element => {
                                     className = {s.help__logo}
                                     src={config.help.imageLink}
                                     width={1200}
-                                    height={215}
                                     alt={""}
                                 />
                             </div>

@@ -5,7 +5,6 @@ import Tag from "./Tag/Tag";
 import Link from "next/link";
 import {IProductProps} from "../../types/products";
 import Button from "../Button/Button";
-
 const SoftCard = ( {
                        id,
                        title,
@@ -22,7 +21,7 @@ const SoftCard = ( {
                             <div className={s.card_photo}>
                                 <img
                                     src={productPhoto}
-                                    width={163}
+                                    width={190}
                                     height={163}
                                 />
                             </div>
@@ -34,8 +33,8 @@ const SoftCard = ( {
                                         <div className={s.card_title}>{title}</div>
                                     </Link>
                                     <div className={s.card_tags}>
-                                        {categories && categories.map ( ( item, idx ) => <Tag key={idx}
-                                                                                              tagText={item}/> )}
+                                            {categories && categories.map ( ( item, idx ) => <Tag key={idx}
+                                                                                                  tagText={item}/> )}
                                     </div>
                                 </div>
                                 <Link href={`./software/${id}`}>
@@ -54,8 +53,8 @@ const SoftCard = ( {
                         <div className={s.card_main_content}>
                             <Link href={`/software/${id}`}>
                                 <div className={s.card_photo}>
-                                    <Image
-                                        src="/img/SoftCard/cardAvatar.png"
+                                    <img
+                                        src={productPhoto}
                                         width={68}
                                         height={68}
                                     />
@@ -66,7 +65,9 @@ const SoftCard = ( {
                             </Link>
                         </div>
 
-                        <div className={s.card_description}>{description}</div>
+                        <div
+                            dangerouslySetInnerHTML={{__html: description.replace ( new RegExp ( '\r?\n', 'g' ), '<br />' )}}
+                            className={s.card_description}/>
                     </div>
                 </div>
             </div>

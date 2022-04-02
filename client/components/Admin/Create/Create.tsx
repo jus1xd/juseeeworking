@@ -30,28 +30,28 @@ const Create: React.FC = ( {} ): JSX.Element => {
     const [categories, setCategories] = useState<string> ( "" );
     const [isEmpty, setIsEmpty] = useState<boolean> ( false );
     const productToCreate: IProduct = {
-        title,
-        productPhoto,
-        description,
+        title: title.trim (),
+        productPhoto: productPhoto.trim (),
+        description: description.trim (),
         previewPicture: {
-            firstPicture: previewPictureFirst,
-            secondPicture: previewPictureSecond,
+            firstPicture: previewPictureFirst.trim (),
+            secondPicture: previewPictureSecond.trim (),
         },
-        fileFormat,
-        fileSize,
-        downloadSource,
-        unlockPassword,
+        fileFormat: fileFormat.trim (),
+        fileSize: fileSize.trim (),
+        downloadSource: downloadSource.trim (),
+        unlockPassword: unlockPassword.trim (),
         downloadLinks: {
-            firstLink: downloadLinksFirst,
-            secondLink: downloadLinksSecond,
+            firstLink: downloadLinksFirst.trim (),
+            secondLink: downloadLinksSecond.trim (),
         },
-        downloadLink,
+        downloadLink: downloadLink.trim (),
         howToInstall: {
-            stepOne: howToInstallFirst,
-            stepTwo: howToInstallSecond,
-            stepThree: howToInstallThird,
+            stepOne: howToInstallFirst.trim (),
+            stepTwo: howToInstallSecond.trim (),
+            stepThree: howToInstallThird.trim (),
         },
-        categories: categories.split ( "," ),
+        categories: categories.trim ().split ( "," ),
     };
     const dispatch = useAppDispatch ();
     const username = useAppSelector ( ( state ) => state.adminSlice.username );

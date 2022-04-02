@@ -5,49 +5,35 @@ import Header from "../components/Header/header";
 import Nav from "../components/Nav/nav";
 import SoftCard from "../components/SoftCard/SoftCard";
 import s from "../styles/Home.module.css";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useAppDispatch, useAppSelector} from "../hooks/useTypedSelector";
 import {getSiteConfig} from "../store/thunks/configThunk";
 import {getAllProducts} from "../store/thunks/productThunk";
 import RootWrapper from "../components/RootWrapper/RootWrapper";
-import {deleteSorted} from "../store/slices/productsSlice";
 import GlobalWrapper from "../components/GlobalWrapper/GlobalWrapper";
-import {useHistory} from "../hooks/historyProvider";
+import {clearError} from "../store/slices/adminSlice";
 
 const Home: NextPage = () => {
     const products = useAppSelector ( state => state.productsSlice.products );
-    const sortedProducts = useAppSelector ( state => state.productsSlice.sortedProducts );
     const config = useAppSelector ( state => state.configSlice.config );
     const searchStringUncheck = useAppSelector ( state => state.productsSlice.searchString )
     const searchString = searchStringUncheck ? searchStringUncheck : ''
     const dispatch = useAppDispatch ();
-    const {history} = useHistory ()
     useEffect ( () => {
         dispatch ( getSiteConfig () )
         dispatch ( getAllProducts () )
-        if (history[history.length - 2] == '/help' || history[history.length - 2] == '/terms' || history[history.length - 1] == '/') dispatch ( deleteSorted () )
+        dispatch ( clearError () )
     }, [] );
     return (
         <>
-            {Object.keys ( config ).length !== 0 && products.length !== 0 && (
+            {Object.keys ( config ).length !== 0 && (
                 <GlobalWrapper>
                     <RootWrapper appBg>
                         <div className={s.wrapper}>
                             <Header/>
                             <Nav/>
                             <div className={s.soft_cards}>
-                                {sortedProducts.length !== 0
-                                    ? sortedProducts.filter ( item => item?.title?.toLowerCase ().includes (searchString.toLowerCase () ) ).map ( ( product, idx ) => (
-                                        <SoftCard
-                                            key={idx}
-                                            id={product._id}
-                                            title={product.title}
-                                            categories={product.categories}
-                                            description={product.description}
-                                            productPhoto={product.productPhoto}
-                                        />
-                                    ) )
-                                    : products.length !== 0 && products.filter ( item => item?.title?.toLowerCase ().includes ( searchString?.toLowerCase () ) ).map ( ( product, idx ) => (
+                                {products.length != 0 ? products.filter ( item => item?.title?.toLowerCase ().includes ( searchString?.toLowerCase () ) ).map ( ( product, idx ) => (
                                     <SoftCard
                                         key={idx}
                                         id={product._id}
@@ -56,7 +42,7 @@ const Home: NextPage = () => {
                                         description={product.description}
                                         productPhoto={product.productPhoto}
                                     />
-                                ) )}
+                                ) ) : ''}
                                 <div className={s.totop_btn}>
                                     <Image
                                         src="/img/icons/Home/totop.svg"

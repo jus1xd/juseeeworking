@@ -32,28 +32,28 @@ const Edit: React.FC = ( {} ): JSX.Element => {
     const [downloadLink, setDownloadLink] = useState<string> ( product.downloadLink );
     const [categories, setCategories] = useState<string> ( product.categories.join () );
     const productToUpdate: IProduct = {
-        title,
-        productPhoto,
-        description,
+        title: title.trim (),
+        productPhoto: productPhoto.trim (),
+        description: description.trim (),
         previewPicture: {
-            firstPicture: previewPictureFirst,
-            secondPicture: previewPictureSecond,
+            firstPicture: previewPictureFirst.trim (),
+            secondPicture: previewPictureSecond.trim (),
         },
-        fileFormat,
-        fileSize,
-        downloadLink,
-        downloadSource,
-        unlockPassword,
+        fileFormat: fileFormat.trim (),
+        fileSize: fileSize.trim (),
+        downloadSource: downloadSource.trim (),
+        unlockPassword: unlockPassword.trim (),
         downloadLinks: {
-            firstLink: downloadLinksFirst,
-            secondLink: downloadLinksSecond,
+            firstLink: downloadLinksFirst.trim (),
+            secondLink: downloadLinksSecond.trim (),
         },
+        downloadLink: downloadLink.trim (),
         howToInstall: {
-            stepOne: howToInstallFirst,
-            stepTwo: howToInstallSecond,
-            stepThree: howToInstallThird,
+            stepOne: howToInstallFirst.trim (),
+            stepTwo: howToInstallSecond.trim (),
+            stepThree: howToInstallThird.trim (),
         },
-        categories: categories.split ( ',' ),
+        categories: categories.trim ().split ( "," ),
         _id: product._id,
     };
     const dispatch = useAppDispatch ();

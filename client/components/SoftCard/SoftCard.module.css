@@ -42,6 +42,7 @@
 /* /buttons -------------------- */
 
 .card_title {
+  cursor: pointer;
   font-weight: 600;
   font-size: 22px;
   line-height: 24px;
@@ -71,6 +72,7 @@
 }
 
 .card_photo {
+  cursor: pointer;
   min-width: 160px;
   height: 160px;
 }

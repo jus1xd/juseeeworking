@@ -4,7 +4,7 @@ import Link from "next/link";
 import Tooltip from "../Tooltip/Tooltip";
 import Button from "../Button/Button";
 import {useAppDispatch} from "../../hooks/useTypedSelector";
-import {deleteSorted} from "../../store/slices/productsSlice";
+import {getAllProducts} from "../../store/thunks/productThunk";
 
 const Nav: React.FC = ( {} ): JSX.Element => {
     const [tooltipActive, setTooltipActive] = useState<boolean> ( false );
@@ -15,13 +15,15 @@ const Nav: React.FC = ( {} ): JSX.Element => {
                 <div className={s.container}>
                     <div className={s.nav_inner}>
                         <div
-                            onMouseOver={() => setTooltipActive ( true )}
+                            onMouseOver={() => {
+                                setTooltipActive ( true )
+                            }}
                             className={s.main_nav_button}
                         >
                             Choose category
                         </div>
                         <Link href="/">
-                            <div className={s.nav_button} onClick={() => dispatch ( deleteSorted () )}>
+                            <div className={s.nav_button} onClick={() => dispatch ( getAllProducts () )}>
                                 <Button text={"Home Page"}/>
                             </div>
                         </Link>
