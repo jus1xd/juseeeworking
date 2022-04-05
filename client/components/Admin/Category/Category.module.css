@@ -1,144 +1,156 @@
 .container {
-  width: 100%;
-  max-width: 1170px;
-  margin: 0 auto;
-  padding: 0 15px;
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 .wrapper {
-  display: flex;
-  align-items: center;
-  margin-top: 50px;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
 }
 
 .admin_panel_content {
-  padding: 20px 30px;
+    padding: 20px 30px;
 }
 
 .columns_container {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 35px;
-  margin-bottom: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 35px;
+    margin-bottom: 40px;
 }
 
 .inner {
-  border-radius: 15px;
-  overflow: hidden;
-  border: 1px solid var(--light-blue);
+    height: 350px;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .inner_title {
-  text-align: center;
-  padding: 7px;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
+    text-align: center;
+    padding: 7px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
 }
 
 .column_title {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
-  margin-top: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    margin-top: 20px;
 }
 
 .column {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 /* buttons -------------------- */
 
 .main_btn {
-  margin: 0 auto;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 3px;
-  transition: 0.2s;
+    margin: 0 auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    transition: 0.2s;
 }
 
 .main_btn:hover {
-  transition: 0.2s;
-  opacity: 0.8;
+    transition: 0.2s;
+    opacity: 0.8;
 }
 
 .remove_btn {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 3px;
-  width: 155px;
-  height: 40px;
-  transition: 0.2s;
-  background: #ed4b4bb2;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    width: 155px;
+    height: 40px;
+    transition: 0.2s;
+    background: #ed4b4bb2;
 }
 
 .remove_btn:hover {
-  transition: 0.2s;
-  opacity: 0.8;
+    transition: 0.2s;
+    opacity: 0.8;
 }
 
 /* /buttons -------------------- */
 
 .page_title {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
-  margin-left: 15px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    margin-left: 15px;
 }
 
 .pages_container {
-  padding: 25px;
+    padding: 25px;
 }
 
 .page_item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid #107ad4;
-  border-radius: 7px;
-  padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 7px;
+    padding: 15px;
 }
 
 .btns_container {
-  display: flex;
+    display: flex;
 }
 
 .item_content {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .msg_container {
-  text-align: left;
-  color: var(--light-blue) !important;
+    text-align: left;
+    color: var(--light-blue) !important;
 }
+
 .msg_container_red {
-  text-align: left;
-  color: firebrick !important;
+    text-align: left;
+    color: firebrick !important;
 }
 
 .error_container {
-  text-align: left;
-  color: firebrick !important;;
-  margin-bottom: 30px;
+    text-align: left;
+    color: firebrick !important;;
+    margin-bottom: 30px;
+}
+
+.categoriesWrap {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    height: 150px;
+}
+
+.categoryItem {
+    width: 150% ;
+    padding: 7px;
 }
 
 .input_container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-  margin-top: 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .btn_wrapper {
-  margin-left: 20px;
+    margin-left: 20px;
 }
 
 .input_wrapper {
-  margin-top: -15px;
+    margin-top: -15px;
 }

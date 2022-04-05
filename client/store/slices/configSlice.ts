@@ -19,7 +19,8 @@ export const configSlice = createSlice ( {
             state.config.colors.blockBackgroundColor = action.payload.colors.blockBackgroundColor;
             state.config.colors.buttonColor = action.payload.colors.buttonColor;
             state.config.colors.buttonHoverColor = action.payload.colors.buttonHoverColor;
-            state.config.colors.scrollColor = action.payload.colors.scrollColor;
+            state.config.colors.blockBorderColor = action.payload.colors.blockBorderColor
+            state.config.colors.tooltipBorderColor = action.payload.colors.tooltipBorderColor
         },
         changeTof: ( state, action ) => {
             state.config.tof.tofTitle = action.payload.tofTitle;

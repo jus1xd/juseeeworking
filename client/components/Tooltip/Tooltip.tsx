@@ -19,18 +19,24 @@ const Tooltip: React.FC<TProps> = ( {active, setActive} ): JSX.Element => {
         setActive ( false );
         await dispatch ( getByCategory ( el ) ).then ( () => router.push ( "/" ) )
     };
+    const tooltipBorderColor = useAppSelector ( state => state.configSlice.config.colors.tooltipBorderColor )
+    const styles = {
+        borderBottom: `1px solid ${tooltipBorderColor}`,
+    };
     return (
         <div
             className={active ? `${s.main_wrapper} ${s.active}` : s.main_wrapper}
             onMouseLeave={() => setActive ( false )}
         >
-            <div className={s.wrapper}>
-                <RootWrapper blockBg>
+            <div className={s.wrapper}
+                 onMouseOver={() => setActive ( true )}
+                 onMouseLeave={() => setActive ( false )}>
+                <RootWrapper blockBg br={'10px'}>
                     <div className={s.inner}>
                         {categories &&
                             categories.map ( ( el, idx ) => (
                                 <Link href="" key={idx}>
-                                    <a className={s.nav_link} onClick={() => onClickHandler ( el )}>
+                                    <a className={s.nav_link} style={styles} onClick={() => onClickHandler ( el )}>
                                         {el}
                                     </a>
                                 </Link>

@@ -1,5 +1,6 @@
 import React, {Dispatch, SetStateAction} from "react";
 import s from "./Input.module.css";
+import {useAppSelector} from "../../../hooks/useTypedSelector";
 
 type TProps = {
     placeholder: string;
@@ -23,12 +24,17 @@ const AdminInput: React.FC<TProps> = ( {
     const onInputChangeHandler = ( e: any ) => {
         setInputValue ( e.target.value );
     };
+    const borderColor = useAppSelector ( state => state.configSlice.config.colors.blockBorderColor )
+    const styles = {
+        border: `1px solid ${borderColor}`,
+        height: height
+    };
     return (
         <>
             {textArea ? (
-                <div className={s.wrapper}>
+                    <div className={s.wrapper}>
       <textarea
-          style={{height: height}}
+          style={styles}
           placeholder={placeholder}
           className={
               size === "long" ? `${s.admin_input} ${s.textarea_input} ${s.textarea_input_long}` : `${s.admin_input} ${s.textarea_input}`
@@ -42,6 +48,7 @@ const AdminInput: React.FC<TProps> = ( {
                     <input
                         type={type}
                         placeholder={placeholder}
+                        style={styles}
                         className={
                             size === "long" ? `${s.admin_input} ${s.long_input}` : s.admin_input
                         }

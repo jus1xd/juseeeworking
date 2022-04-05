@@ -37,10 +37,14 @@ const PageItem: React.FC<IPageProps> = ( {
             }
         } );
     };
+    const borderColor = useAppSelector ( state => state.configSlice.config.colors.blockBorderColor )
+    const styles = {
+        border: `1px solid ${borderColor}`,
+    };
     return (
         <>
             <div className={s.wrapper}>
-                <div className={s.page_item}>
+                <div className={s.page_item} style={styles}>
                     <div className={s.item_content}>
                         <img src={src} width={60} height={60}/>
                         <div className={s.page_title}>{title}</div>

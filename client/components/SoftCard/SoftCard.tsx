@@ -1,10 +1,10 @@
 import React from "react";
 import s from "./SoftCard.module.css";
-import Image from "next/image";
 import Tag from "./Tag/Tag";
 import Link from "next/link";
 import {IProductProps} from "../../types/products";
 import Button from "../Button/Button";
+import {useAppSelector} from "../../hooks/useTypedSelector";
 const SoftCard = ( {
                        id,
                        title,
@@ -12,11 +12,15 @@ const SoftCard = ( {
                        description,
                        productPhoto,
                    }: IProductProps ) => {
+    const borderColor = useAppSelector ( state => state.configSlice.config.colors.blockBorderColor )
+    const styles = {
+        border: `1px solid ${borderColor}`,
+    };
     return (
         <>
             <div className={s.wrapper}>
                 <div className={s.container}>
-                    <div className={s.card_inner}>
+                    <div className={s.card_inner} style ={styles}>
                         <Link href={`./software/${id}`}>
                             <div className={s.card_photo}>
                                 <img

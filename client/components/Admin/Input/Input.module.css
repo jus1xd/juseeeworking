@@ -6,7 +6,6 @@
   padding: 10px 15px;
   width: 260px;
   background-color: transparent;
-  border: 1px solid var(--light-blue);
   margin-top: 15px;
 }
 .admin_input::placeholder{

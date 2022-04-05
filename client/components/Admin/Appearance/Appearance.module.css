@@ -1,171 +1,172 @@
 .container {
-  width: 100%;
-  max-width: 1170px;
-  margin: 0 auto;
-  padding: 0 15px;
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 .wrapper {
-  display: flex;
-  align-items: center;
-  margin-top: 50px;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
 }
 
 .columns_container {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 35px;
-  margin-bottom: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 35px;
+    margin-bottom: 40px;
 }
 
 .inner {
-  border-radius: 15px;
-  overflow: hidden;
-  border: 1px solid var(--light-blue);
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .inner_title {
-  text-align: center;
-  padding: 7px;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
+    text-align: center;
+    padding: 7px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
 }
 
 .column_title {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
-  margin-top: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    margin-top: 20px;
 }
-
+.column_titleSite{
+    padding-bottom: 13px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    margin-top: 20px;
+}
 .column {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 /* buttons -------------------- */
 
 .main_btn {
-  margin: 0 auto;
-  cursor: pointer;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  border-radius: 3px;
-  transition: 0.2s;
-  height: max-content;
-  margin-top: 11px;
-  margin-left: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-radius: 3px;
+    transition: 0.2s;
+    height: max-content;
+    margin: 11px auto 0 15px;
 }
 
 .main_btn:hover {
-  transition: 0.2s;
-  opacity: 0.8;
+    transition: 0.2s;
+    opacity: 0.8;
 }
+
 .glob_input_inner {
-  display: flex;
+    display: flex;
 }
 
 .remove_btn {
-  margin: 0 auto;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 3px;
-  width: 155px;
-  height: 40px;
-  transition: 0.2s;
-  background: #ed4b4bb2;
-  margin-left: 10px;
+    margin: 0 auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    width: 155px;
+    height: 40px;
+    transition: 0.2s;
+    background: #ed4b4bb2;
+    margin-left: 10px;
 }
 
 .remove_btn:hover {
-  transition: 0.2s;
-  opacity: 0.8;
+    transition: 0.2s;
+    opacity: 0.8;
 }
 
 /* /buttons -------------------- */
 
 .btn_wrapper {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .error_container {
-  text-align: center;
-  color: rgb(165, 33, 33) !important;
-  margin-bottom: 30px;
+    text-align: center;
+    color: rgb(165, 33, 33) !important;
+    margin-bottom: 30px;
 }
 
 .page_title {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
-  margin-left: 15px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    margin-left: 15px;
 }
 
 .pages_container {
-  padding: 25px;
+    padding: 25px;
 }
 
 .page_item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid #107ad4;
-  border-radius: 7px;
-  padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 7px;
+    padding: 15px;
 }
 
 .btns_container {
-  display: flex;
+    display: flex;
 }
 
 .item_content {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .colorpicker_row {
-  margin-top: 10px;
+    margin-top: 15px;
 }
 
-
-
 .color_preview {
-  width: 40px;
-  height: 40px;
-  border-radius: 5px;
-  border: 1px solid white;
-  overflow: hidden;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid white;
+    overflow: hidden;
 }
 
 .color_holder {
-  width: 40px;
-  height: 40px;
-  margin-left: 15px;
-  border-radius: 5px;
-  margin-top: 13px;
-  overflow: hidden;
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+    border-radius: 5px;
+    margin-top: 13px;
+    overflow: hidden;
 }
 
 .msg_container {
-  margin-top: 15px;
-  color: var(--light-blue) !important;
+    margin-top: 15px;
+    color: var(--light-blue) !important;
 }
 
 .msg_container_red {
-  margin-top: 15px;
-  color: firebrick !important;
+    margin-top: 15px;
+    color: firebrick !important;
 }
 
 .color_input {
-  border: 0;
-  height: 50px;
-  margin-top: -5px;
-  margin-left: -5px;
-  padding: 0;
-  appearance: none;
-  color: transparent;
+    border: 0;
+    height: 50px;
+    margin-top: -5px;
+    margin-left: -5px;
+    padding: 0;
+    appearance: none;
+    color: transparent;
 }

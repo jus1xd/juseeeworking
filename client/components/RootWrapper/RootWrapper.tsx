@@ -3,21 +3,25 @@ import {useAppSelector} from "../../hooks/useTypedSelector";
 import styled from "styled-components";
 
 const AppWrapper = styled.div`
+  border-radius: ${( {border}: any ) => border};
   background-color: ${( props ) => props.color || "#08121D"};
   height: max-content;
   transition: .9s;
+
   * {
     color: ${( props ) => props.title || "#ffff"};
   }
 `;
 
 const BtnWrapper = styled.div<any>`
-  background-color: ${( props ) => props.color || "#08121D"};
+  border-radius: ${( {border}: any ) => border ? border : "3px"};
+  background-color: ${( {color, tr}: any ) => tr ? 'transparent' : color || "#08121D"};
   box-shadow: 0px 0px 30px 1px ${( props ) => props.color || "#08121D"}65;
   height: max-content;
   overflow: hidden;
-  border-radius: 3px;
   transition: .2s;
+  margin-right: ${( {marginRight}: any ) => marginRight};
+
   &:hover {
     transition: .2s;
     background-color: ${( props ) => props.colorHover || "#08121D"};
@@ -32,14 +36,18 @@ type TProps = {
     btnColor?: boolean | undefined;
     btnHoverColor?: boolean | undefined;
     blockBg?: boolean | undefined;
+    br?: string
+    tr?: boolean
+    mr?: string
 };
 
-const RootWrapper: React.FC<TProps> = ( {children, headerBg,
+const RootWrapper: React.FC<TProps> = ( {
+                                            children, headerBg,
                                             underHeadColor,
                                             appBg,
                                             btnColor,
                                             btnHoverColor,
-                                            blockBg,
+                                            blockBg, br, tr, mr
                                         } ): JSX.Element => {
     const config = useAppSelector ( ( state ) => state.configSlice.config );
     const headerColor = config.colors.headerColor;
@@ -68,11 +76,12 @@ const RootWrapper: React.FC<TProps> = ( {children, headerBg,
     return (
         <>
             {btnColor ? (
-                <BtnWrapper color={curColor} colorHover={curColorHover}>
+                <BtnWrapper color={curColor} colorHover={curColorHover} tr={tr} border={br} marginRight={mr}>
                     {children}
                 </BtnWrapper>
             ) : (
-                <AppWrapper color={curColor}>{children}</AppWrapper>
+                // @ts-ignore
+                <AppWrapper color={curColor} border={br}>{children}</AppWrapper>
             )}
         </>
     );

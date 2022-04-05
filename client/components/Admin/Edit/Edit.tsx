@@ -58,6 +58,10 @@ const Edit: React.FC = ( {} ): JSX.Element => {
     };
     const dispatch = useAppDispatch ();
     const router = useRouter ()
+    const borderColor = useAppSelector ( state => state.configSlice.config.colors.blockBorderColor )
+    const styles = {
+        border: `1px solid ${borderColor}`,
+    };
     const onEditHandler = () => {
         if (Object.values ( productToUpdate ).every ( item => item.length != 0 )) {
             dispatch ( updateProduct ( {productToUpdate, username} ) );
@@ -68,7 +72,7 @@ const Edit: React.FC = ( {} ): JSX.Element => {
         <>
             <div className={s.wrapper}>
                 <div className={s.container}>
-                    <div className={s.inner}>
+                    <div className={s.inner} style ={styles}>
                         <RootWrapper blockBg>
                             <div className={s.inner_title}>
                                 Admin Panel - Редактирование страницы

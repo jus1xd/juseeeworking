@@ -43,7 +43,6 @@
   cursor: pointer;
   margin-left: 20px;
   padding: 7px 13px;
-  border: 2px solid white;
   border-radius: 5px;
 }
 
@@ -67,7 +66,6 @@
 .find_input {
   outline: none;
   background-color: transparent;
-  border: 2px solid white;
   border-radius: 5px;
   color: rgba(255, 255, 255, 1);
   padding: 12px 15px;
@@ -132,6 +130,7 @@
   }
 
   .nav_close {
+    cursor: pointer;
     width: max-content;
     margin: 0 auto;
     margin-top: 20px;
@@ -142,6 +141,7 @@
   }
 
   .burger_wrapper {
+    cursor: pointer;
     display: flex;
     align-items: center;
   }

@@ -7,6 +7,7 @@ import RootWrapper from "../RootWrapper/RootWrapper";
 import {useAppDispatch, useAppSelector} from "../../hooks/useTypedSelector";
 import {addComment} from "../../store/thunks/productThunk";
 import Button from "../Button/Button";
+import arrow from '../../public/img/icons/arrow-21-32.png'
 
 const Software = ( {id} ) => {
     const product = useAppSelector ( ( state ) =>
@@ -16,20 +17,16 @@ const Software = ( {id} ) => {
     let [curPosition, setCurPosition] = useState<number> ( 0 );
     const [textComment, setTextComment] = useState<string> ( "" );
     const [isEmpty, setIsEmpty] = useState<boolean> ( false );
-    const nextHandler = () => {
+    const sliderHandler = () => {
         setCurPosition ( ( curPosition -= 412 ) );
         sliderContent.current.style.transform = `translateX(${curPosition}px)`;
         if (Math.abs ( curPosition ) >= sliderContent.current!.scrollWidth - 412) {
             setCurPosition ( 412 );
         }
     };
-    const prevHandler = () => {
-        if (curPosition <= 412 && curPosition > -412) {
-            setCurPosition ( ( curPosition += -412 ) );
-            sliderContent.current.style.transform = `translateX(${curPosition}px)`;
-        } else {
-            setCurPosition ( 0 );
-        }
+    const borderColor = useAppSelector ( state => state.configSlice.config.colors.blockBorderColor )
+    const styles = {
+        border: `1px solid ${borderColor}`,
     };
     const dispatch = useAppDispatch ();
     const username = useAppSelector ( ( state ) => state.adminSlice.username );
@@ -80,22 +77,30 @@ const Software = ( {id} ) => {
                         <div className={s.slider}>
                             <div className={s.container}>
                                 <div className={s.slider_inner}>
-                                    <div className={s.slider_arrow} onClick={prevHandler}>
-                                        <Image
-                                            src="/img/icons/Software/arrow.svg"
-                                            width={50}
-                                            height={50}
-                                        />
+                                    <div className={`${s.slider_arrow} ${s.left_arrow}`} onClick={sliderHandler}>
+                                        <RootWrapper btnColor btnHoverColor br={'10px'}>
+                                            <div className={s.arrowBlock}>
+                                                <Image
+                                                    src={arrow}
+                                                    width={32}
+                                                    height={32}
+                                                />
+                                            </div>
+                                        </RootWrapper>
                                     </div>
                                     <div
                                         className={`${s.slider_arrow} ${s.right_arrow}`}
-                                        onClick={nextHandler}
+                                        onClick={sliderHandler}
                                     >
-                                        <Image
-                                            src="/img/icons/Software/arrow.svg"
-                                            width={50}
-                                            height={50}
-                                        />
+                                        <RootWrapper btnColor btnHoverColor br={'10px'}>
+                                            <div className={s.arrowBlock}>
+                                                <Image
+                                                    src={arrow}
+                                                    width={32}
+                                                    height={32}
+                                                />
+                                            </div>
+                                        </RootWrapper>
                                     </div>
                                     <div className={s.track}>
                                         <div className={s.slider_content} ref={sliderContent}>
@@ -121,7 +126,7 @@ const Software = ( {id} ) => {
 
                         <div className={s.wrapper}>
                             <div className={s.container}>
-                                <div className={s.inner}>
+                                <div className={s.inner} style={styles}>
                                     <RootWrapper blockBg>
                                         <div className={s.inner_title}>General Details</div>
                                     </RootWrapper>
@@ -145,7 +150,7 @@ const Software = ( {id} ) => {
 
                         <div className={s.wrapper}>
                             <div className={s.container}>
-                                <div className={s.inner}>
+                                <div className={s.inner} style={styles}>
                                     <RootWrapper blockBg>
                                         <div className={s.inner_title}>How to install</div>
                                     </RootWrapper>
@@ -168,7 +173,7 @@ const Software = ( {id} ) => {
 
                         <div className={s.wrapper}>
                             <div className={s.container}>
-                                <div className={s.inner}>
+                                <div className={s.inner} style={styles}>
                                     <RootWrapper blockBg>
                                         <div className={s.inner_title}>Download links</div>
                                     </RootWrapper>
@@ -198,7 +203,7 @@ const Software = ( {id} ) => {
                         <div className={s.wrapper}>
                             <div className={s.container}>
                                 {
-                                    <div className={`${s.inner} ${s.comments}`}>
+                                    <div className={`${s.inner} ${s.comments}`} style={styles}>
                                         <RootWrapper blockBg>
                                             <div className={s.inner_title}>Comments</div>
                                         </RootWrapper>
@@ -220,6 +225,7 @@ const Software = ( {id} ) => {
                                                 value={textComment}
                                                 onChange={( e ) => setTextComment ( e.target.value )}
                                                 type="text"
+                                                style={styles}
                                                 className={s.comment_input}
                                                 placeholder="Type comment..."
                                             />

@@ -21,7 +21,6 @@
 .inner {
   border-radius: 15px;
   overflow: hidden;
-  border: 1px solid var(--light-blue);
 }
 
 .inner_title {
@@ -202,7 +201,6 @@
   padding: 10px 20px;
   background-color: rgba(255, 255, 255, 0);
   outline: none;
-  border: 2px solid #107ad4;
   filter: drop-shadow(0px 0px 30px rgba(16, 122, 212, 0.2));
   border-radius: 7px;
 }
@@ -230,7 +228,15 @@
   min-width: 412px;
   min-height: 265px;
 }
-
+.arrowBlock {
+  height: 50px;
+  width: 50px;
+  padding-top: 8px;
+  padding-left: 9px;
+}
+.left_arrow{
+  transform: rotate(180deg);
+}
 .slider_arrow {
   cursor: pointer;
   position: absolute;
@@ -240,7 +246,6 @@
 }
 
 .right_arrow {
-  transform: rotate(180deg);
   left: auto;
   right: 255px;
 }

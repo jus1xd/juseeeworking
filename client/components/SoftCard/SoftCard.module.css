@@ -16,7 +16,6 @@
   align-items: center;
   padding: 27px;
   border-radius: 10px;
-  border: 1px solid white;
 }
 
 /* buttons -------------------- */
@@ -51,7 +50,7 @@
 
 .card_content {
   width: 100%;
-  margin-left: 20px;
+  margin-left: 47px;
 }
 
 .main_content {

@@ -3,7 +3,7 @@ import React, {FC, useState} from "react";
 import s from "./Header.module.css";
 import enFlag from "../../public/img/icons/Header/enFlag.svg";
 import burger from "../../public/img/icons/Header/burger.svg";
-import closeNav from "../../public/img/icons/Header/close.svg";
+import closeNav from "../../public/img/icons/multiply-3-24.png";
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
@@ -25,6 +25,10 @@ const Header: FC<IHeaderProps> = (): JSX.Element => {
         dispatch ( changeSortString ( e.target.value ) )
         if (history[history.length - 1] == '/help' || history[history.length - 1] == '/terms') router.push ( '/' )
     }
+    const borderColor = useAppSelector ( state => state.configSlice.config.colors.blockBorderColor )
+    const styles = {
+        border: `1px solid ${borderColor}`,
+    };
     return (
         <>
             <Head>
@@ -40,8 +44,8 @@ const Header: FC<IHeaderProps> = (): JSX.Element => {
                             </Link>
                             <div className={s.finder}>
                                 <input onChange={onChangeHandler} value={searchString ? searchString : ''}
-                                       className={s.find_input} placeholder="Search..."/>
-                                <div className={s.lang_switcher}>
+                                       className={s.find_input} style={styles} placeholder="Search..."/>
+                                <div className={s.lang_switcher} style={styles}>
                                     <Image src={enFlag} alt="EN" width={24} height={14}/>
                                     <span className={s.lang_text}>EN</span>
                                 </div>
@@ -69,8 +73,8 @@ const Header: FC<IHeaderProps> = (): JSX.Element => {
                         className={navActive ? `${s.mob_finder_wrapper} ${s.finder_active}` : s.mob_finder_wrapper}
                         style={{backgroundColor: bgColor}}>
                         <div className={s.mob_finder}>
-                            <input className={s.find_input} placeholder="Search..."/>
-                            <div className={s.lang_switcher}>
+                            <input className={s.find_input} style={styles} placeholder="Search..."/>
+                            <div className={s.lang_switcher} style={styles}>
                                 <Image src={enFlag} alt="EN" width={24} height={14}/>
                                 <span className={s.lang_text}>EN</span>
                             </div>
@@ -87,7 +91,7 @@ const Header: FC<IHeaderProps> = (): JSX.Element => {
                             </Link>
                         </div>
                         <div className={s.nav_close} onClick={() => setNavActive ( false )}>
-                            <Image src={closeNav} width={30} height={30}/>
+                            <Image src={closeNav} width={16} height={16}/>
                         </div>
                     </div>
                 </header>

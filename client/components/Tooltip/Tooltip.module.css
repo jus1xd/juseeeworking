@@ -3,10 +3,9 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 22px;
-  border-bottom: 1px solid #107ad4;
   padding-bottom: 3px;
   margin-bottom: 6px;
-
+  width: 100%;
   color: #ecf5fd;
   transition: 0.2s;
 }
@@ -17,18 +16,22 @@
 
 .wrapper {
   background: transparent;
-  border-radius: 10px;
+  border-radius: 10px !important;
   overflow: hidden;
   position: absolute;
   z-index: 10;
   top: 140px;
-  margin-top: 20px;
+  height: 100%;
+  padding-top: 25px;
+  margin-top: -10px;
 }
 
 .main_wrapper.active {
   display: flex;
 }
-
+.wrapper:first-child{
+  border-radius: 10px !important;
+}
 .main_wrapper {
   display: none;
   align-items: flex-end;

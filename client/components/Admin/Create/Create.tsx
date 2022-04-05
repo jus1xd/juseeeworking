@@ -53,6 +53,10 @@ const Create: React.FC = ( {} ): JSX.Element => {
         },
         categories: categories.trim ().split ( "," ),
     };
+    const borderColor = useAppSelector ( state => state.configSlice.config.colors.blockBorderColor )
+    const styles = {
+        border: `1px solid ${borderColor}`,
+    };
     const dispatch = useAppDispatch ();
     const username = useAppSelector ( ( state ) => state.adminSlice.username );
     const onSubmitHandler = () => {
@@ -68,7 +72,7 @@ const Create: React.FC = ( {} ): JSX.Element => {
         <>
             <div className={s.wrapper}>
                 <div className={s.container}>
-                    <div className={s.inner}>
+                    <div className={s.inner} style ={styles}>
                         <RootWrapper blockBg>
                             <div className={s.inner_title}>
                                 Admin Panel - Создание страницы
