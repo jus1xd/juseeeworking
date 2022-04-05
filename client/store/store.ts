@@ -1,5 +1,4 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit'
-import logger from 'redux-logger'
 import configSlice from "./slices/configSlice";
 import adminSlice from "./slices/adminSlice";
 import productsSlice from "./slices/productsSlice";
@@ -20,7 +19,7 @@ export const store = configureStore ( {
     reducer: persistedReducer,
     middleware: ( getDefaultMiddleware ) => getDefaultMiddleware ( {
         serializableCheck: false
-    } ).concat ( logger )
+    } )
 } )
 
 export type RootState = ReturnType<typeof store.getState>
