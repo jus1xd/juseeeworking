@@ -165,14 +165,21 @@ const Software = ( {id} ) => {
                                     <ol className={s.details_container}>
                                         <li className={s.detail_item}>
                                             {" "}
-                                            {product.howToInstall.stepOne}
+                                            <a href= {product.howToInstall.stepOne}>
+                                                {product.howToInstall.stepOne}
+                                            </a>
+
                                         </li>
                                         <li className={s.detail_item}>
                                             {" "}
-                                            {product.howToInstall.stepTwo}
+                                            <a href={product.howToInstall.stepTwo}>
+                                                {product.howToInstall.stepTwo}
+                                            </a>
                                         </li>
                                         <li className={s.detail_item}>
-                                            {product.howToInstall.stepThree}
+                                            <a href= {product.howToInstall.stepThree}>
+                                                {product.howToInstall.stepThree}
+                                            </a>
                                         </li>
                                     </ol>
                                 </div>

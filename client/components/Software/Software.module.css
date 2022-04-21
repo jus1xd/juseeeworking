@@ -164,8 +164,10 @@
 }
 
 .detail_item {
-  cursor: pointer;
   margin-bottom: 5px;
+}
+.detail_item:nth-child(3n){
+  cursor: pointer;
 }
 .aTag{
   margin-left: 10px;
