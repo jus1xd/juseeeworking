@@ -35,17 +35,17 @@ const Appearance: React.FC = ( {} ): JSX.Element => {
 
     const siteColorsAndLogo = {
         colors: {
-            headerColor,
-            underHeaderColor,
-            fontColor,
-            backgroundColor,
-            blockBackgroundColor,
-            buttonColor,
-            buttonHoverColor,
-            blockBorderColor,
-            tooltipBorderColor
+            headerColor: headerColor.trim(),
+            underHeaderColor: underHeaderColor.trim(),
+            fontColor: fontColor.trim(),
+            backgroundColor: backgroundColor.trim(),
+            blockBackgroundColor: blockBackgroundColor.trim(),
+            buttonColor: buttonColor.trim(),
+            buttonHoverColor: buttonHoverColor.trim(),
+            blockBorderColor: blockBorderColor.trim(),
+            tooltipBorderColor: tooltipBorderColor.trim()
         },
-        siteLogo,
+        siteLogo: siteLogo.trim(),
     };
     const onClickHandler = () => {
         if (

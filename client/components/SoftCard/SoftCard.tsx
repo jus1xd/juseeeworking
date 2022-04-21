@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback} from "react";
 import s from "./SoftCard.module.css";
 import Tag from "./Tag/Tag";
 import Link from "next/link";
@@ -16,6 +16,15 @@ const SoftCard = ( {
     const styles = {
         border: `1px solid ${borderColor}`,
     };
+    const getActiveUrl = useCallback ( (title: string) => {
+        const regExp = /[-a-zA-Z0-9@:%_\+.~#?&\/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&\/=]*)?/;
+        if (title.match(regExp)) {
+            const url = title!.match(regExp)![0];
+            const link = `<a href=${url}>${url}</a>`;
+            return title.replace(url, link);
+        } else return title;
+    }, []);
+
     return (
         <>
             <div className={s.wrapper}>
@@ -25,7 +34,7 @@ const SoftCard = ( {
                             <div className={s.card_photo}>
                                 <img
                                     src={productPhoto}
-                                    width={190}
+                                    width={163}
                                     height={163}
                                 />
                             </div>
@@ -37,8 +46,7 @@ const SoftCard = ( {
                                         <div className={s.card_title}>{title}</div>
                                     </Link>
                                     <div className={s.card_tags}>
-                                            {categories && categories.map ( ( item, idx ) => <Tag key={idx}
-                                                                                                  tagText={item}/> )}
+                                            {categories && categories.map ( ( item, idx ) => <Tag key={idx} tagText={item}/> )}
                                     </div>
                                 </div>
                                 <Link href={`./software/${id}`}>
@@ -48,7 +56,7 @@ const SoftCard = ( {
                                 </Link>
                             </div>
                             <div
-                                dangerouslySetInnerHTML={{__html: description.replace ( new RegExp ( '\r?\n', 'g' ), '<br />' )}}
+                                dangerouslySetInnerHTML={{__html: getActiveUrl(description).replace ( new RegExp ( '\r?\n', 'g' ), '<br />' )}}
                                 className={s.card_description}/>
                         </div>
                     </div>
@@ -70,7 +78,7 @@ const SoftCard = ( {
                         </div>
 
                         <div
-                            dangerouslySetInnerHTML={{__html: description.replace ( new RegExp ( '\r?\n', 'g' ), '<br />' )}}
+                            dangerouslySetInnerHTML={{__html: getActiveUrl(description).replace ( new RegExp ( '\r?\n', 'g' ), '<br />' )}}
                             className={s.card_description}/>
                     </div>
                 </div>

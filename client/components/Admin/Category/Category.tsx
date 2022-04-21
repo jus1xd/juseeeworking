@@ -22,7 +22,7 @@ const Category: React.FC = ( {} ): JSX.Element => {
     const config = useAppSelector ( state => state.configSlice.config )
     const onAddCategoryHandler = () => {
         if (categoryToAdd != "") {
-            dispatch ( addCategory ( categoryToAdd ) );
+            dispatch ( addCategory ( categoryToAdd.trim() ) );
             setIsEmpty ( false );
             setIsEdit ( true );
         } else {
@@ -32,7 +32,7 @@ const Category: React.FC = ( {} ): JSX.Element => {
     };
     const onDeleteCategoryHandler = () => {
         if (categoryToDelete != "") {
-            dispatch ( deleteCategory ( categoryToDelete ) );
+            dispatch ( deleteCategory ( categoryToDelete.trim() ) );
             setIsDelete ( true );
         }
     };

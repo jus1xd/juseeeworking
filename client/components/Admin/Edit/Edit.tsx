@@ -53,7 +53,7 @@ const Edit: React.FC = ( {} ): JSX.Element => {
             stepTwo: howToInstallSecond.trim (),
             stepThree: howToInstallThird.trim (),
         },
-        categories: categories.trim ().split ( "," ),
+        categories: categories.split ( "," ).map(item => item.trim()),
         _id: product._id,
     };
     const dispatch = useAppDispatch ();

@@ -1,7 +1,6 @@
 // @ts-nocheck
 import React, {FC, useState} from "react";
 import s from "./Header.module.css";
-import enFlag from "../../public/img/icons/Header/enFlag.svg";
 import burger from "../../public/img/icons/Header/burger.svg";
 import closeNav from "../../public/img/icons/multiply-3-24.png";
 import Image from "next/image";
@@ -45,10 +44,6 @@ const Header: FC<IHeaderProps> = (): JSX.Element => {
                             <div className={s.finder}>
                                 <input onChange={onChangeHandler} value={searchString ? searchString : ''}
                                        className={s.find_input} style={styles} placeholder="Search..."/>
-                                <div className={s.lang_switcher} style={styles}>
-                                    <Image src={enFlag} alt="EN" width={24} height={14}/>
-                                    <span className={s.lang_text}>EN</span>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -74,10 +69,6 @@ const Header: FC<IHeaderProps> = (): JSX.Element => {
                         style={{backgroundColor: bgColor}}>
                         <div className={s.mob_finder}>
                             <input className={s.find_input} style={styles} placeholder="Search..."/>
-                            <div className={s.lang_switcher} style={styles}>
-                                <Image src={enFlag} alt="EN" width={24} height={14}/>
-                                <span className={s.lang_text}>EN</span>
-                            </div>
                         </div>
                         <div className={s.mob_nav}>
                             <Link href="/">

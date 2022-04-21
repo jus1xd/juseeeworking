@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, {useRef, useState} from "react";
+import React, {useCallback, useRef, useState} from "react";
 import s from "./Software.module.css";
 import Image from "next/image";
 import Comment from "./Comment/Comment";
@@ -24,6 +24,14 @@ const Software = ( {id} ) => {
             setCurPosition ( 412 );
         }
     };
+    const getActiveUrl = useCallback ( (title: string) => {
+        const regExp = /[-a-zA-Z0-9@:%_\+.~#?&\/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&\/=]*)?/;
+        if (title.match(regExp)) {
+            const url = title!.match(regExp)![0];
+            const link = `<a href=${url}>${url}</a>`;
+            return title.replace(url, link);
+        } else return title;
+    }, []);
     const borderColor = useAppSelector ( state => state.configSlice.config.colors.blockBorderColor )
     const styles = {
         border: `1px solid ${borderColor}`,
@@ -57,8 +65,8 @@ const Software = ( {id} ) => {
                                     <div className={s.soft_photo}>
                                         <img
                                             src={product.productPhoto}
-                                            width={200}
-                                            height={163}
+                                            width={165}
+                                            height={165}
                                             alt={"productPhoto"}
                                         />
                                         <div className={s.btn_wrapper}>
@@ -68,7 +76,7 @@ const Software = ( {id} ) => {
                                     <div className={s.soft_content}>
                                         <div className={s.soft_title}>{product.title}</div>
                                         <div className={s.soft_text}
-                                             dangerouslySetInnerHTML={{__html: product.description.replace ( new RegExp ( '\r?\n', 'g' ), '<br />' )}}/>
+                                             dangerouslySetInnerHTML={{__html: getActiveUrl(product.description).replace ( new RegExp ( '\r?\n', 'g' ), '<br />' )}}/>
                                     </div>
                                 </div>
                             </div>

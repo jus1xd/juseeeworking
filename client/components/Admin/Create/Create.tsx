@@ -51,7 +51,7 @@ const Create: React.FC = ( {} ): JSX.Element => {
             stepTwo: howToInstallSecond.trim (),
             stepThree: howToInstallThird.trim (),
         },
-        categories: categories.trim ().split ( "," ),
+        categories: categories.split ( "," ).map(item => item.trim()),
     };
     const borderColor = useAppSelector ( state => state.configSlice.config.colors.blockBorderColor )
     const styles = {

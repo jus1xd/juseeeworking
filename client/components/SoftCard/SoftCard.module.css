@@ -108,6 +108,8 @@
   }
 
   .card_description {
+    width: 100%;
+    word-wrap: break-word ;
     font-size: 15px;
   }
 
